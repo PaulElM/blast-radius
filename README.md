@@ -51,8 +51,8 @@ confident nonsense.
 
 | Breaker | Layer under test | Threshold | Result |
 |---|---|---|---|
-| **KT-A** | symbol attribution | >20% false positives → stop | **0 / 60** |
-| **KT-C** | export-surface diff | >20% false positives → do not ship | `docs/qa/cycle-05-kt-c-surface-diff-audit.md` |
+| **KT-A** | symbol attribution | >20% false positives → stop | **0 / 60** — [full audit](docs/audit-attribution.md) |
+| **KT-C** | export-surface diff | >20% false positives → do not ship | **0 / 25**, plus a 76/76 entry-point census — [full audit](docs/audit-surface-diff.md) |
 
 KT-A hand-checked 30 random attributions each across two packages with **opposite
 import idioms** — `zod` (namespace-style `z.string()`) and `date-fns` (bare named
@@ -97,7 +97,7 @@ TypeScript language service. Verified behaviour (`test/attribute.test.mjs`):
 (f) report: markdown + machine-readable   src/report.mjs
 ```
 
-Steps (e) and (f) landed in Cycle 5 and closed the two defects that made every
+Steps (e) and (f) closed the two defects that made every
 earlier count a lower bound:
 
 - **Root fragmentation.** `z.string` (named), `string` (namespace) and
@@ -167,5 +167,22 @@ an interrupted run resumes rather than restarting. Reports land in `reports/`.
 ## Tests
 
 ```
-node --test 'test/*.test.mjs'
+npm install && node --test 'test/*.test.mjs'
 ```
+
+## About the repositories named in these reports
+
+The reports name public GitHub repositories and link the exact file and line
+where a symbol is used. That is deliberate: a checklist a publisher can open and
+check beats a statistic they have to trust. Everything cited is public code, read
+through the public GitHub API, and linked back to its source.
+
+Nothing here is a judgement about any of those repositories or their authors.
+Using a symbol that a library later removes is not a mistake — being told before
+the release lands rather than after is the entire point. If you maintain a
+repository named in a report and would rather not be, open an issue and it will
+be removed from the published artifacts.
+
+Each report is a snapshot of `HEAD` on the date recorded in the file. A
+repository may have migrated since, or may pin an older version in production,
+and neither is visible here.

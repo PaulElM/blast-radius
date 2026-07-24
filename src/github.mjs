@@ -140,7 +140,7 @@ const SIZE_BUCKETS = [
 /**
  * Search code for files that import `pkg`.
  *
- * Three things this does that the Cycle 3 version did not, each of which was
+ * Three things this does that the first version did not, each of which was
  * costing real recall:
  *
  * 1. THE QUERY IS AN OPEN PREFIX (`"from 'drizzle-orm"`, no closing quote).

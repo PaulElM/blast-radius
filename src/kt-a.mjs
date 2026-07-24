@@ -4,7 +4,7 @@
 // draws a REPRODUCIBLE RANDOM sample of attributions and prints each one with
 // enough provenance to be judged by hand, one at a time.
 //
-// Pass condition (pre-registered in memories/consensus.md, not chosen after
+// Pass condition (pre-registered before the audit was run, not chosen after
 // seeing the data): false-positive rate must be <= 20%. Above that, the form
 // does not work and the product stops.
 //

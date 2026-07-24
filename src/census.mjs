@@ -1,7 +1,7 @@
 // The canonical census — attributions reconciled against the package's own
 // export surface, then crossed with the version diff.
 //
-// This module exists to close two defects that the Cycle 3 README recorded and
+// This module exists to close two defects that an earlier README recorded and
 // deliberately left open, because both of them make published numbers WRONG in
 // a way that is invisible to the precision test (KT-A) that passed 0/60:
 //

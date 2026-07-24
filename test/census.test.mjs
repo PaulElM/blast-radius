@@ -1,6 +1,6 @@
 // Tests for the canonical census and the blast-radius cross.
 //
-// These pin the two defects the Cycle 3 README recorded and left open. Both are
+// These pin the two defects an earlier README recorded and left open. Both are
 // invisible to KT-A, the precision audit that passed 0/60, because every
 // individual attribution involved is TRUE — it is the ROLL-UP that was wrong.
 // A precision test measures whether the hits are real. It cannot measure whether
