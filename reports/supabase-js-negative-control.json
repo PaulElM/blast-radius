@@ -1,0 +1,690 @@
+{
+ "generatedAt": "2026-07-24T16:40:54.908Z",
+ "target": {
+  "pkg": "@supabase/supabase-js",
+  "from": "2.110.8",
+  "to": "3.0.0-next.29",
+  "fromPublished": "2026-07-21T15:40:42.596Z",
+  "toPublished": "2026-05-11T16:04:43.909Z",
+  "distTags": {
+   "rc": "2.100.0-rc.0",
+   "next": "3.0.0-next.29",
+   "beta": "2.108.2-beta.5",
+   "latest": "2.110.8",
+   "canary": "2.110.9-canary.1"
+  },
+  "repository": "https://github.com/supabase/supabase-js.git",
+  "homepage": "https://github.com/supabase/supabase-js/tree/master/packages/core/supabase-js",
+  "isMajorBump": true
+ },
+ "coverage": {
+  "note": "GitHub code search total_count is not additive over partitions; no share-of-consumers denominator is claimed.",
+  "totalCountProbe": {
+   "package": "drizzle-orm",
+   "date": "2026-07-24",
+   "measurements": [
+    {
+     "query": "\"drizzle-orm\" language:typescript",
+     "total": 3916
+    },
+    {
+     "query": "\"drizzle-orm\" language:typescript size:0..100000",
+     "total": 3916
+    },
+    {
+     "query": "\"drizzle-orm\" language:typescript size:0..2000",
+     "total": 7756
+    },
+    {
+     "query": "\"drizzle-orm\" language:typescript size:2001..8000",
+     "total": 61168
+    },
+    {
+     "query": "\"drizzle-orm\" language:typescript size:2001..4000",
+     "total": 5228
+    },
+    {
+     "query": "\"drizzle-orm\" language:typescript size:4001..8000",
+     "total": 4548
+    }
+   ]
+  },
+  "queries": [
+   {
+    "query": "\"from '@supabase/supabase-js\" language:typescript",
+    "reportedTotal": 2604,
+    "collected": 200
+   },
+   {
+    "query": "\"from \\\"@supabase/supabase-js\" language:typescript",
+    "reportedTotal": 2564,
+    "collected": 100
+   }
+  ],
+  "candidateFiles": 300,
+  "candidateRepos": 295,
+  "filesParsed": 150,
+  "filesUnavailable": 0,
+  "scope": "public repositories, language:typescript, default branch (HEAD)"
+ },
+ "surfaceDiff": {
+  "from": "@supabase/supabase-js@2.110.8",
+  "to": "@supabase/supabase-js@3.0.0-next.29",
+  "totals": {
+   "removed": 7,
+   "added": 0,
+   "kept": 242,
+   "memberRemovals": 2
+  },
+  "removedEntryPoints": [],
+  "addedEntryPoints": [],
+  "perEntry": [
+   {
+    "subpath": ".",
+    "entryPointRemoved": false,
+    "entryPointAdded": false,
+    "removed": [
+     {
+      "symbol": "TracePropagationOptions",
+      "kinds": [
+       "interface"
+      ],
+      "typeOnly": true
+     },
+     {
+      "symbol": "RealtimePostgresChangesFilterOperator",
+      "kinds": [
+       "type"
+      ],
+      "typeOnly": true
+     },
+     {
+      "symbol": "RealtimePostgresFilterBuilder",
+      "kinds": [
+       "class"
+      ],
+      "typeOnly": false
+     },
+     {
+      "symbol": "postgresChangesFilter",
+      "kinds": [
+       "const"
+      ],
+      "typeOnly": false
+     },
+     {
+      "symbol": "RealtimeSystemPayload",
+      "kinds": [
+       "type"
+      ],
+      "typeOnly": true
+     },
+     {
+      "symbol": "isAuthRefreshDiscardedError",
+      "kinds": [
+       "function"
+      ],
+      "typeOnly": false
+     },
+     {
+      "symbol": "AuthRefreshDiscardedError",
+      "kinds": [
+       "class"
+      ],
+      "typeOnly": false
+     }
+    ],
+    "addedCount": 0,
+    "keptCount": 240,
+    "memberChanges": [
+     {
+      "symbol": "SupabaseClient",
+      "removedMembers": [
+       "functionsFetch",
+       "settings"
+      ],
+      "removedPrivateMembers": [
+       "_getSessionToken"
+      ]
+     },
+     {
+      "symbol": "GoTrueClient",
+      "removedMembers": [
+       "dispose",
+       "lastRefreshFailure"
+      ],
+      "removedPrivateMembers": [
+       "_pendingInitNotifications",
+       "_sessionRemovalEpoch"
+      ]
+     }
+    ]
+   },
+   {
+    "subpath": "./cors",
+    "entryPointRemoved": false,
+    "entryPointAdded": false,
+    "removed": [],
+    "addedCount": 0,
+    "keptCount": 2,
+    "memberChanges": []
+   },
+   {
+    "subpath": "./package.json",
+    "entryPointRemoved": false,
+    "entryPointAdded": false,
+    "removed": [],
+    "addedCount": 0,
+    "keptCount": 0,
+    "memberChanges": []
+   }
+  ]
+ },
+ "census": {
+  "repoCount": 146,
+  "fileCount": 147,
+  "attributions": 211,
+  "mergedByDefaultInterop": 0,
+  "notInSurface": 0,
+  "entries": [
+   {
+    "subpath": ".",
+    "declaredEntryPoint": true,
+    "repos": 146,
+    "repoList": [
+     "0riva/oriva-platform",
+     "1ncursio/supachess",
+     "Abrsh444-cyber/Etlearn",
+     "AdityaBansode7/questa_quizz_APP",
+     "AkashNr7/infinite",
+     "Akimetzu/SISTEMA-DE-INVENTARIO",
+     "AugustineGreyy/uycloset",
+     "Avinashnyk/ExamPrep",
+     "BarnesBowling/barnes-bowling-club",
+     "BobJones13579/cleaning-saas",
+     "BreakroomShow/app",
+     "CameronFoxly/Ascii-Motion",
+     "Cap-go/capgo.app",
+     "CurioLytics/Write2Learn",
+     "DRBATA/prepah",
+     "DanielKoten12/HealthyGoods",
+     "Danimarqz/animalhada_BE",
+     "Dcoratto/DCoratto-",
+     "Duxton347/telemarketing-irm-os-dreon--1-",
+     "FarzadMohtasham/CoinTrackX",
+     "FlowEngine-cloud/flowengine",
+     "Gerome-Elassaad/CodingIT",
+     "GiggaCat/About_Me",
+     "Ingeneiro-google-maps/WEB-APP-SERVER-1T",
+     "Jin1370/basic_dubbing",
+     "KAYZI2HIGH/linq",
+     "Kabs009/theradesk2",
+     "Kaushiksavaliyacode/Food-delivery",
+     "Kstyles-byte/Almari2",
+     "Kushwahadheeraj/planning",
+     "Macky151203/latecode",
+     "Magisuz/VibesHackathon",
+     "Masthan008/brewcafe",
+     "Maxwell-Clark/MCSU",
+     "MonsterFlick/GitFool-old",
+     "NUDelta/pair-research",
+     "Neves369/iect-biblioteca",
+     "NguyenAnh060504/Household-item-management",
+     "OmKamalika/wealth-bloom",
+     "Sebas-D-Dev/directory-structure-generator",
+     "ShivDev-ops/university-project-hub-2",
+     "SonicTheHedghoge/cv-tnn",
+     "Technopathic/InQuill",
+     "TheExGenesis/community-archive",
+     "Travsify/chatsela",
+     "VenoomTV/ThoughtForge",
+     "Vijayapardhu/risbow-backend",
+     "WaritDev/aom3-frontend",
+     "Yazeed-AK/SWE481-Project",
+     "Yukkurisiteikitai/LustraEngine",
+     "ZRMYDYCG/Navernass",
+     "abhishekvardan/AgriconnectMobileVoiceBackend",
+     "adham-tech/strapi-supabase-file-upload",
+     "aktifosgbarsiv-star/fototest",
+     "algebra2boy/Creatorverse",
+     "andreduran0/Huaraz-one",
+     "anmho/supabase-client-credentials",
+     "avinash-dossm/server",
+     "b0ase/bitgit",
+     "barclayd/keepfresh-notifications",
+     "ben-everly/sous",
+     "boipqiod/test-supabase",
+     "bsalsa2/fairclaim",
+     "connorbell133/Agentflow",
+     "danakarina0929-blip/prompta-app",
+     "danielribeirodasilvajnr-dev/ConstructPro",
+     "dankwx/mirsui-backend",
+     "danpillay87/domination",
+     "devtayyab/mobileapp",
+     "different-ai/embedbase",
+     "elevateforhumanity/fix",
+     "eli23314/MirrorSplit",
+     "ellevenlabcombr-ai/EARS-CRM",
+     "emcg0021/SpendSight",
+     "eoliver04/timely-backend",
+     "eugenemcmillian3-tech/Degen-genz-hub-",
+     "ezDecode/MindBridge",
+     "faheemsalmani/agrirentx",
+     "focux/racing-game-teachable-machine",
+     "freegyes/project-ContemPlace",
+     "gandlafbtc/open-pleb",
+     "george-spence/meal-planner-app",
+     "gery0112x/wentian-clean",
+     "gracwambugu/elimika-africa",
+     "hellomomma/surfin-managementericeira",
+     "iaadillatif/techxninjas-client",
+     "ilan-deversenne/1-hackathon-holberton-2026",
+     "ilkome/finapp",
+     "iqmalr/bratamedia-digital-solutions",
+     "jefferson0710/FichaDeAnamnese",
+     "jj-valentine/cerebellum",
+     "joaomcc24/blueprintly",
+     "joelgeorge05/cml-website",
+     "jointrustloop-creator/TheDripMap",
+     "jonahmr1/intellenix",
+     "josephheinz/Node-MUD",
+     "jslala222/dsuc_recipe",
+     "jst-seminar-rostlab-tum/openeu-frontend",
+     "justinfei9/rent-tracking-app",
+     "korebhaumik/Clumsykeys",
+     "ledichanfras-netizen/LB-Hub",
+     "lissy93/domain-locker",
+     "lovegold120221-dot/cautious-potato",
+     "lovegold120221-dot/las",
+     "luckyhackersacademy/onlygists",
+     "malerba118/supabase-comments-extension",
+     "manifoldmarkets/manifund",
+     "megawesley2015-lang/Sos-Pet",
+     "meowster404/Ai-Form",
+     "midudev/bigibai-2025",
+     "mohamedelfatehouamane-bis/store.v.2",
+     "mohammedmagdixD/Figment_V.0.4.1",
+     "mohammedmagdixD/Figment_v.0.3",
+     "ncsound919/Northside-Smoke",
+     "nhq1993-sudo/cmsmkt",
+     "nobisro/svelte-kit-notes",
+     "omarbizkit/bizkitdev",
+     "omegarhovega/ARRRType",
+     "oranum/vibe-mimoni",
+     "ozkan0/etimoloji-haritasi",
+     "poriadivyansh482000-art/AI-Agent",
+     "pranaytrivedi111-pixel/Admin-Portal",
+     "qurle/type",
+     "rou-meichan/FAI-System",
+     "rsweetland/next-llm-supastarter",
+     "rvion/CushyStudio",
+     "shamimbinnur/noteitt",
+     "sherlocknieh/TodoHeap",
+     "sparrow-js/an-codeAI",
+     "templioworkstests/ristoflash",
+     "tfarrecys/compras-1",
+     "thaleslaray/nossocrm",
+     "thelamesaucegit/forgeSim",
+     "tylerdean1/sunset_surf_academy",
+     "ungden/dep-radar",
+     "vaibhavagarwal2212-citizen/Vaibhav-Agarwal-Classes-2",
+     "velocityai588-tech/NEW_Velocity_AI",
+     "vrish1234/Ugrasena-Educum",
+     "vueschool/vuejs-masterclass-2024-edition",
+     "welinsonmacedo/ArloFLux",
+     "wish-team/fund-for-found",
+     "wsegbert65360/RainAPI",
+     "xh09411-web/remote-control",
+     "xtharakax/food-additive-scanner",
+     "yorkeccak/Polyseer",
+     "zekenewsom/evo_old"
+    ],
+    "symbols": [
+     {
+      "symbol": "createClient",
+      "hits": 121,
+      "repos": 111,
+      "repoList": [
+       "0riva/oriva-platform",
+       "1ncursio/supachess",
+       "Abrsh444-cyber/Etlearn",
+       "AdityaBansode7/questa_quizz_APP",
+       "AkashNr7/infinite",
+       "Akimetzu/SISTEMA-DE-INVENTARIO",
+       "BarnesBowling/barnes-bowling-club",
+       "BobJones13579/cleaning-saas",
+       "BreakroomShow/app",
+       "CameronFoxly/Ascii-Motion",
+       "DRBATA/prepah",
+       "DanielKoten12/HealthyGoods",
+       "Danimarqz/animalhada_BE",
+       "Dcoratto/DCoratto-",
+       "Duxton347/telemarketing-irm-os-dreon--1-",
+       "GiggaCat/About_Me",
+       "Ingeneiro-google-maps/WEB-APP-SERVER-1T",
+       "Jin1370/basic_dubbing",
+       "KAYZI2HIGH/linq",
+       "Kabs009/theradesk2",
+       "Kaushiksavaliyacode/Food-delivery",
+       "Kstyles-byte/Almari2",
+       "Kushwahadheeraj/planning",
+       "Macky151203/latecode",
+       "Magisuz/VibesHackathon",
+       "Masthan008/brewcafe",
+       "Maxwell-Clark/MCSU",
+       "MonsterFlick/GitFool-old",
+       "Neves369/iect-biblioteca",
+       "OmKamalika/wealth-bloom",
+       "Sebas-D-Dev/directory-structure-generator",
+       "ShivDev-ops/university-project-hub-2",
+       "SonicTheHedghoge/cv-tnn",
+       "Technopathic/InQuill",
+       "TheExGenesis/community-archive",
+       "Travsify/chatsela",
+       "VenoomTV/ThoughtForge",
+       "Vijayapardhu/risbow-backend",
+       "WaritDev/aom3-frontend",
+       "Yazeed-AK/SWE481-Project",
+       "Yukkurisiteikitai/LustraEngine",
+       "ZRMYDYCG/Navernass",
+       "abhishekvardan/AgriconnectMobileVoiceBackend",
+       "adham-tech/strapi-supabase-file-upload",
+       "aktifosgbarsiv-star/fototest",
+       "algebra2boy/Creatorverse",
+       "andreduran0/Huaraz-one",
+       "anmho/supabase-client-credentials",
+       "avinash-dossm/server",
+       "b0ase/bitgit",
+       "barclayd/keepfresh-notifications",
+       "boipqiod/test-supabase",
+       "bsalsa2/fairclaim",
+       "danakarina0929-blip/prompta-app",
+       "danielribeirodasilvajnr-dev/ConstructPro",
+       "danpillay87/domination",
+       "devtayyab/mobileapp",
+       "different-ai/embedbase",
+       "elevateforhumanity/fix",
+       "eli23314/MirrorSplit",
+       "ellevenlabcombr-ai/EARS-CRM",
+       "emcg0021/SpendSight",
+       "eoliver04/timely-backend",
+       "eugenemcmillian3-tech/Degen-genz-hub-",
+       "ezDecode/MindBridge",
+       "faheemsalmani/agrirentx",
+       "focux/racing-game-teachable-machine",
+       "freegyes/project-ContemPlace",
+       "gery0112x/wentian-clean",
+       "hellomomma/surfin-managementericeira",
+       "ilan-deversenne/1-hackathon-holberton-2026",
+       "ilkome/finapp",
+       "iqmalr/bratamedia-digital-solutions",
+       "jefferson0710/FichaDeAnamnese",
+       "jj-valentine/cerebellum",
+       "joaomcc24/blueprintly",
+       "joelgeorge05/cml-website",
+       "jointrustloop-creator/TheDripMap",
+       "josephheinz/Node-MUD",
+       "jslala222/dsuc_recipe",
+       "justinfei9/rent-tracking-app",
+       "ledichanfras-netizen/LB-Hub",
+       "lissy93/domain-locker",
+       "lovegold120221-dot/cautious-potato",
+       "lovegold120221-dot/las",
+       "meowster404/Ai-Form",
+       "mohamedelfatehouamane-bis/store.v.2",
+       "mohammedmagdixD/Figment_V.0.4.1",
+       "mohammedmagdixD/Figment_v.0.3",
+       "ncsound919/Northside-Smoke",
+       "nhq1993-sudo/cmsmkt",
+       "nobisro/svelte-kit-notes",
+       "ozkan0/etimoloji-haritasi",
+       "poriadivyansh482000-art/AI-Agent",
+       "pranaytrivedi111-pixel/Admin-Portal",
+       "qurle/type",
+       "rou-meichan/FAI-System",
+       "rsweetland/next-llm-supastarter",
+       "sparrow-js/an-codeAI",
+       "templioworkstests/ristoflash",
+       "tfarrecys/compras-1",
+       "thelamesaucegit/forgeSim",
+       "ungden/dep-radar",
+       "vaibhavagarwal2212-citizen/Vaibhav-Agarwal-Classes-2",
+       "velocityai588-tech/NEW_Velocity_AI",
+       "vrish1234/Ugrasena-Educum",
+       "welinsonmacedo/ArloFLux",
+       "wsegbert65360/RainAPI",
+       "xh09411-web/remote-control",
+       "xtharakax/food-additive-scanner",
+       "yorkeccak/Polyseer"
+      ],
+      "typeOnlyHits": 2,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "SupabaseClient",
+      "hits": 39,
+      "repos": 26,
+      "repoList": [
+       "Cap-go/capgo.app",
+       "Danimarqz/animalhada_BE",
+       "FlowEngine-cloud/flowengine",
+       "TheExGenesis/community-archive",
+       "VenoomTV/ThoughtForge",
+       "b0ase/bitgit",
+       "bsalsa2/fairclaim",
+       "connorbell133/Agentflow",
+       "danpillay87/domination",
+       "elevateforhumanity/fix",
+       "freegyes/project-ContemPlace",
+       "gandlafbtc/open-pleb",
+       "george-spence/meal-planner-app",
+       "gracwambugu/elimika-africa",
+       "ilkome/finapp",
+       "joaomcc24/blueprintly",
+       "lissy93/domain-locker",
+       "luckyhackersacademy/onlygists",
+       "malerba118/supabase-comments-extension",
+       "manifoldmarkets/manifund",
+       "megawesley2015-lang/Sos-Pet",
+       "rvion/CushyStudio",
+       "thaleslaray/nossocrm",
+       "tylerdean1/sunset_surf_academy",
+       "wish-team/fund-for-found",
+       "zekenewsom/evo_old"
+      ],
+      "typeOnlyHits": 39,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "Session",
+      "hits": 18,
+      "repos": 14,
+      "repoList": [
+       "AugustineGreyy/uycloset",
+       "Gerome-Elassaad/CodingIT",
+       "Jin1370/basic_dubbing",
+       "Technopathic/InQuill",
+       "ben-everly/sous",
+       "gandlafbtc/open-pleb",
+       "george-spence/meal-planner-app",
+       "iaadillatif/techxninjas-client",
+       "ilkome/finapp",
+       "korebhaumik/Clumsykeys",
+       "omarbizkit/bizkitdev",
+       "omegarhovega/ARRRType",
+       "oranum/vibe-mimoni",
+       "sherlocknieh/TodoHeap"
+      ],
+      "typeOnlyHits": 18,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "User",
+      "hits": 16,
+      "repos": 13,
+      "repoList": [
+       "Avinashnyk/ExamPrep",
+       "CurioLytics/Write2Learn",
+       "NUDelta/pair-research",
+       "NguyenAnh060504/Household-item-management",
+       "ben-everly/sous",
+       "dankwx/mirsui-backend",
+       "gandlafbtc/open-pleb",
+       "iaadillatif/techxninjas-client",
+       "lissy93/domain-locker",
+       "midudev/bigibai-2025",
+       "omarbizkit/bizkitdev",
+       "oranum/vibe-mimoni",
+       "sherlocknieh/TodoHeap"
+      ],
+      "typeOnlyHits": 16,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "PostgrestError",
+      "hits": 5,
+      "repos": 3,
+      "repoList": [
+       "lissy93/domain-locker",
+       "shamimbinnur/noteitt",
+       "vueschool/vuejs-masterclass-2024-edition"
+      ],
+      "typeOnlyHits": 5,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "AuthChangeEvent",
+      "hits": 3,
+      "repos": 3,
+      "repoList": [
+       "Gerome-Elassaad/CodingIT",
+       "Technopathic/InQuill",
+       "ilkome/finapp"
+      ],
+      "typeOnlyHits": 3,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "Provider",
+      "hits": 2,
+      "repos": 2,
+      "repoList": [
+       "focux/racing-game-teachable-machine",
+       "sherlocknieh/TodoHeap"
+      ],
+      "typeOnlyHits": 2,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "FunctionsHttpError",
+      "hits": 1,
+      "repos": 1,
+      "repoList": [
+       "jonahmr1/intellenix"
+      ],
+      "typeOnlyHits": 1,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "RealtimeChannel",
+      "hits": 1,
+      "repos": 1,
+      "repoList": [
+       "danpillay87/domination"
+      ],
+      "typeOnlyHits": 1,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "Factor",
+      "hits": 1,
+      "repos": 1,
+      "repoList": [
+       "lissy93/domain-locker"
+      ],
+      "typeOnlyHits": 1,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "PostgrestSingleResponse",
+      "hits": 1,
+      "repos": 1,
+      "repoList": [
+       "qurle/type"
+      ],
+      "typeOnlyHits": 1,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "EmailOtpType",
+      "hits": 1,
+      "repos": 1,
+      "repoList": [
+       "jst-seminar-rostlab-tum/openeu-frontend"
+      ],
+      "typeOnlyHits": 1,
+      "inSurface": true,
+      "memberPaths": []
+     },
+     {
+      "symbol": "AuthError",
+      "hits": 1,
+      "repos": 1,
+      "repoList": [
+       "FarzadMohtasham/CoinTrackX"
+      ],
+      "typeOnlyHits": 1,
+      "inSurface": true,
+      "memberPaths": []
+     }
+    ]
+   },
+   {
+    "subpath": "./dist/module/lib/types",
+    "declaredEntryPoint": false,
+    "repos": 1,
+    "repoList": [
+     "korebhaumik/Clumsykeys"
+    ],
+    "symbols": [
+     {
+      "symbol": "Fetch",
+      "hits": 1,
+      "repos": 1,
+      "repoList": [
+       "korebhaumik/Clumsykeys"
+      ],
+      "typeOnlyHits": 1,
+      "inSurface": null,
+      "memberPaths": []
+     }
+    ]
+   }
+  ]
+ },
+ "blastRadius": {
+  "from": "@supabase/supabase-js@2.110.8",
+  "to": "@supabase/supabase-js@3.0.0-next.29",
+  "scannedRepos": 146,
+  "scannedFiles": 147,
+  "affectedRepos": 0,
+  "affectedRepoList": [],
+  "runtimeAffectedRepos": 0,
+  "shareOfScannedRepos": 0,
+  "entryPointBreaks": [],
+  "symbolBreaks": [],
+  "memberBreaks": [],
+  "unusedRemovals": 7
+ }
+}

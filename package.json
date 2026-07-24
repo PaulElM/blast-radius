@@ -1,0 +1,16 @@
+{
+  "name": "blast-radius",
+  "version": "0.1.0",
+  "description": "Symbol-level usage census of a public npm package across the repos that actually consume it.",
+  "type": "module",
+  "bin": { "blast-radius": "./bin/blast-radius.mjs" },
+  "scripts": {
+    "test": "node --test 'test/*.test.mjs'",
+    "kt-a": "node bin/blast-radius.mjs kt-a"
+  },
+  "dependencies": {
+    "ts-morph": "^24.0.0"
+  },
+  "license": "MIT",
+  "engines": { "node": ">=20" }
+}

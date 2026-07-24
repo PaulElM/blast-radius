@@ -1,0 +1,259 @@
+// GitHub access layer: code search + raw file fetch, both cached on disk.
+//
+// Measured constraints (verified against the live API, not assumed):
+//   code search : 10 requests/minute, max 1000 results per query
+//   core        : 5000 requests/hour
+// Every response is cached under data/cache so a re-run costs zero requests and
+// an interrupted run resumes instead of restarting.
+
+import { createHash } from 'node:crypto'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
+const CACHE = join(ROOT, 'data', 'cache')
+
+const SEARCH_MIN_INTERVAL_MS = 6500 // 10/min with headroom
+let lastSearchAt = 0
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+
+function cachePath(kind, key) {
+  const hash = createHash('sha256').update(key).digest('hex').slice(0, 32)
+  return join(CACHE, kind, `${hash}.json`)
+}
+
+async function readCache(kind, key) {
+  try {
+    return JSON.parse(await readFile(cachePath(kind, key), 'utf8'))
+  } catch {
+    return null
+  }
+}
+
+async function writeCache(kind, key, value) {
+  const file = cachePath(kind, key)
+  await mkdir(dirname(file), { recursive: true })
+  await writeFile(file, JSON.stringify(value))
+}
+
+/**
+ * Whether a query failure is the 1000-result ceiling doing its job (expected,
+ * keep going) or a broken run (fatal, stop).
+ *
+ * This distinction is load-bearing and was paid for. An unauthenticated run
+ * fails ONLY on the query forms that are not already cached — so it reports
+ * `0 collected` for `from "pkg"` and `require('pkg')`, keeps going, and emits a
+ * report that looks complete while being blind to every double-quoted import in
+ * the ecosystem. The corpus shrinks, no number in the report says so, and the
+ * failure is indistinguishable from "nobody writes it that way."
+ *
+ * A degraded census that cannot announce its own degradation is worse than no
+ * census: it is the trust event, pre-loaded.
+ */
+export function isFatalSearchError(err) {
+  const s = String(err)
+  return s.includes('401') || s.includes('Bad credentials') || s.includes('exhausted retries')
+}
+
+function headers() {
+  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN
+  const h = {
+    accept: 'application/vnd.github+json',
+    'user-agent': 'blast-radius/0.1',
+    'x-github-api-version': '2022-11-28',
+  }
+  if (token) h.authorization = `Bearer ${token}`
+  return h
+}
+
+async function request(url, { accept } = {}) {
+  const h = headers()
+  if (accept) h.accept = accept
+
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const res = await fetch(url, { headers: h })
+
+    if (res.status === 403 || res.status === 429) {
+      // Secondary rate limit or primary exhaustion — respect the server's clock.
+      const retryAfter = Number(res.headers.get('retry-after'))
+      const reset = Number(res.headers.get('x-ratelimit-reset'))
+      let waitMs = retryAfter ? retryAfter * 1000 : 0
+      if (!waitMs && reset) waitMs = Math.max(0, reset * 1000 - Date.now()) + 1000
+      if (!waitMs) waitMs = 2 ** attempt * 5000
+      process.stderr.write(`  rate limited, waiting ${Math.round(waitMs / 1000)}s\n`)
+      await sleep(Math.min(waitMs, 90_000))
+      continue
+    }
+
+    if (res.status >= 500) {
+      await sleep(2 ** attempt * 1000)
+      continue
+    }
+
+    if (!res.ok) {
+      const body = await res.text()
+      throw new Error(`${res.status} ${url}: ${body.slice(0, 200)}`)
+    }
+
+    return accept === 'application/vnd.github.raw' ? res.text() : res.json()
+  }
+
+  throw new Error(`exhausted retries: ${url}`)
+}
+
+/** One page of code search, cached. Returns the raw response body. */
+async function searchPage(query, page, perPage) {
+  const url = `https://api.github.com/search/code?q=${encodeURIComponent(query)}&per_page=${perPage}&page=${page}`
+  let body = await readCache('search', url)
+  if (body) return body
+
+  const wait = SEARCH_MIN_INTERVAL_MS - (Date.now() - lastSearchAt)
+  if (wait > 0) await sleep(wait)
+  lastSearchAt = Date.now()
+  body = await request(url)
+  await writeCache('search', url, body)
+  return body
+}
+
+/**
+ * Byte-size buckets used to break past the 1000-results-per-query ceiling.
+ *
+ * `size:` is the only qualifier that partitions the corpus without also
+ * biasing it toward a property we care about. Partitioning by `stars:` or by
+ * `pushed:` would silently sort consumers by exactly the axis a publisher would
+ * later ask us about ("are these real projects?"), which is how a sampling
+ * frame ends up answering the question it was supposed to measure.
+ */
+const SIZE_BUCKETS = [
+  '0..1000',
+  '1001..2000',
+  '2001..4000',
+  '4001..8000',
+  '8001..16000',
+  '16001..32000',
+  '32001..65000',
+  '>65000',
+]
+
+/**
+ * Search code for files that import `pkg`.
+ *
+ * Three things this does that the Cycle 3 version did not, each of which was
+ * costing real recall:
+ *
+ * 1. THE QUERY IS AN OPEN PREFIX (`"from 'drizzle-orm"`, no closing quote).
+ *    The closed form `"from 'drizzle-orm'"` cannot match
+ *    `from 'drizzle-orm/pg-core'` — so on a package with 443 entry points, the
+ *    old query was structurally blind to every subpath import. For this target
+ *    the subpath form alone (`from 'drizzle-orm/pg-core'`) reports ~2,900 files.
+ *    Precision is not lost by widening here: the resolver, not the query, is
+ *    what decides whether a file really uses the package.
+ *
+ * 2. IT PARTITIONS BY FILE SIZE when a query saturates the 1000-result ceiling,
+ *    so a popular package is no longer silently truncated to "the first 1000
+ *    results GitHub felt like returning."
+ *
+ * 3. IT RECORDS ITS OWN PROVENANCE (`queries`) so the report can state exactly
+ *    how the corpus was drawn instead of asking anyone to trust it.
+ *
+ * On `total_count`: it is used ONLY to decide whether to partition. It is NOT a
+ * denominator and must never be published as one — see COVERAGE NOTE in
+ * report.mjs for the measurements showing why.
+ */
+export async function searchConsumers(
+  pkg,
+  { perPage = 100, pages = 10, languages = ['typescript'], partition = true, maxQueries = Infinity, onLog } = {},
+) {
+  const forms = [`"from '${pkg}"`, `"from \\"${pkg}"`, `"require('${pkg}"`]
+  const seen = new Map()
+  const queries = []
+  let spent = 0
+
+  const runQuery = async (query) => {
+    if (spent >= maxQueries) return { saturated: false, skipped: true }
+    let total = null
+    let collected = 0
+    let saturated = false
+    let queryError = null
+
+    for (let page = 1; page <= pages; page++) {
+      if (spent >= maxQueries) break
+      let body
+      try {
+        body = await searchPage(query, page, perPage)
+      } catch (err) {
+        // A 422 here means the page is past GitHub's 1000-result window; that
+        // is the ceiling doing its job, not a failure. Anything that means the
+        // run itself is broken must stop the run — see isFatalSearchError.
+        if (isFatalSearchError(err)) {
+          throw new Error(
+            `search failed on \`${query}\`: ${String(err).slice(0, 160)}\n` +
+              `This is not a partial result — it is a blind spot. Set GITHUB_TOKEN ` +
+              `(e.g. \`export GITHUB_TOKEN=$(gh auth token)\`) and re-run; cached ` +
+              `pages cost nothing to replay.`,
+          )
+        }
+        onLog?.(`  query error (page ${page}): ${String(err).slice(0, 120)}`)
+        queryError = String(err).slice(0, 160)
+        break
+      }
+      spent++
+      if (total == null) total = body.total_count ?? 0
+
+      const items = body.items ?? []
+      for (const item of items) {
+        const key = `${item.repository.full_name}:${item.path}`
+        if (!seen.has(key)) {
+          seen.set(key, {
+            repo: item.repository.full_name,
+            path: item.path,
+            url: item.url,
+            private: item.repository.private,
+            stars: item.repository.stargazers_count ?? null,
+          })
+        }
+      }
+      collected += items.length
+      if (items.length < perPage) break
+      if (page * perPage >= 1000) saturated = total > 1000
+    }
+
+    queries.push({ query, reportedTotal: total, collected, error: queryError })
+    onLog?.(`  ${String(collected).padStart(5)} collected (total_count ${total}) :: ${query}`)
+    return { saturated }
+  }
+
+  for (const language of languages) {
+    for (const form of forms) {
+      const base = `${form} language:${language}`
+      const { saturated, skipped } = await runQuery(base)
+      if (skipped) break
+      if (!saturated || !partition) continue
+
+      onLog?.(`  saturated at the 1000-result ceiling -> partitioning by file size`)
+      for (const bucket of SIZE_BUCKETS) {
+        await runQuery(`${base} size:${bucket}`)
+      }
+    }
+  }
+
+  return { files: [...seen.values()], queries }
+}
+
+/** Fetch a file's raw text (cached). Returns null if it is gone or too large. */
+export async function fetchFile({ repo, path }) {
+  const url = `https://api.github.com/repos/${repo}/contents/${path.split('/').map(encodeURIComponent).join('/')}`
+  const cached = await readCache('file', url)
+  if (cached) return cached.text
+
+  try {
+    const text = await request(url, { accept: 'application/vnd.github.raw' })
+    await writeCache('file', url, { text })
+    return text
+  } catch (err) {
+    if (String(err).includes('404') || String(err).includes('403')) return null
+    throw err
+  }
+}

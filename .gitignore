@@ -1,0 +1,9 @@
+node_modules/
+# API response cache — regenerable, and re-running costs zero requests anyway.
+data/cache/
+# Installed package tarballs, extracted to read their .d.ts. Pinned by exact
+# version in the report, so they are reproducible rather than worth committing.
+data/pkgs/
+# Raw corpus dump: every attribution with provenance. Large, and the report's
+# JSON companion carries everything a reader needs to re-check the claims.
+data/corpus-*.json

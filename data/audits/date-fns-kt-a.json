@@ -1,0 +1,4314 @@
+{
+ "audit": {
+  "population": 154,
+  "files": 60,
+  "filesWithError": 0,
+  "sampleSize": 30,
+  "sampleRepos": 30,
+  "seed": 3,
+  "census": {
+   "repoCount": 56,
+   "symbols": [
+    {
+     "symbol": "format",
+     "hits": 29,
+     "repos": 22,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "parseISO",
+     "hits": 9,
+     "repos": 5,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "isAfter",
+     "hits": 8,
+     "repos": 4,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "subDays",
+     "hits": 5,
+     "repos": 4,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "addDays",
+     "hits": 5,
+     "repos": 3,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "addYears",
+     "hits": 4,
+     "repos": 3,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "Locale",
+     "hits": 3,
+     "repos": 3,
+     "typeOnlyHits": 3
+    },
+    {
+     "symbol": "compareDesc",
+     "hits": 3,
+     "repos": 3,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "add",
+     "hits": 8,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "differenceInMonths",
+     "hits": 3,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "differenceInYears",
+     "hits": 3,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "parse",
+     "hits": 3,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "startOfDay",
+     "hits": 3,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "isValid",
+     "hits": 2,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "subMonths",
+     "hits": 2,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "formatISO",
+     "hits": 2,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "formatRelative",
+     "hits": 2,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "enUS",
+     "hits": 2,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "formatDistanceToNow",
+     "hits": 2,
+     "repos": 2,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "isFuture",
+     "hits": 4,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "isToday",
+     "hits": 4,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "addMonths",
+     "hits": 3,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "isBefore",
+     "hits": 3,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "formatRFC7231",
+     "hits": 3,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "FormatOptions",
+     "hits": 2,
+     "repos": 1,
+     "typeOnlyHits": 2
+    },
+    {
+     "symbol": "distanceInWords",
+     "hits": 2,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "differenceInSeconds",
+     "hits": 2,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "ParseOptions",
+     "hits": 2,
+     "repos": 1,
+     "typeOnlyHits": 2
+    },
+    {
+     "symbol": "formatRFC3339",
+     "hits": 2,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "subHours",
+     "hits": 2,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "addHours",
+     "hits": 2,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "ParseISOOptions",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 1
+    },
+    {
+     "symbol": "subYears",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "differenceInMilliseconds",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "isWithinRange",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "addBusinessDays",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "differenceInMinutes",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "setWeek",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "zhCN",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "eachDay",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "es",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "ptBR",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "intervalToDuration",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "isPast",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "Duration",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 1
+    },
+    {
+     "symbol": "subWeeks",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "startOfToday",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "differenceInDays",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "sub",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "eachDayOfInterval",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "formatDistance",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "isDate",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "nb",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "formatDistanceToNowStrict",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "addMinutes",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    },
+    {
+     "symbol": "addWeeks",
+     "hits": 1,
+     "repos": 1,
+     "typeOnlyHits": 0
+    }
+   ]
+  },
+  "sample": [
+   {
+    "repo": "navikt/helsesjekk-bot",
+    "path": "seed/seed.ts",
+    "ref": "HEAD",
+    "symbol": "setWeek",
+    "local": "setWeek",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 78,
+    "column": 24,
+    "snippet": "timestamp: setWeek(new Date(2023, 0, 1, 13, 37), week + 1),"
+   },
+   {
+    "repo": "uetchy/miobot",
+    "path": "src/job.ts",
+    "ref": "HEAD",
+    "symbol": "startOfToday",
+    "local": "startOfToday",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 63,
+    "column": 15,
+    "snippet": "const sot = startOfToday()"
+   },
+   {
+    "repo": "marnusw/date-fns-tz",
+    "path": "src/index.ts",
+    "ref": "HEAD",
+    "symbol": "FormatOptions",
+    "local": "FormatOptions",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": true,
+    "usage": "type",
+    "line": 3,
+    "column": 51,
+    "snippet": "export interface FormatOptionsWithTZ extends Omit<FormatOptions, 'locale'> {"
+   },
+   {
+    "repo": "stephy/beatmyweight",
+    "path": "src/data.ts",
+    "ref": "HEAD",
+    "symbol": "addWeeks",
+    "local": "addWeeks",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 52,
+    "column": 19,
+    "snippet": "currentDate = addWeeks(currentDate, 1);"
+   },
+   {
+    "repo": "stefanjudis/netlify-menubar",
+    "path": "src/menus.ts",
+    "ref": "HEAD",
+    "symbol": "distanceInWords",
+    "local": "distanceInWords",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 33,
+    "column": 57,
+    "snippet": "label: `${shortenString(incident.title, 60)} (${distanceInWords("
+   },
+   {
+    "repo": "gregfrasco/yahoo-finance-api",
+    "path": "src/yahoo.ts",
+    "ref": "HEAD",
+    "symbol": "format",
+    "local": "format",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 10,
+    "column": 24,
+    "snippet": "const reportDate = format(date, 'yyyy-MM-dd');"
+   },
+   {
+    "repo": "ryanmichaelhirst/modelers-rift-nextjs",
+    "path": "lib/auth.ts",
+    "ref": "HEAD",
+    "symbol": "formatRFC7231",
+    "local": "formatRFC7231",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 30,
+    "column": 19,
+    "snippet": "const rfcDate = formatRFC7231(new Date(1999))"
+   },
+   {
+    "repo": "Panos68/pantrainer",
+    "path": "lib/pmc.ts",
+    "ref": "HEAD",
+    "symbol": "format",
+    "local": "format",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 35,
+    "column": 18,
+    "snippet": "const cutoff = format(subDays(lastDate, windowDays), 'yyyy-MM-dd')"
+   },
+   {
+    "repo": "jrmajor/jrmajor",
+    "path": "src/gen.ts",
+    "ref": "HEAD",
+    "symbol": "differenceInDays",
+    "local": "d",
+    "style": "namespace",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 47,
+    "column": 15,
+    "snippet": "const days = d.differenceInDays(now, date);"
+   },
+   {
+    "repo": "JKc66/Misbar_system",
+    "path": "types.ts",
+    "ref": "HEAD",
+    "symbol": "Locale",
+    "local": "Locale",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": true,
+    "usage": "type",
+    "line": 41,
+    "column": 15,
+    "snippet": "dateLocale: Locale;"
+   },
+   {
+    "repo": "bepyan/bepyan.me",
+    "path": "libs/mdx.ts",
+    "ref": "HEAD",
+    "symbol": "compareDesc",
+    "local": "compareDesc",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 16,
+    "column": 10,
+    "snippet": "return compareDesc(new Date(a.date), new Date(b.date));"
+   },
+   {
+    "repo": "lichess-org/pgn-mule",
+    "path": "src/poll.ts",
+    "ref": "HEAD",
+    "symbol": "differenceInSeconds",
+    "local": "differenceInSeconds",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 48,
+    "column": 31,
+    "snippet": "const secondsSinceUpdated = differenceInSeconds("
+   },
+   {
+    "repo": "dfo-no/krb-webclient",
+    "path": "src/i18n.ts",
+    "ref": "HEAD",
+    "symbol": "format",
+    "local": "formatDate",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 45,
+    "column": 18,
+    "snippet": "return formatDate(value, format, { locale });"
+   },
+   {
+    "repo": "IlusionDev/nextjs-sitemap-generator",
+    "path": "src/core.ts",
+    "ref": "HEAD",
+    "symbol": "format",
+    "local": "format",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 279,
+    "column": 18,
+    "snippet": "const date = format(new Date(), 'yyyy-MM-dd')"
+   },
+   {
+    "repo": "ahmettulutas/aesthemedturkey-landing",
+    "path": "lib/env.ts",
+    "ref": "HEAD",
+    "symbol": "format",
+    "local": "format",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 4,
+    "column": 27,
+    "snippet": "export const apiVersion = format(currentDate, 'yyyy-MM-dd') || '2023-12-30';"
+   },
+   {
+    "repo": "IshakuMN/portfolio",
+    "path": "src/comic.ts",
+    "ref": "HEAD",
+    "symbol": "formatDistanceToNow",
+    "local": "formatDistanceToNow",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 35,
+    "column": 26,
+    "snippet": "const relativeTime = formatDistanceToNow(releaseDate);"
+   },
+   {
+    "repo": "Illyism/sidejot",
+    "path": "lib/db.ts",
+    "ref": "HEAD",
+    "symbol": "startOfDay",
+    "local": "startOfDay",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 143,
+    "column": 28,
+    "snippet": "const normalizedDate = startOfDay(date)"
+   },
+   {
+    "repo": "Tomerz93/blog",
+    "path": "lib/post.ts",
+    "ref": "HEAD",
+    "symbol": "compareDesc",
+    "local": "compareDesc",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 15,
+    "column": 12,
+    "snippet": "return compareDesc(new Date(a.createdAt), new Date(b.createdAt));"
+   },
+   {
+    "repo": "hassankhanafer123/Solo-LVL",
+    "path": "lib/time.ts",
+    "ref": "HEAD",
+    "symbol": "parseISO",
+    "local": "parseISO",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 35,
+    "column": 13,
+    "snippet": "const d = parseISO(effectiveDate + 'T12:00:00Z');"
+   },
+   {
+    "repo": "hijiki51/wakatime-gcal-exporter",
+    "path": "src/gcal.ts",
+    "ref": "HEAD",
+    "symbol": "formatRFC3339",
+    "local": "formatRFC3339",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 25,
+    "column": 21,
+    "snippet": "dateTime: formatRFC3339(start)"
+   },
+   {
+    "repo": "mohammadabuhanif/StockPilot",
+    "path": "types.ts",
+    "ref": "HEAD",
+    "symbol": "format",
+    "local": "format",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 20,
+    "column": 12,
+    "snippet": "return format(date, pattern);"
+   },
+   {
+    "repo": "AlanDevOps/alanrae.cloud",
+    "path": "lib/post.ts",
+    "ref": "HEAD",
+    "symbol": "format",
+    "local": "format",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 51,
+    "column": 10,
+    "snippet": "date: format(new Date(f.date), 'PPP'),"
+   },
+   {
+    "repo": "thephilgray/mew-app",
+    "path": "src/data.ts",
+    "ref": "HEAD",
+    "symbol": "add",
+    "local": "add",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 38,
+    "column": 16,
+    "snippet": "start: add(new Date(), { weeks: -2 }),"
+   },
+   {
+    "repo": "maxmechanic/hot-one",
+    "path": "src/moon.ts",
+    "ref": "HEAD",
+    "symbol": "isAfter",
+    "local": "isAfter",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 31,
+    "column": 73,
+    "snippet": "return (!times.set || isBefore(date, times.set)) && (!times.rise || isAfter(date, times.rise));"
+   },
+   {
+    "repo": "relaycorp/awala-gateway-internet",
+    "path": "src/pki.ts",
+    "ref": "HEAD",
+    "symbol": "subHours",
+    "local": "subHours",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 57,
+    "column": 24,
+    "snippet": "validityStartDate: subHours(now, CERTIFICATE_START_OFFSET_HOURS),"
+   },
+   {
+    "repo": "swdotcom/swdc-vscode-musictime",
+    "path": "src/Util.ts",
+    "ref": "HEAD",
+    "symbol": "formatISO",
+    "local": "formatISO",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 116,
+    "column": 31,
+    "snippet": "outputChannel.appendLine(`${formatISO(new Date())} ${getLogId()}: ${message}`);"
+   },
+   {
+    "repo": "pveller/orolo",
+    "path": "src/ner.ts",
+    "ref": "HEAD",
+    "symbol": "eachDay",
+    "local": "eachDay",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 102,
+    "column": 12,
+    "snippet": "return eachDay(compute(left, today)[0], compute(right, today)[0]);"
+   },
+   {
+    "repo": "glennreyes/glennreyes.com",
+    "path": "lib/posts.ts",
+    "ref": "HEAD",
+    "symbol": "compareDesc",
+    "local": "compareDesc",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 53,
+    "column": 7,
+    "snippet": "compareDesc("
+   },
+   {
+    "repo": "rafaLino/monthly-control",
+    "path": "src/i18n.ts",
+    "ref": "HEAD",
+    "symbol": "es",
+    "local": "es",
+    "style": "named",
+    "specifier": "date-fns/locale",
+    "typeOnly": false,
+    "usage": "value",
+    "line": 9,
+    "column": 67,
+    "snippet": "const locales: Record<string, Locale> = { en: enUS, br: ptBR, es: es };"
+   },
+   {
+    "repo": "oleksandr-voronkov/monobank-balancer",
+    "path": "lib/api.ts",
+    "ref": "HEAD",
+    "symbol": "sub",
+    "local": "sub",
+    "style": "named",
+    "specifier": "date-fns",
+    "typeOnly": false,
+    "usage": "call",
+    "line": 18,
+    "column": 16,
+    "snippet": "const from = sub(new Date(), { days: 31 }).getTime();"
+   }
+  ]
+ },
+ "results": [
+  {
+   "repo": "HelgeSverre/ollama-gui",
+   "path": "src/utils.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "HelgeSverre/ollama-gui",
+     "path": "src/utils.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 6,
+     "column": 10,
+     "snippet": "return format(new Date(milliseconds), 'HH:mm:ss')"
+    }
+   ]
+  },
+  {
+   "repo": "marnusw/date-fns-tz",
+   "path": "src/index.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "FormatOptions",
+     "exported": "FormatOptions",
+     "style": "named",
+     "typeOnly": true,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "ParseISOOptions",
+     "exported": "ParseISOOptions",
+     "style": "named",
+     "typeOnly": true,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "Locale",
+     "exported": "Locale",
+     "style": "named",
+     "typeOnly": true,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "marnusw/date-fns-tz",
+     "path": "src/index.ts",
+     "ref": "HEAD",
+     "symbol": "FormatOptions",
+     "local": "FormatOptions",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": true,
+     "usage": "type",
+     "line": 3,
+     "column": 51,
+     "snippet": "export interface FormatOptionsWithTZ extends Omit<FormatOptions, 'locale'> {"
+    },
+    {
+     "repo": "marnusw/date-fns-tz",
+     "path": "src/index.ts",
+     "ref": "HEAD",
+     "symbol": "FormatOptions",
+     "local": "FormatOptions",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": true,
+     "usage": "type",
+     "line": 4,
+     "column": 12,
+     "snippet": "locale?: FormatOptions['locale'] & Pick<Locale, 'code'>"
+    },
+    {
+     "repo": "marnusw/date-fns-tz",
+     "path": "src/index.ts",
+     "ref": "HEAD",
+     "symbol": "ParseISOOptions",
+     "local": "ParseISOOptions",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": true,
+     "usage": "value",
+     "line": 9,
+     "column": 46,
+     "snippet": "export interface ToDateOptionsWithTZ extends ParseISOOptions {"
+    },
+    {
+     "repo": "marnusw/date-fns-tz",
+     "path": "src/index.ts",
+     "ref": "HEAD",
+     "symbol": "Locale",
+     "local": "Locale",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": true,
+     "usage": "type",
+     "line": 4,
+     "column": 43,
+     "snippet": "locale?: FormatOptions['locale'] & Pick<Locale, 'code'>"
+    }
+   ]
+  },
+  {
+   "repo": "gokulkrishh/expense.fyi",
+   "path": "lib/date.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addMonths",
+     "exported": "addMonths",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "addYears",
+     "exported": "addYears",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "differenceInMonths",
+     "exported": "differenceInMonths",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "differenceInYears",
+     "exported": "differenceInYears",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isAfter",
+     "exported": "isAfter",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isFuture",
+     "exported": "isFuture",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isToday",
+     "exported": "isToday",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isValid",
+     "exported": "isValid",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "subMonths",
+     "exported": "subMonths",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "subYears",
+     "exported": "subYears",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "addMonths",
+     "local": "addMonths",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 23,
+     "column": 23,
+     "snippet": "const monthlyDate = addMonths(startDate, differenceInMonths(today, startDate));"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "addMonths",
+     "local": "addMonths",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 25,
+     "column": 10,
+     "snippet": "return addMonths(monthlyDate, 1);"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "addMonths",
+     "local": "addMonths",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 78,
+     "column": 11,
+     "snippet": "return addMonths(startDate, index);"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "addYears",
+     "local": "addYears",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 28,
+     "column": 26,
+     "snippet": "const yearRenewalDate = addYears(startDate, differenceInYears(today, startDate));"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "addYears",
+     "local": "addYears",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 30,
+     "column": 9,
+     "snippet": "return addYears(yearRenewalDate, 1);"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInMonths",
+     "local": "differenceInMonths",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 23,
+     "column": 44,
+     "snippet": "const monthlyDate = addMonths(startDate, differenceInMonths(today, startDate));"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInMonths",
+     "local": "differenceInMonths",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 66,
+     "column": 24,
+     "snippet": "noOfPaidDurations = differenceInMonths(rangeEndDate, startDate) + startDateCount;"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInYears",
+     "local": "differenceInYears",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 28,
+     "column": 46,
+     "snippet": "const yearRenewalDate = addYears(startDate, differenceInYears(today, startDate));"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInYears",
+     "local": "differenceInYears",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 70,
+     "column": 24,
+     "snippet": "noOfPaidDurations = differenceInYears(rangeEndDate, startDate) + startDateCount;"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isAfter",
+     "local": "isAfter",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 60,
+     "column": 6,
+     "snippet": "if (isAfter(startDate, rangeStartDate) && isAfter(startDate, new Date(end))) {"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isAfter",
+     "local": "isAfter",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 60,
+     "column": 44,
+     "snippet": "if (isAfter(startDate, rangeStartDate) && isAfter(startDate, new Date(end))) {"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isFuture",
+     "local": "isFuture",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 18,
+     "column": 6,
+     "snippet": "if (isFuture(startDate)) {"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isFuture",
+     "local": "isFuture",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 37,
+     "column": 6,
+     "snippet": "if (isFuture(startDate)) {"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isFuture",
+     "local": "isFuture",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 65,
+     "column": 8,
+     "snippet": "if (!isFuture(startDate)) {"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isFuture",
+     "local": "isFuture",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 69,
+     "column": 8,
+     "snippet": "if (!isFuture(startDate)) {"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isToday",
+     "local": "isToday",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 24,
+     "column": 7,
+     "snippet": "if (isToday(monthlyDate) && !isToday(startDate)) return today;"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isToday",
+     "local": "isToday",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 24,
+     "column": 32,
+     "snippet": "if (isToday(monthlyDate) && !isToday(startDate)) return today;"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isToday",
+     "local": "isToday",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 29,
+     "column": 6,
+     "snippet": "if (isToday(yearRenewalDate) && !isToday(startDate)) return today;"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isToday",
+     "local": "isToday",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 29,
+     "column": 35,
+     "snippet": "if (isToday(yearRenewalDate) && !isToday(startDate)) return today;"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "isValid",
+     "local": "isValid",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 53,
+     "column": 78,
+     "snippet": "const hasValidCancelledAt = !datum.active && datum.cancelled_at !== null && isValid(new Date(datum.cancelled_at));"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "subMonths",
+     "local": "subMonths",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 42,
+     "column": 25,
+     "snippet": "previousRenewalDate = subMonths(date, 1);"
+    },
+    {
+     "repo": "gokulkrishh/expense.fyi",
+     "path": "lib/date.ts",
+     "ref": "HEAD",
+     "symbol": "subYears",
+     "local": "subYears",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 46,
+     "column": 24,
+     "snippet": "previousRenewalDate = subYears(date, 1);"
+    }
+   ]
+  },
+  {
+   "repo": "OpenSprinkler/OpenSprinkler-Weather",
+   "path": "src/cache.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "isAfter",
+     "exported": "isAfter",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "differenceInMilliseconds",
+     "exported": "differenceInMilliseconds",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "OpenSprinkler/OpenSprinkler-Weather",
+     "path": "src/cache.ts",
+     "ref": "HEAD",
+     "symbol": "isAfter",
+     "local": "isAfter",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 19,
+     "column": 25,
+     "snippet": "if (this.expiresAt && isAfter(new Date(), this.expiresAt)) {"
+    },
+    {
+     "repo": "OpenSprinkler/OpenSprinkler-Weather",
+     "path": "src/cache.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInMilliseconds",
+     "local": "differenceInMilliseconds",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 37,
+     "column": 9,
+     "snippet": "ttl: differenceInMilliseconds(this.expiresAt, new Date()),"
+    }
+   ]
+  },
+  {
+   "repo": "swdotcom/swdc-vscode-musictime",
+   "path": "src/Util.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "formatISO",
+     "exported": "formatISO",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "swdotcom/swdc-vscode-musictime",
+     "path": "src/Util.ts",
+     "ref": "HEAD",
+     "symbol": "formatISO",
+     "local": "formatISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 116,
+     "column": 31,
+     "snippet": "outputChannel.appendLine(`${formatISO(new Date())} ${getLogId()}: ${message}`);"
+    }
+   ]
+  },
+  {
+   "repo": "stefanjudis/netlify-menubar",
+   "path": "src/menus.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "distanceInWords",
+     "exported": "distanceInWords",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isWithinRange",
+     "exported": "isWithinRange",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "subMonths",
+     "exported": "subMonths",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "stefanjudis/netlify-menubar",
+     "path": "src/menus.ts",
+     "ref": "HEAD",
+     "symbol": "distanceInWords",
+     "local": "distanceInWords",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 33,
+     "column": 57,
+     "snippet": "label: `${shortenString(incident.title, 60)} (${distanceInWords("
+    },
+    {
+     "repo": "stefanjudis/netlify-menubar",
+     "path": "src/menus.ts",
+     "ref": "HEAD",
+     "symbol": "distanceInWords",
+     "local": "distanceInWords",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 74,
+     "column": 51,
+     "snippet": "label: `${context}: ${state} → ${branch} (${distanceInWords("
+    },
+    {
+     "repo": "stefanjudis/netlify-menubar",
+     "path": "src/menus.ts",
+     "ref": "HEAD",
+     "symbol": "isWithinRange",
+     "local": "isWithinRange",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 18,
+     "column": 10,
+     "snippet": "return isWithinRange(pubDate, aMonthAgo, today);"
+    },
+    {
+     "repo": "stefanjudis/netlify-menubar",
+     "path": "src/menus.ts",
+     "ref": "HEAD",
+     "symbol": "subMonths",
+     "local": "subMonths",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 17,
+     "column": 21,
+     "snippet": "const aMonthAgo = subMonths(today, 1);"
+    }
+   ]
+  },
+  {
+   "repo": "deeplay-io/abort-controller-x",
+   "path": "src/delay.ts",
+   "ref": "HEAD",
+   "imports": [],
+   "unusedImports": [],
+   "attributions": []
+  },
+  {
+   "repo": "lichess-org/pgn-mule",
+   "path": "src/poll.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "differenceInSeconds",
+     "exported": "differenceInSeconds",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "lichess-org/pgn-mule",
+     "path": "src/poll.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInSeconds",
+     "local": "differenceInSeconds",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 48,
+     "column": 31,
+     "snippet": "const secondsSinceUpdated = differenceInSeconds("
+    },
+    {
+     "repo": "lichess-org/pgn-mule",
+     "path": "src/poll.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInSeconds",
+     "local": "differenceInSeconds",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 63,
+     "column": 19,
+     "snippet": "const minutes = differenceInSeconds(new Date(), source.dateLastPolled) / 60.0;"
+    }
+   ]
+  },
+  {
+   "repo": "SchoolUtils/WebUntis",
+   "path": "src/base.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "fnsParse",
+     "exported": "parse",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "startOfDay",
+     "exported": "startOfDay",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "ParseOptions",
+     "exported": "ParseOptions",
+     "style": "named",
+     "typeOnly": true,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "SchoolUtils/WebUntis",
+     "path": "src/base.ts",
+     "ref": "HEAD",
+     "symbol": "parse",
+     "local": "fnsParse",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "value",
+     "line": 29,
+     "column": 61,
+     "snippet": "* Ensures that the dateStr is a string when calling {@link fnsParse}."
+    },
+    {
+     "repo": "SchoolUtils/WebUntis",
+     "path": "src/base.ts",
+     "ref": "HEAD",
+     "symbol": "parse",
+     "local": "fnsParse",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 43,
+     "column": 12,
+     "snippet": "return fnsParse(`${dateStr}`, formatStr, referenceDate, options);"
+    },
+    {
+     "repo": "SchoolUtils/WebUntis",
+     "path": "src/base.ts",
+     "ref": "HEAD",
+     "symbol": "startOfDay",
+     "local": "startOfDay",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 535,
+     "column": 54,
+     "snippet": "static convertUntisDate(date: string, baseDate = startOfDay(new Date())): Date {"
+    },
+    {
+     "repo": "SchoolUtils/WebUntis",
+     "path": "src/base.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 651,
+     "column": 23,
+     "snippet": "date: format(date, 'yyyy-MM-dd'),"
+    },
+    {
+     "repo": "SchoolUtils/WebUntis",
+     "path": "src/base.ts",
+     "ref": "HEAD",
+     "symbol": "ParseOptions",
+     "local": "ParseOptions",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": true,
+     "usage": "type",
+     "line": 34,
+     "column": 20,
+     "snippet": "* @param options {ParseOptions | undefined}"
+    },
+    {
+     "repo": "SchoolUtils/WebUntis",
+     "path": "src/base.ts",
+     "ref": "HEAD",
+     "symbol": "ParseOptions",
+     "local": "ParseOptions",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": true,
+     "usage": "type",
+     "line": 41,
+     "column": 15,
+     "snippet": "options?: ParseOptions,"
+    }
+   ]
+  },
+  {
+   "repo": "otherguy/elysia-logging",
+   "path": "src/log.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "otherguy/elysia-logging",
+     "path": "src/log.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 72,
+     "column": 36,
+     "snippet": "const formattedDate : string = format(zonedDate, \"dd/MMM/yyyy:HH:mm:ss xx\");"
+    }
+   ]
+  },
+  {
+   "repo": "samkhawase/school-dash-backend",
+   "path": "src/util.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "samkhawase/school-dash-backend",
+     "path": "src/util.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 10,
+     "column": 10,
+     "snippet": "return format(berlinDateTime, \"yyyy-MM-dd'T'HH:00:00\")"
+    }
+   ]
+  },
+  {
+   "repo": "FranckFreiburger/vue3-sfc-loader",
+   "path": "src/index.ts",
+   "ref": "HEAD",
+   "imports": [],
+   "unusedImports": [],
+   "attributions": []
+  },
+  {
+   "repo": "anoopt/ms-graph-create-event",
+   "path": "src/main.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addBusinessDays",
+     "exported": "addBusinessDays",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "anoopt/ms-graph-create-event",
+     "path": "src/main.ts",
+     "ref": "HEAD",
+     "symbol": "addBusinessDays",
+     "local": "addBusinessDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 21,
+     "column": 39,
+     "snippet": "let nextDay: any = format(addBusinessDays(new Date(), 1), 'yyyy-MM-dd');"
+    },
+    {
+     "repo": "anoopt/ms-graph-create-event",
+     "path": "src/main.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 21,
+     "column": 32,
+     "snippet": "let nextDay: any = format(addBusinessDays(new Date(), 1), 'yyyy-MM-dd');"
+    },
+    {
+     "repo": "anoopt/ms-graph-create-event",
+     "path": "src/main.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 28,
+     "column": 66,
+     "snippet": "let extraInfo: string = `<br/>Request submitted around ${format(new Date(), 'dd-MMM-yyyy hh:mm')}`;"
+    }
+   ]
+  },
+  {
+   "repo": "glennreyes/glennreyes.com",
+   "path": "lib/posts.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "compareDesc",
+     "exported": "compareDesc",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "glennreyes/glennreyes.com",
+     "path": "lib/posts.ts",
+     "ref": "HEAD",
+     "symbol": "compareDesc",
+     "local": "compareDesc",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 53,
+     "column": 7,
+     "snippet": "compareDesc("
+    }
+   ]
+  },
+  {
+   "repo": "nathanmfast/ynab-assistant",
+   "path": "src/app.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "differenceInMinutes",
+     "exported": "differenceInMinutes",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "nathanmfast/ynab-assistant",
+     "path": "src/app.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInMinutes",
+     "local": "differenceInMinutes",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 51,
+     "column": 49,
+     "snippet": "if (lastYnabPopulateDataDate === undefined || differenceInMinutes(new Date(), lastYnabPopulateDataDate) > 15) {"
+    }
+   ]
+  },
+  {
+   "repo": "Illyism/sidejot",
+   "path": "lib/db.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "startOfDay",
+     "exported": "startOfDay",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "Illyism/sidejot",
+     "path": "lib/db.ts",
+     "ref": "HEAD",
+     "symbol": "startOfDay",
+     "local": "startOfDay",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 125,
+     "column": 28,
+     "snippet": "const normalizedDate = startOfDay(date)"
+    },
+    {
+     "repo": "Illyism/sidejot",
+     "path": "lib/db.ts",
+     "ref": "HEAD",
+     "symbol": "startOfDay",
+     "local": "startOfDay",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 143,
+     "column": 28,
+     "snippet": "const normalizedDate = startOfDay(date)"
+    }
+   ]
+  },
+  {
+   "repo": "gregfrasco/yahoo-finance-api",
+   "path": "src/yahoo.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "gregfrasco/yahoo-finance-api",
+     "path": "src/yahoo.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 10,
+     "column": 24,
+     "snippet": "const reportDate = format(date, 'yyyy-MM-dd');"
+    },
+    {
+     "repo": "gregfrasco/yahoo-finance-api",
+     "path": "src/yahoo.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 11,
+     "column": 54,
+     "snippet": "const url = `${BASE_URL}/calendar/earnings?day=${format(date, reportDate)}`;"
+    }
+   ]
+  },
+  {
+   "repo": "bepyan/bepyan.me",
+   "path": "libs/mdx.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "compareDesc",
+     "exported": "compareDesc",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "bepyan/bepyan.me",
+     "path": "libs/mdx.ts",
+     "ref": "HEAD",
+     "symbol": "compareDesc",
+     "local": "compareDesc",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 16,
+     "column": 10,
+     "snippet": "return compareDesc(new Date(a.date), new Date(b.date));"
+    }
+   ]
+  },
+  {
+   "repo": "navikt/helsesjekk-bot",
+   "path": "seed/seed.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "setWeek",
+     "exported": "setWeek",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "navikt/helsesjekk-bot",
+     "path": "seed/seed.ts",
+     "ref": "HEAD",
+     "symbol": "setWeek",
+     "local": "setWeek",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 78,
+     "column": 24,
+     "snippet": "timestamp: setWeek(new Date(2023, 0, 1, 13, 37), week + 1),"
+    }
+   ]
+  },
+  {
+   "repo": "maxmechanic/hot-one",
+   "path": "src/moon.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "isAfter",
+     "exported": "isAfter",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isBefore",
+     "exported": "isBefore",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "maxmechanic/hot-one",
+     "path": "src/moon.ts",
+     "ref": "HEAD",
+     "symbol": "isAfter",
+     "local": "isAfter",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 17,
+     "column": 7,
+     "snippet": "if (isAfter(times.rise, times.set)) {"
+    },
+    {
+     "repo": "maxmechanic/hot-one",
+     "path": "src/moon.ts",
+     "ref": "HEAD",
+     "symbol": "isAfter",
+     "local": "isAfter",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 22,
+     "column": 16,
+     "snippet": "} else if (isAfter(date, times.rise) && isAfter(date, times.set)) {"
+    },
+    {
+     "repo": "maxmechanic/hot-one",
+     "path": "src/moon.ts",
+     "ref": "HEAD",
+     "symbol": "isAfter",
+     "local": "isAfter",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 22,
+     "column": 45,
+     "snippet": "} else if (isAfter(date, times.rise) && isAfter(date, times.set)) {"
+    },
+    {
+     "repo": "maxmechanic/hot-one",
+     "path": "src/moon.ts",
+     "ref": "HEAD",
+     "symbol": "isAfter",
+     "local": "isAfter",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 31,
+     "column": 73,
+     "snippet": "return (!times.set || isBefore(date, times.set)) && (!times.rise || isAfter(date, times.rise));"
+    },
+    {
+     "repo": "maxmechanic/hot-one",
+     "path": "src/moon.ts",
+     "ref": "HEAD",
+     "symbol": "isBefore",
+     "local": "isBefore",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 20,
+     "column": 9,
+     "snippet": "if (isBefore(date, times.rise) && isBefore(date, times.set)) {"
+    },
+    {
+     "repo": "maxmechanic/hot-one",
+     "path": "src/moon.ts",
+     "ref": "HEAD",
+     "symbol": "isBefore",
+     "local": "isBefore",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 20,
+     "column": 39,
+     "snippet": "if (isBefore(date, times.rise) && isBefore(date, times.set)) {"
+    },
+    {
+     "repo": "maxmechanic/hot-one",
+     "path": "src/moon.ts",
+     "ref": "HEAD",
+     "symbol": "isBefore",
+     "local": "isBefore",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 31,
+     "column": 27,
+     "snippet": "return (!times.set || isBefore(date, times.set)) && (!times.rise || isAfter(date, times.rise));"
+    }
+   ]
+  },
+  {
+   "repo": "farmer00317558/podpodium.app",
+   "path": "util/time.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "formatRelative",
+     "exported": "formatRelative",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "zhCN",
+     "exported": "zhCN",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns/locale"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "farmer00317558/podpodium.app",
+     "path": "util/time.ts",
+     "ref": "HEAD",
+     "symbol": "formatRelative",
+     "local": "formatRelative",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 5,
+     "column": 10,
+     "snippet": "return formatRelative(timestamp, new Date(), { locale: zhCN });"
+    },
+    {
+     "repo": "farmer00317558/podpodium.app",
+     "path": "util/time.ts",
+     "ref": "HEAD",
+     "symbol": "zhCN",
+     "local": "zhCN",
+     "style": "named",
+     "specifier": "date-fns/locale",
+     "typeOnly": false,
+     "usage": "value",
+     "line": 5,
+     "column": 58,
+     "snippet": "return formatRelative(timestamp, new Date(), { locale: zhCN });"
+    }
+   ]
+  },
+  {
+   "repo": "pveller/orolo",
+   "path": "src/ner.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "eachDay",
+     "exported": "eachDay",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "pveller/orolo",
+     "path": "src/ner.ts",
+     "ref": "HEAD",
+     "symbol": "eachDay",
+     "local": "eachDay",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 102,
+     "column": 12,
+     "snippet": "return eachDay(compute(left, today)[0], compute(right, today)[0]);"
+    }
+   ]
+  },
+  {
+   "repo": "grod220/coinmarketcap-portfolio-scraper",
+   "path": "src/csv.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "grod220/coinmarketcap-portfolio-scraper",
+     "path": "src/csv.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 29,
+     "column": 9,
+     "snippet": "format(entry.date, 'MMM-d-y h:mm a'),"
+    },
+    {
+     "repo": "grod220/coinmarketcap-portfolio-scraper",
+     "path": "src/csv.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 40,
+     "column": 9,
+     "snippet": "format(entry.date, 'MMM-d-y h:mm a'),"
+    }
+   ]
+  },
+  {
+   "repo": "IlusionDev/nextjs-sitemap-generator",
+   "path": "src/core.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "IlusionDev/nextjs-sitemap-generator",
+     "path": "src/core.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 279,
+     "column": 18,
+     "snippet": "const date = format(new Date(), 'yyyy-MM-dd')"
+    }
+   ]
+  },
+  {
+   "repo": "geoyws/scratchpad",
+   "path": "2025/2.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "add",
+     "exported": "add",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "addMonths",
+     "exported": "addMonths",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "enGB",
+     "exported": "enGB",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns/locale"
+    }
+   ],
+   "unusedImports": [
+    {
+     "local": "add",
+     "exported": "add",
+     "style": "named"
+    },
+    {
+     "local": "addMonths",
+     "exported": "addMonths",
+     "style": "named"
+    },
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named"
+    },
+    {
+     "local": "enGB",
+     "exported": "enGB",
+     "style": "named"
+    }
+   ],
+   "attributions": []
+  },
+  {
+   "repo": "rafaLino/monthly-control",
+   "path": "src/i18n.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "Locale",
+     "exported": "Locale",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "enUS",
+     "exported": "enUS",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns/locale"
+    },
+    {
+     "local": "es",
+     "exported": "es",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns/locale"
+    },
+    {
+     "local": "ptBR",
+     "exported": "ptBR",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns/locale"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "rafaLino/monthly-control",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "Locale",
+     "local": "Locale",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "type",
+     "line": 9,
+     "column": 31,
+     "snippet": "const locales: Record<string, Locale> = { en: enUS, br: ptBR, es: es };"
+    },
+    {
+     "repo": "rafaLino/monthly-control",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 42,
+     "column": 10,
+     "snippet": "return format(value, context?.format ?? 'MMMM y', { locale: locales[lng ?? 'en'] });"
+    },
+    {
+     "repo": "rafaLino/monthly-control",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "enUS",
+     "local": "enUS",
+     "style": "named",
+     "specifier": "date-fns/locale",
+     "typeOnly": false,
+     "usage": "value",
+     "line": 9,
+     "column": 47,
+     "snippet": "const locales: Record<string, Locale> = { en: enUS, br: ptBR, es: es };"
+    },
+    {
+     "repo": "rafaLino/monthly-control",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "es",
+     "local": "es",
+     "style": "named",
+     "specifier": "date-fns/locale",
+     "typeOnly": false,
+     "usage": "value",
+     "line": 9,
+     "column": 67,
+     "snippet": "const locales: Record<string, Locale> = { en: enUS, br: ptBR, es: es };"
+    },
+    {
+     "repo": "rafaLino/monthly-control",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "ptBR",
+     "local": "ptBR",
+     "style": "named",
+     "specifier": "date-fns/locale",
+     "typeOnly": false,
+     "usage": "value",
+     "line": 9,
+     "column": 57,
+     "snippet": "const locales: Record<string, Locale> = { en: enUS, br: ptBR, es: es };"
+    }
+   ]
+  },
+  {
+   "repo": "hijiki51/wakatime-gcal-exporter",
+   "path": "src/gcal.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "formatRFC3339",
+     "exported": "formatRFC3339",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "hijiki51/wakatime-gcal-exporter",
+     "path": "src/gcal.ts",
+     "ref": "HEAD",
+     "symbol": "formatRFC3339",
+     "local": "formatRFC3339",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 25,
+     "column": 21,
+     "snippet": "dateTime: formatRFC3339(start)"
+    },
+    {
+     "repo": "hijiki51/wakatime-gcal-exporter",
+     "path": "src/gcal.ts",
+     "ref": "HEAD",
+     "symbol": "formatRFC3339",
+     "local": "formatRFC3339",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 28,
+     "column": 21,
+     "snippet": "dateTime: formatRFC3339(end)"
+    }
+   ]
+  },
+  {
+   "repo": "blb-ventures/web-utils",
+   "path": "src/time.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "intervalToDuration",
+     "exported": "intervalToDuration",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "blb-ventures/web-utils",
+     "path": "src/time.ts",
+     "ref": "HEAD",
+     "symbol": "intervalToDuration",
+     "local": "intervalToDuration",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 7,
+     "column": 20,
+     "snippet": "const duration = intervalToDuration({ start: 0, end: msLeft });"
+    }
+   ]
+  },
+  {
+   "repo": "darcros/alessandrini-circolari-bot",
+   "path": "src/news.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "parse",
+     "exported": "parse",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "darcros/alessandrini-circolari-bot",
+     "path": "src/news.ts",
+     "ref": "HEAD",
+     "symbol": "parse",
+     "local": "parse",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 51,
+     "column": 16,
+     "snippet": "const date = parse(dateString, 'dd/MM/yyyy', new Date(0));"
+    }
+   ]
+  },
+  {
+   "repo": "jaydp17/js-conf-calendar",
+   "path": "src/card.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "jaydp17/js-conf-calendar",
+     "path": "src/card.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 18,
+     "column": 10,
+     "snippet": "return format(date, 'Do MMMM YYYY');"
+    }
+   ]
+  },
+  {
+   "repo": "hassankhanafer123/Solo-LVL",
+   "path": "lib/time.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "subDays",
+     "exported": "subDays",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "parseISO",
+     "exported": "parseISO",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "hassankhanafer123/Solo-LVL",
+     "path": "lib/time.ts",
+     "ref": "HEAD",
+     "symbol": "subDays",
+     "local": "subDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 18,
+     "column": 27,
+     "snippet": "return formatInTimeZone(subDays(d, 1), 'UTC', 'yyyy-MM-dd');"
+    },
+    {
+     "repo": "hassankhanafer123/Solo-LVL",
+     "path": "lib/time.ts",
+     "ref": "HEAD",
+     "symbol": "subDays",
+     "local": "subDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 38,
+     "column": 27,
+     "snippet": "return formatInTimeZone(subDays(d, daysSinceMonday), 'UTC', 'yyyy-MM-dd');"
+    },
+    {
+     "repo": "hassankhanafer123/Solo-LVL",
+     "path": "lib/time.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 17,
+     "column": 13,
+     "snippet": "const d = parseISO(isoDate + 'T12:00:00Z'); // noon to avoid DST edge"
+    },
+    {
+     "repo": "hassankhanafer123/Solo-LVL",
+     "path": "lib/time.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 35,
+     "column": 13,
+     "snippet": "const d = parseISO(effectiveDate + 'T12:00:00Z');"
+    },
+    {
+     "repo": "hassankhanafer123/Solo-LVL",
+     "path": "lib/time.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 43,
+     "column": 17,
+     "snippet": "const start = parseISO(weekStartISO + 'T12:00:00Z');"
+    }
+   ]
+  },
+  {
+   "repo": "instant-api/sport-session-tracker",
+   "path": "src/Utils.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "parseISO",
+     "exported": "parseISO",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isValid",
+     "exported": "isValid",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isPast",
+     "exported": "isPast",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "instant-api/sport-session-tracker",
+     "path": "src/Utils.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 21,
+     "column": 18,
+     "snippet": "const parsed = parseISO(val);"
+    },
+    {
+     "repo": "instant-api/sport-session-tracker",
+     "path": "src/Utils.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 26,
+     "column": 18,
+     "snippet": "const parsed = parseISO(val);"
+    },
+    {
+     "repo": "instant-api/sport-session-tracker",
+     "path": "src/Utils.ts",
+     "ref": "HEAD",
+     "symbol": "isValid",
+     "local": "isValid",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 22,
+     "column": 10,
+     "snippet": "return isValid(parsed);"
+    },
+    {
+     "repo": "instant-api/sport-session-tracker",
+     "path": "src/Utils.ts",
+     "ref": "HEAD",
+     "symbol": "isPast",
+     "local": "isPast",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 27,
+     "column": 10,
+     "snippet": "return isPast(parsed);"
+    }
+   ]
+  },
+  {
+   "repo": "brianbuie/node-kit",
+   "path": "src/Cache.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "Duration",
+     "exported": "Duration",
+     "style": "named",
+     "typeOnly": true,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isAfter",
+     "exported": "isAfter",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "add",
+     "exported": "add",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "brianbuie/node-kit",
+     "path": "src/Cache.ts",
+     "ref": "HEAD",
+     "symbol": "Duration",
+     "local": "Duration",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": true,
+     "usage": "type",
+     "line": 13,
+     "column": 42,
+     "snippet": "constructor(key: string, ttl: number | Duration, initialData?: T) {"
+    },
+    {
+     "repo": "brianbuie/node-kit",
+     "path": "src/Cache.ts",
+     "ref": "HEAD",
+     "symbol": "isAfter",
+     "local": "isAfter",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 26,
+     "column": 40,
+     "snippet": "const isFresh = Boolean(savedAt && isAfter(add(savedAt, this.ttl), new Date()));"
+    },
+    {
+     "repo": "brianbuie/node-kit",
+     "path": "src/Cache.ts",
+     "ref": "HEAD",
+     "symbol": "add",
+     "local": "add",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 26,
+     "column": 48,
+     "snippet": "const isFresh = Boolean(savedAt && isAfter(add(savedAt, this.ttl), new Date()));"
+    }
+   ]
+  },
+  {
+   "repo": "relaycorp/awala-gateway-internet",
+   "path": "src/pki.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addDays",
+     "exported": "addDays",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "subHours",
+     "exported": "subHours",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "relaycorp/awala-gateway-internet",
+     "path": "src/pki.ts",
+     "ref": "HEAD",
+     "symbol": "addDays",
+     "local": "addDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 46,
+     "column": 25,
+     "snippet": "const minExpiryDate = addDays(now, MIN_CERTIFICATE_TTL_DAYS);"
+    },
+    {
+     "repo": "relaycorp/awala-gateway-internet",
+     "path": "src/pki.ts",
+     "ref": "HEAD",
+     "symbol": "addDays",
+     "local": "addDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 56,
+     "column": 22,
+     "snippet": "validityEndDate: addDays(now, CERTIFICATE_TTL_DAYS),"
+    },
+    {
+     "repo": "relaycorp/awala-gateway-internet",
+     "path": "src/pki.ts",
+     "ref": "HEAD",
+     "symbol": "addDays",
+     "local": "addDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 74,
+     "column": 22,
+     "snippet": "validityEndDate: addDays(now, PRIVATE_GATEWAY_CERTIFICATE_VALIDITY_DAYS),"
+    },
+    {
+     "repo": "relaycorp/awala-gateway-internet",
+     "path": "src/pki.ts",
+     "ref": "HEAD",
+     "symbol": "subHours",
+     "local": "subHours",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 57,
+     "column": 24,
+     "snippet": "validityStartDate: subHours(now, CERTIFICATE_START_OFFSET_HOURS),"
+    },
+    {
+     "repo": "relaycorp/awala-gateway-internet",
+     "path": "src/pki.ts",
+     "ref": "HEAD",
+     "symbol": "subHours",
+     "local": "subHours",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 75,
+     "column": 24,
+     "snippet": "validityStartDate: subHours(now, CERTIFICATE_START_OFFSET_HOURS),"
+    }
+   ]
+  },
+  {
+   "repo": "devbean/obsidian-wordpress",
+   "path": "src/utils.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "devbean/obsidian-wordpress",
+     "path": "src/utils.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 95,
+     "column": 33,
+     "snippet": "return `----obsidianBoundary${format(new Date(), 'yyyyMMddHHmmss')}`;"
+    }
+   ]
+  },
+  {
+   "repo": "thephilgray/mew-app",
+   "path": "src/data.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "add",
+     "exported": "add",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "thephilgray/mew-app",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "add",
+     "local": "add",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 11,
+     "column": 20,
+     "snippet": "submitted: add(new Date(), { days: -2 }),"
+    },
+    {
+     "repo": "thephilgray/mew-app",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "add",
+     "local": "add",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 38,
+     "column": 16,
+     "snippet": "start: add(new Date(), { weeks: -2 }),"
+    },
+    {
+     "repo": "thephilgray/mew-app",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "add",
+     "local": "add",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 39,
+     "column": 14,
+     "snippet": "due: add(new Date(), { weeks: -1 }),"
+    },
+    {
+     "repo": "thephilgray/mew-app",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "add",
+     "local": "add",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 47,
+     "column": 16,
+     "snippet": "start: add(new Date(), { weeks: -1 }),"
+    },
+    {
+     "repo": "thephilgray/mew-app",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "add",
+     "local": "add",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 57,
+     "column": 14,
+     "snippet": "due: add(new Date(), { weeks: 1 }),"
+    },
+    {
+     "repo": "thephilgray/mew-app",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "add",
+     "local": "add",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 82,
+     "column": 16,
+     "snippet": "start: add(new Date(), { weeks: -4 }),"
+    },
+    {
+     "repo": "thephilgray/mew-app",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "add",
+     "local": "add",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 103,
+     "column": 16,
+     "snippet": "start: add(new Date(), { weeks: -4 }),"
+    }
+   ]
+  },
+  {
+   "repo": "AvivRubys/bluesky-hebrew-feed",
+   "path": "src/algos.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addYears",
+     "exported": "addYears",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "AvivRubys/bluesky-hebrew-feed",
+     "path": "src/algos.ts",
+     "ref": "HEAD",
+     "symbol": "addYears",
+     "local": "addYears",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 123,
+     "column": 24,
+     "snippet": "const oneYearAgo = addYears(new Date(), -1);"
+    }
+   ]
+  },
+  {
+   "repo": "AlanDevOps/alanrae.cloud",
+   "path": "lib/post.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "AlanDevOps/alanrae.cloud",
+     "path": "lib/post.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 51,
+     "column": 10,
+     "snippet": "date: format(new Date(f.date), 'PPP'),"
+    },
+    {
+     "repo": "AlanDevOps/alanrae.cloud",
+     "path": "lib/post.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 77,
+     "column": 10,
+     "snippet": "date: format(new Date(frontmatter.date), 'PPP'),"
+    }
+   ]
+  },
+  {
+   "repo": "fehde-k/zenn-public",
+   "path": "slug.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "fehde-k/zenn-public",
+     "path": "slug.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 5,
+     "column": 25,
+     "snippet": "const slug: string = `${format(new Date(), 'yyyyMMddHHmmss')}-${randomBytes(7).toString('hex')}`;"
+    }
+   ]
+  },
+  {
+   "repo": "rexx/Cozy-Pocket",
+   "path": "time.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "rexx/Cozy-Pocket",
+     "path": "time.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 13,
+     "column": 3,
+     "snippet": "format(new Date(toEpochMillis(epochValue)), 'yyyy-MM-dd HH:mm');"
+    }
+   ]
+  },
+  {
+   "repo": "mohammadabuhanif/StockPilot",
+   "path": "types.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "mohammadabuhanif/StockPilot",
+     "path": "types.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 20,
+     "column": 12,
+     "snippet": "return format(date, pattern);"
+    },
+    {
+     "repo": "mohammadabuhanif/StockPilot",
+     "path": "types.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 37,
+     "column": 12,
+     "snippet": "return format(date, pattern);"
+    }
+   ]
+  },
+  {
+   "repo": "JKc66/Misbar_system",
+   "path": "types.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "Locale",
+     "exported": "Locale",
+     "style": "named",
+     "typeOnly": true,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "JKc66/Misbar_system",
+     "path": "types.ts",
+     "ref": "HEAD",
+     "symbol": "Locale",
+     "local": "Locale",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": true,
+     "usage": "type",
+     "line": 41,
+     "column": 15,
+     "snippet": "dateLocale: Locale;"
+    }
+   ]
+  },
+  {
+   "repo": "dragan717080/Kitsu",
+   "path": "Utils.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "formatDistanceToNow",
+     "exported": "formatDistanceToNow",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "parseISO",
+     "exported": "parseISO",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "dragan717080/Kitsu",
+     "path": "Utils.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 18,
+     "column": 12,
+     "snippet": "return format(date, 'MMMM d, yyyy');"
+    },
+    {
+     "repo": "dragan717080/Kitsu",
+     "path": "Utils.ts",
+     "ref": "HEAD",
+     "symbol": "formatDistanceToNow",
+     "local": "formatDistanceToNow",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 38,
+     "column": 12,
+     "snippet": "return formatDistanceToNow(date, { addSuffix: true });"
+    },
+    {
+     "repo": "dragan717080/Kitsu",
+     "path": "Utils.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 17,
+     "column": 18,
+     "snippet": "const date = parseISO(datetimeString);"
+    },
+    {
+     "repo": "dragan717080/Kitsu",
+     "path": "Utils.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 37,
+     "column": 18,
+     "snippet": "const date = parseISO(datetimeString);"
+    }
+   ]
+  },
+  {
+   "repo": "spithacode/ai-commit-report-generator-cli",
+   "path": "prompts.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "subDays",
+     "exported": "subDays",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "subWeeks",
+     "exported": "subWeeks",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "spithacode/ai-commit-report-generator-cli",
+     "path": "prompts.ts",
+     "ref": "HEAD",
+     "symbol": "subDays",
+     "local": "subDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 30,
+     "column": 72,
+     "snippet": "const startDate = timeUnit === 'weeks' ? subWeeks(today, amount) : subDays(today, amount);"
+    },
+    {
+     "repo": "spithacode/ai-commit-report-generator-cli",
+     "path": "prompts.ts",
+     "ref": "HEAD",
+     "symbol": "subWeeks",
+     "local": "subWeeks",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 30,
+     "column": 46,
+     "snippet": "const startDate = timeUnit === 'weeks' ? subWeeks(today, amount) : subDays(today, amount);"
+    }
+   ]
+  },
+  {
+   "repo": "uetchy/miobot",
+   "path": "src/job.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "startOfToday",
+     "exported": "startOfToday",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "uetchy/miobot",
+     "path": "src/job.ts",
+     "ref": "HEAD",
+     "symbol": "startOfToday",
+     "local": "startOfToday",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 63,
+     "column": 15,
+     "snippet": "const sot = startOfToday()"
+    }
+   ]
+  },
+  {
+   "repo": "jrmajor/jrmajor",
+   "path": "src/gen.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "d",
+     "exported": null,
+     "style": "namespace",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "jrmajor/jrmajor",
+     "path": "src/gen.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInYears",
+     "local": "d",
+     "style": "namespace",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 41,
+     "column": 16,
+     "snippet": "const years = d.differenceInYears(now, date);"
+    },
+    {
+     "repo": "jrmajor/jrmajor",
+     "path": "src/gen.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInMonths",
+     "local": "d",
+     "style": "namespace",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 44,
+     "column": 17,
+     "snippet": "const months = d.differenceInMonths(now, date);"
+    },
+    {
+     "repo": "jrmajor/jrmajor",
+     "path": "src/gen.ts",
+     "ref": "HEAD",
+     "symbol": "differenceInDays",
+     "local": "d",
+     "style": "namespace",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 47,
+     "column": 15,
+     "snippet": "const days = d.differenceInDays(now, date);"
+    }
+   ]
+  },
+  {
+   "repo": "oleksandr-voronkov/monobank-balancer",
+   "path": "lib/api.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "sub",
+     "exported": "sub",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "oleksandr-voronkov/monobank-balancer",
+     "path": "lib/api.ts",
+     "ref": "HEAD",
+     "symbol": "sub",
+     "local": "sub",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 18,
+     "column": 16,
+     "snippet": "const from = sub(new Date(), { days: 31 }).getTime();"
+    }
+   ]
+  },
+  {
+   "repo": "Panos68/pantrainer",
+   "path": "lib/pmc.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "subDays",
+     "exported": "subDays",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "eachDayOfInterval",
+     "exported": "eachDayOfInterval",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "parseISO",
+     "exported": "parseISO",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "Panos68/pantrainer",
+     "path": "lib/pmc.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 35,
+     "column": 18,
+     "snippet": "const cutoff = format(subDays(lastDate, windowDays), 'yyyy-MM-dd')"
+    },
+    {
+     "repo": "Panos68/pantrainer",
+     "path": "lib/pmc.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 38,
+     "column": 49,
+     "snippet": "const loads = days.map((day) => dailyLoad.get(format(day, 'yyyy-MM-dd')) ?? 0)"
+    },
+    {
+     "repo": "Panos68/pantrainer",
+     "path": "lib/pmc.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 41,
+     "column": 21,
+     "snippet": "const dateStr = format(days[i], 'yyyy-MM-dd')"
+    },
+    {
+     "repo": "Panos68/pantrainer",
+     "path": "lib/pmc.ts",
+     "ref": "HEAD",
+     "symbol": "subDays",
+     "local": "subDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 35,
+     "column": 25,
+     "snippet": "const cutoff = format(subDays(lastDate, windowDays), 'yyyy-MM-dd')"
+    },
+    {
+     "repo": "Panos68/pantrainer",
+     "path": "lib/pmc.ts",
+     "ref": "HEAD",
+     "symbol": "eachDayOfInterval",
+     "local": "eachDayOfInterval",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 30,
+     "column": 16,
+     "snippet": "const days = eachDayOfInterval({ start: firstDate, end: lastDate })"
+    },
+    {
+     "repo": "Panos68/pantrainer",
+     "path": "lib/pmc.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 27,
+     "column": 21,
+     "snippet": "const firstDate = parseISO(sorted[0].date)"
+    }
+   ]
+  },
+  {
+   "repo": "ahmettulutas/aesthemedturkey-landing",
+   "path": "lib/env.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "ahmettulutas/aesthemedturkey-landing",
+     "path": "lib/env.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 4,
+     "column": 27,
+     "snippet": "export const apiVersion = format(currentDate, 'yyyy-MM-dd') || '2023-12-30';"
+    }
+   ]
+  },
+  {
+   "repo": "dfo-no/krb-webclient",
+   "path": "src/i18n.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "formatDate",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "formatDistance",
+     "exported": "formatDistance",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "formatRelative",
+     "exported": "formatRelative",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "isDate",
+     "exported": "isDate",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "en",
+     "exported": "enUS",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns/locale"
+    },
+    {
+     "local": "nb",
+     "exported": "nb",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns/locale"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "dfo-no/krb-webclient",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "formatDate",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 45,
+     "column": 18,
+     "snippet": "return formatDate(value, format, { locale });"
+    },
+    {
+     "repo": "dfo-no/krb-webclient",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "formatDistance",
+     "local": "formatDistance",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 41,
+     "column": 20,
+     "snippet": "return formatDistance(value, new Date(), {"
+    },
+    {
+     "repo": "dfo-no/krb-webclient",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "formatRelative",
+     "local": "formatRelative",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 39,
+     "column": 20,
+     "snippet": "return formatRelative(value, new Date(), { locale });"
+    },
+    {
+     "repo": "dfo-no/krb-webclient",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "isDate",
+     "local": "isDate",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 36,
+     "column": 13,
+     "snippet": "if (isDate(value)) {"
+    },
+    {
+     "repo": "dfo-no/krb-webclient",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "enUS",
+     "local": "en",
+     "style": "named",
+     "specifier": "date-fns/locale",
+     "typeOnly": false,
+     "usage": "value",
+     "line": 13,
+     "column": 52,
+     "snippet": "const locales: { [index: string]: Locale } = { nb, en };"
+    },
+    {
+     "repo": "dfo-no/krb-webclient",
+     "path": "src/i18n.ts",
+     "ref": "HEAD",
+     "symbol": "nb",
+     "local": "nb",
+     "style": "named",
+     "specifier": "date-fns/locale",
+     "typeOnly": false,
+     "usage": "value",
+     "line": 13,
+     "column": 48,
+     "snippet": "const locales: { [index: string]: Locale } = { nb, en };"
+    }
+   ]
+  },
+  {
+   "repo": "sonngdev/personal-website-23",
+   "path": "lib/time.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "formatDistanceToNowStrict",
+     "exported": "formatDistanceToNowStrict",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "sonngdev/personal-website-23",
+     "path": "lib/time.ts",
+     "ref": "HEAD",
+     "symbol": "formatDistanceToNowStrict",
+     "local": "formatDistanceToNowStrict",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 4,
+     "column": 10,
+     "snippet": "return formatDistanceToNowStrict(dateTime, {"
+    },
+    {
+     "repo": "sonngdev/personal-website-23",
+     "path": "lib/time.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 10,
+     "column": 10,
+     "snippet": "return format(dateTime, 'MMMM do, yyyy');"
+    }
+   ]
+  },
+  {
+   "repo": "ryanmichaelhirst/modelers-rift-nextjs",
+   "path": "lib/auth.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addDays",
+     "exported": "addDays",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "addMinutes",
+     "exported": "addMinutes",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "formatRFC7231",
+     "exported": "formatRFC7231",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "ryanmichaelhirst/modelers-rift-nextjs",
+     "path": "lib/auth.ts",
+     "ref": "HEAD",
+     "symbol": "addDays",
+     "local": "addDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 49,
+     "column": 21,
+     "snippet": "const expiredAt = addDays(new Date(), 7)"
+    },
+    {
+     "repo": "ryanmichaelhirst/modelers-rift-nextjs",
+     "path": "lib/auth.ts",
+     "ref": "HEAD",
+     "symbol": "addMinutes",
+     "local": "addMinutes",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 8,
+     "column": 21,
+     "snippet": "const expiredAt = addMinutes(new Date(), 1)"
+    },
+    {
+     "repo": "ryanmichaelhirst/modelers-rift-nextjs",
+     "path": "lib/auth.ts",
+     "ref": "HEAD",
+     "symbol": "formatRFC7231",
+     "local": "formatRFC7231",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 9,
+     "column": 19,
+     "snippet": "const rfcDate = formatRFC7231(expiredAt)"
+    },
+    {
+     "repo": "ryanmichaelhirst/modelers-rift-nextjs",
+     "path": "lib/auth.ts",
+     "ref": "HEAD",
+     "symbol": "formatRFC7231",
+     "local": "formatRFC7231",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 30,
+     "column": 19,
+     "snippet": "const rfcDate = formatRFC7231(new Date(1999))"
+    },
+    {
+     "repo": "ryanmichaelhirst/modelers-rift-nextjs",
+     "path": "lib/auth.ts",
+     "ref": "HEAD",
+     "symbol": "formatRFC7231",
+     "local": "formatRFC7231",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 50,
+     "column": 19,
+     "snippet": "const rfcDate = formatRFC7231(expiredAt)"
+    }
+   ]
+  },
+  {
+   "repo": "Jonatas-Felipe/bolao-copa-2026",
+   "path": "src/data.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addDays",
+     "exported": "addDays",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "subDays",
+     "exported": "subDays",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "addHours",
+     "exported": "addHours",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "Jonatas-Felipe/bolao-copa-2026",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "addDays",
+     "local": "addDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 41,
+     "column": 11,
+     "snippet": "date: addDays(now, 1),"
+    },
+    {
+     "repo": "Jonatas-Felipe/bolao-copa-2026",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "subDays",
+     "local": "subDays",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 55,
+     "column": 11,
+     "snippet": "date: subDays(now, 1),"
+    },
+    {
+     "repo": "Jonatas-Felipe/bolao-copa-2026",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "addHours",
+     "local": "addHours",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 13,
+     "column": 11,
+     "snippet": "date: addHours(now, 0.25),"
+    },
+    {
+     "repo": "Jonatas-Felipe/bolao-copa-2026",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "addHours",
+     "local": "addHours",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 27,
+     "column": 11,
+     "snippet": "date: addHours(now, 4),"
+    }
+   ]
+  },
+  {
+   "repo": "SLYAER/Attendance-portal",
+   "path": "check_db.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "SLYAER/Attendance-portal",
+     "path": "check_db.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 20,
+     "column": 20,
+     "snippet": "const todayStr = format(new Date(), 'yyyy-MM-dd');"
+    }
+   ]
+  },
+  {
+   "repo": "Tomerz93/blog",
+   "path": "lib/post.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "compareDesc",
+     "exported": "compareDesc",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "Tomerz93/blog",
+     "path": "lib/post.ts",
+     "ref": "HEAD",
+     "symbol": "compareDesc",
+     "local": "compareDesc",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 15,
+     "column": 12,
+     "snippet": "return compareDesc(new Date(a.createdAt), new Date(b.createdAt));"
+    }
+   ]
+  },
+  {
+   "repo": "davidngvyen/personal",
+   "path": "main/csv.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addMinutes",
+     "exported": "addMinutes",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "formatISO",
+     "exported": "formatISO",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "parseISO",
+     "exported": "parseISO",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [
+    {
+     "local": "addMinutes",
+     "exported": "addMinutes",
+     "style": "named"
+    }
+   ],
+   "attributions": [
+    {
+     "repo": "davidngvyen/personal",
+     "path": "main/csv.ts",
+     "ref": "HEAD",
+     "symbol": "formatISO",
+     "local": "formatISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 27,
+     "column": 20,
+     "snippet": "due_date_time: formatISO(dueDate),"
+    },
+    {
+     "repo": "davidngvyen/personal",
+     "path": "main/csv.ts",
+     "ref": "HEAD",
+     "symbol": "parseISO",
+     "local": "parseISO",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 19,
+     "column": 28,
+     "snippet": "const dueDate = dueStr ? parseISO(dueStr) : new Date();"
+    }
+   ]
+  },
+  {
+   "repo": "adambrgmn/runner",
+   "path": "lib/goal.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addYears",
+     "exported": "addYears",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "adambrgmn/runner",
+     "path": "lib/goal.ts",
+     "ref": "HEAD",
+     "symbol": "addYears",
+     "local": "addYears",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 23,
+     "column": 14,
+     "snippet": "expires: addYears(new Date(), 1),"
+    }
+   ]
+  },
+  {
+   "repo": "stephy/beatmyweight",
+   "path": "src/data.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "addWeeks",
+     "exported": "addWeeks",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    },
+    {
+     "local": "format",
+     "exported": "format",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "stephy/beatmyweight",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "addWeeks",
+     "local": "addWeeks",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 52,
+     "column": 19,
+     "snippet": "currentDate = addWeeks(currentDate, 1);"
+    },
+    {
+     "repo": "stephy/beatmyweight",
+     "path": "src/data.ts",
+     "ref": "HEAD",
+     "symbol": "format",
+     "local": "format",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 50,
+     "column": 13,
+     "snippet": "date: format(currentDate, 'yyyy-MM-dd')"
+    }
+   ]
+  },
+  {
+   "repo": "fx-ha/tac",
+   "path": "lib/dates.ts",
+   "ref": "HEAD",
+   "imports": [],
+   "unusedImports": [],
+   "attributions": []
+  },
+  {
+   "repo": "IshakuMN/portfolio",
+   "path": "src/comic.ts",
+   "ref": "HEAD",
+   "imports": [
+    {
+     "local": "formatDistanceToNow",
+     "exported": "formatDistanceToNow",
+     "style": "named",
+     "typeOnly": false,
+     "specifier": "date-fns"
+    }
+   ],
+   "unusedImports": [],
+   "attributions": [
+    {
+     "repo": "IshakuMN/portfolio",
+     "path": "src/comic.ts",
+     "ref": "HEAD",
+     "symbol": "formatDistanceToNow",
+     "local": "formatDistanceToNow",
+     "style": "named",
+     "specifier": "date-fns",
+     "typeOnly": false,
+     "usage": "call",
+     "line": 35,
+     "column": 26,
+     "snippet": "const relativeTime = formatDistanceToNow(releaseDate);"
+    }
+   ]
+  }
+ ]
+}
