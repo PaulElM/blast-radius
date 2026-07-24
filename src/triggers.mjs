@@ -15,7 +15,7 @@
 //
 //  - STALE TAGS. `@sentry/react` publishes a `next` tag at 10.50.0-alpha.0 while
 //    `latest` is 10.68.0. That tag is abandoned, not upcoming. A naive "has a
-//    prerelease tag" check calls it a prospect; comparing majors AND requiring
+//    prerelease tag" check calls it a candidate; comparing majors AND requiring
 //    the prerelease to be newer than `latest` rejects it.
 //  - LONG-DEAD BETAS. A `5.0.0-beta` that last moved two years ago is not a
 //    release event. Recency of the prerelease publish is reported so a stale one
@@ -104,11 +104,11 @@ export async function detectTrigger(pkg) {
     candidates.push({ tag, version, publishedAt: time[version] ?? null })
   }
 
-  // A publisher that shipped a major RECENTLY is a different prospect, not a
-  // non-prospect: the sale window for a pre-release report has closed, but they
-  // are the population that just paid the cost of not having one. For KT-B —
-  // "what would you have paid?" — they are the better interview, and treating
-  // "no live prerelease" as "no prospect" would have thrown them all away.
+  // A publisher that shipped a major RECENTLY is a second kind of hit, not a
+  // miss. The window in which a pre-release census could have helped them has
+  // closed, but they are the population that has most recently been through a
+  // breaking change, so treating "no live prerelease" as "nothing here" would
+  // discard the entire recent list.
   //
   // This matters because most majors ship with NO prerelease dist-tag at all;
   // the publisher simply bumps. The prerelease detector therefore has LOW
@@ -189,7 +189,7 @@ export function renderTriggers(scan) {
   L.push(`| **recent major** (shipped within 180 days) | ${scan.recent.length} |`)
   L.push('')
 
-  L.push('## Upcoming — the sale window is open')
+  L.push('## Upcoming — a major is staged behind a prerelease tag')
   L.push('')
   if (scan.upcoming.length) {
     L.push('| package | current | next major | tag | prerelease published |')
@@ -202,9 +202,9 @@ export function renderTriggers(scan) {
   }
   L.push('')
 
-  L.push('## Recent — the window closed, but they just paid the cost')
+  L.push('## Recent — a major shipped within the last 180 days')
   L.push('')
-  L.push('These are the better KT-B interviews. The question is not "would you buy this" but **"you shipped this three months ago — what would you have paid to have had it two weeks before?"** A counterfactual against a real, recent, remembered event beats a hypothetical against an imagined one.')
+  L.push('These publishers have most recently been through a major, so the cost of shipping one without a downstream census is freshest here. The pre-release window has closed for them, which is why they are listed separately — not because there is nothing to measure.')
   L.push('')
   if (scan.recent.length) {
     L.push('| package | major | shipped | days ago |')
@@ -221,7 +221,7 @@ export function renderTriggers(scan) {
   L.push('')
   L.push('**It has low recall by construction, and the hit count is a floor, not a market size.** Most majors ship with no prerelease dist-tag at all — the publisher simply bumps the version. This detector only sees publishers who stage a major behind a tag, plus those who shipped one in the last 180 days. Announced-but-unstaged deprecations (a changelog saying "removed in v5") are invisible to it entirely.')
   L.push('')
-  L.push('**Rejected on purpose:** a prerelease tag whose version is *older* than the current `latest` is an abandoned branch, not an upcoming release. `@sentry/react` publishes `next` at `10.50.0-alpha.0` against a `latest` of `10.68.0`; a naive "has a prerelease tag" check would score that as a prospect.')
+  L.push('**Rejected on purpose:** a prerelease tag whose version is *older* than the current `latest` is an abandoned branch, not an upcoming release. `@sentry/react` publishes `next` at `10.50.0-alpha.0` against a `latest` of `10.68.0`; a naive "has a prerelease tag" check would score that as a hit.')
   L.push('')
   if (scan.errors.length) {
     L.push(`_${scan.errors.length} packages could not be read: ${scan.errors.map((e) => e.pkg).join(', ')}._`)
