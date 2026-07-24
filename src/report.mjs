@@ -46,6 +46,23 @@ export const COVERAGE_PROBE = {
 }
 
 /**
+ * The signature-audit exhibit — the measured size of the `kept` column's lie.
+ *
+ * It is pinned to the package it was actually performed on. It was previously
+ * rendered as "drawn from **this package's** core entry points", which is true
+ * only when the report's target happens to be that package and silently false
+ * otherwise. That is the fourth instance of one defect family in this project:
+ * **generated prose asserting evidence that does not exist at the address it
+ * names.** The cure is the same each time — carry the provenance as data and
+ * make the sentence render it, so the claim cannot outlive its source.
+ */
+export const SIGNATURE_AUDIT = {
+  package: 'drizzle-orm',
+  sampled: 12,
+  incompatible: 7,
+}
+
+/**
  * One break category as a table.
  *
  * `total` is passed separately from `rows` so a truncated table SAYS it is
@@ -164,7 +181,7 @@ export function renderReport(run, { maxRows = 40, maxRepos = 60, notes = null } 
   // parameter list, a de-generified column builder. Each of those breaks a
   // consumer while appearing in the "survives" column.
   L.push(
-    `> ⚠️ **"Name survives" is not "compatible."** This diff compares *export names*. It does not inspect signatures, type parameters, or runtime behaviour. A symbol can keep its name and still break every caller. In a hand-audit of 12 surviving symbols drawn from this package's core entry points, **7 had incompatible signatures**. That sample was deliberately drawn from where the refactor concentrates and is **not** extrapolated to the ${fmt(diff.totals.kept)} above — the honest reading is that the true break count is materially higher than this report states, by an amount this method cannot measure.`,
+    `> ⚠️ **"Name survives" is not "compatible."** This diff compares *export names*. It does not inspect signatures, type parameters, or runtime behaviour. A symbol can keep its name and still break every caller. In this tool's surface-diff audit, a hand-check of 12 surviving symbols drawn from \`${SIGNATURE_AUDIT.package}\`'s core entry points found **${SIGNATURE_AUDIT.incompatible} with incompatible signatures**${SIGNATURE_AUDIT.package === target.pkg ? '' : ` — that audit was run against \`${SIGNATURE_AUDIT.package}\`, not against \`${target.pkg}\`, so it measures **this method's blind spot** rather than anything about this release`}. It was deliberately drawn from where a refactor concentrates and is **not** extrapolated to the ${fmt(diff.totals.kept)} above — the honest reading is that the true break count is materially higher than this report states, by an amount this method cannot measure.`,
   )
   L.push('')
   L.push(
@@ -348,7 +365,21 @@ export function renderReport(run, { maxRows = 40, maxRepos = 60, notes = null } 
   L.push('- **Member analysis is one level deep.** `Client.method` is resolved; `Client.method.option` is not. Signature and type-parameter changes are out of scope entirely — a symbol that survives with an incompatible signature is counted here as *unchanged*, so category B is a floor as well.')
   L.push('- **Single-file resolution.** A symbol re-exported through a consumer’s own barrel file and used elsewhere is attributed at the barrel, not at the ultimate use site. This undercounts affected files; it does not misattribute them.')
   L.push(`- **Names the surface does not export.** ${fmt(census.notInSurface)} attributions reference an identifier absent from the published surface. Those are consumers reaching past the public API, or gaps in our surface extraction; either way they are excluded from the break counts rather than guessed at.`)
-  L.push('- **Wildcard entry points are skipped.** A manifest that declares `"./plugins/*"` in its `exports` map exposes subpaths that cannot be enumerated from the manifest alone. Any break under such a subpath is invisible to this report. (This package declares none, so nothing is lost here — but the limitation is stated because it is a property of the method, not of this run.)')
+  // Computed from the target's own manifest. The previous wording asserted
+  // "this package declares none" unconditionally — a claim no code checked, and
+  // false for any package that ships a wildcard. When it IS false it is not a
+  // footnote: `"./*"` means every internal path is a public subpath, and the
+  // enumerable entry points are then a small fraction of the real surface.
+  const wildcards = run.surfaceSizes.wildcardsBefore ?? []
+  if (wildcards.length) {
+    L.push(
+      `- **⚠️ Wildcard entry points are skipped, and this package declares ${wildcards.length}: ${wildcards.map((w) => `\`${w}\``).join(', ')}.** A wildcard subpath cannot be enumerated from the manifest alone, so it is absent from the ${fmt(run.surfaceSizes.before.size)} entry points this report diffed. \`${target.pkg}\` therefore exposes reachable import paths that were **never compared between the two versions**, and any break under one of them is invisible here. This is the largest single coverage hole in this report and it is not quantifiable from the manifest.`,
+    )
+  } else {
+    L.push(
+      `- **Wildcard entry points are skipped.** A manifest that declares \`"./plugins/*"\` in its \`exports\` map exposes subpaths that cannot be enumerated from the manifest alone, and any break under such a subpath would be invisible to this report. Checked against this package's manifest: it declares none, so nothing is lost here.`,
+    )
+  }
   L.push('')
 
   L.push('## Machine-readable')

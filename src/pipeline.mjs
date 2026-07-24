@@ -85,5 +85,19 @@ export async function runReport(pkg, { fromSpec = 'latest', toSpec = 'next', lan
   const radius = blastRadius(census, diff, { afterSurface: after })
   onLog?.(`blast radius: ${radius.affectedRepos}/${radius.scannedRepos} scanned repos affected`)
 
-  return { target, diff, corpus, census, radius, surfaceSizes: { before: before.entries, after: after.entries } }
+  return {
+    target,
+    diff,
+    corpus,
+    census,
+    radius,
+    surfaceSizes: {
+      before: before.entries,
+      after: after.entries,
+      // Carried so the report can state the wildcard hole from THIS package's
+      // manifest instead of asserting a fact about it that nobody measured.
+      wildcardsBefore: before.wildcards ?? [],
+      wildcardsAfter: after.wildcards ?? [],
+    },
+  }
 }

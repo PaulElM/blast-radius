@@ -10,17 +10,27 @@ release removes.**
 
 ## Reports
 
-Read one before reading anything else. Both are produced by the tool in this
-repo, from the published npm artifacts and public GitHub code.
+Read one before reading anything else. All three are produced by the tool in
+this repo, from the published npm artifacts and public GitHub code.
 
 | Report | Target | Result |
 |---|---|---|
 | [**`drizzle-orm` 0.45.2 → 1.0.0-rc.4**](reports/drizzle-orm-1.0.md) | a live, staged major | **277 of 2,786 resolved repositories break**, each named with a file and line |
+| [**`typeorm` 0.3.31 → 1.1.0**](reports/typeorm-1.1.0.md) | a major that already shipped | **441 of 2,415 resolved repositories break**, 343 of them at runtime or import time |
 | [`@supabase/supabase-js` 2.110.8 → 3.0.0-next.29](reports/supabase-js-negative-control.md) | a live major prerelease | **0 of 146** — 7 exports removed, nobody uses them |
 
-The second one is the point of the first. A tool that only ever reports damage
+The last one is the point of the first two. A tool that only ever reports damage
 is indistinguishable from a tool that invents it; the negative control is what
-makes the positive result mean something. Both were run with the same command.
+makes the positive results mean something. All were run with the same command.
+
+**The two positive reports answer different questions, and the difference is
+worth knowing before you read either.** drizzle's release was still staged when
+it was measured, so that report is a warning: *these are the consumers your
+unshipped release will break.* typeorm v1 shipped on 2026-05-19, so that report
+is a measurement: *these are the consumers who have not migrated yet* — the
+publisher's un-migrated tail, enumerated by name and line. Every symbol it
+counts also carried a `@deprecated` marker in 0.3.x, which is stated plainly in
+the report because it changes what the number means.
 
 Two things in the drizzle report that no changelog, download count or
 dependents graph can show you:
@@ -30,6 +40,22 @@ dependents graph can show you:
 - **[An entire dialect was removed and no changelog says so](reports/drizzle-orm.notes.md)**:
   61 `gel-core` entry points, and the publisher's own live documentation page
   still tells users to `import ... from 'drizzle-orm/gel'`.
+
+And the one in the typeorm report, which is the same shape pointed at a
+different question: the legacy global connection API — `createConnection` (146
+repositories), `Connection` (117), `getRepository` (94), `ConnectionOptions`
+(65), `getConnection` (58) — is gone from the root entry point, and for all but
+seven of the affected repositories there is no other entry point to re-point
+at, so the fix is a rewrite rather than an import change.
+
+**[The notes on that report](reports/typeorm.notes.md) say which seven, and
+why the headline is two populations rather than one** — most of the removed
+surface is `mongodb` driver typings that typeorm used to re-export, which is a
+real break but not typeorm's own design. `ObjectId` and `Timestamp` still exist
+in the `mongodb` package, so those repositories have a one-line import change.
+**The report also states what it does not cover**: 3,696 of 17,216 candidate
+files were opened, so the affected-repository list is a floor, and the absence
+of a repository from it is not evidence that it is safe.
 
 ## The four rungs
 

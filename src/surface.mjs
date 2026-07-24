@@ -163,6 +163,22 @@ export async function entryPoints(pkgRoot) {
   return out
 }
 
+/**
+ * Subpaths the manifest declares with a wildcard, e.g. `"./plugins/*"`.
+ *
+ * `entryPoints()` skips these because they cannot be enumerated from the
+ * manifest alone, so every symbol reachable only through one is invisible to the
+ * diff. That is a hole in coverage, and **a hole nobody counted reads exactly
+ * like an absence of breakage** — the same failure shape as a search query that
+ * returned zero because it never ran. So it is counted here and printed in the
+ * deliverable, rather than described in the abstract and asserted away.
+ */
+export async function wildcardSubpaths(pkgRoot) {
+  const manifest = JSON.parse(await readFile(join(pkgRoot, 'package.json'), 'utf8'))
+  if (!manifest.exports || typeof manifest.exports !== 'object') return []
+  return Object.keys(manifest.exports).filter((k) => k.includes('*')).sort()
+}
+
 function pickJs(value) {
   if (typeof value === 'string') return value
   if (!value || typeof value !== 'object') return null
@@ -228,6 +244,7 @@ function isTypeOnlyKind(kinds) {
 export async function exportSurface(pkg, version, { onLog } = {}) {
   const pkgRoot = await installPackage(pkg, version, { onLog })
   const entries = await entryPoints(pkgRoot)
+  const wildcards = await wildcardSubpaths(pkgRoot)
 
   const project = new Project({
     compilerOptions: {
@@ -300,7 +317,7 @@ export async function exportSurface(pkg, version, { onLog } = {}) {
     onLog?.(`  ${pkg}@${version} ${subpath} -> ${symbols.size} exports`)
   }
 
-  return { pkg, version, entries: surface }
+  return { pkg, version, entries: surface, wildcards }
 }
 
 /**
