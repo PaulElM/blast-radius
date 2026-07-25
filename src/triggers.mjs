@@ -11,12 +11,22 @@
 // means the publisher has already committed, in public, in a place no marketing
 // site can walk back. No blog post to interpret, no roadmap to believe.
 //
-// Two failure modes this guards against, both found by running it:
+// Three failure modes this guards against, caught by TWO INDEPENDENT checks.
+// That independence is worth stating, because the example everyone reaches for
+// exercises only the first check and an earlier version of this comment claimed
+// it exercised both:
 //
 //  - STALE TAGS. `@sentry/react` publishes a `next` tag at 10.50.0-alpha.0 while
 //    `latest` is 10.68.0. That tag is abandoned, not upcoming. A naive "has a
-//    prerelease tag" check calls it a candidate; comparing majors AND requiring
-//    the prerelease to be newer than `latest` rejects it.
+//    prerelease tag" check calls it a candidate; the MAJOR COMPARISON ALONE
+//    rejects it (10 is not above 10) and the publish-time check below is never
+//    reached for this input. A prerelease whose version is older than `latest`
+//    always has major <= latestMajor, so the major comparison covers that entire
+//    class on its own.
+//  - WALKED-BACK BRANCHES. A `2.0.0-beta.1` published BEFORE the current 1.9.0
+//    stable CLEARS the major comparison (2 > 1) and is still not an upcoming
+//    release — the publisher went back to shipping 1.x. Only the publish-time
+//    check rejects this shape, and it is the sole reason that check exists.
 //  - LONG-DEAD BETAS. A `5.0.0-beta` that last moved two years ago is not a
 //    release event. Recency of the prerelease publish is reported so a stale one
 //    can be judged rather than silently counted.
@@ -76,10 +86,15 @@ export const CANDIDATES = [
  * — most packages are not about to break their users, and that is exactly why
  * the detector is worth having.
  */
-export async function detectTrigger(pkg) {
+export async function detectTrigger(pkg, { deps } = {}) {
+  // Injected seam, for the same reason `kt-a.mjs` has one: stubbing the global
+  // `fetch` instead would drive the real `fetchPackument`, and this detector is
+  // the one module whose registry reads are UNCACHED — so a stubbed-fetch test
+  // measures the live npm registry rather than a fixture.
+  const readPackument = deps?.fetchPackument ?? fetchPackument
   let packument
   try {
-    packument = await fetchPackument(pkg)
+    packument = await readPackument(pkg)
   } catch (err) {
     return { pkg, error: String(err).slice(0, 120) }
   }
@@ -98,8 +113,14 @@ export async function detectTrigger(pkg) {
     if (!version || version === latest) continue
     if (majorOf(version) <= latestMajor) continue // same major, or a stale tag left behind
     const publishedAt = time[version] ? Date.parse(time[version]) : null
-    // A prerelease older than the current stable is an abandoned branch, not an
-    // upcoming release. This is the check that rejects @sentry/react.
+    // A HIGHER-major prerelease published before the current stable is a branch
+    // the publisher walked back from, not an upcoming release.
+    //
+    // This does NOT reject @sentry/react. The major comparison above already
+    // did, and this line is unreachable for that input — it is reached only when
+    // majorOf(version) > latestMajor, which 10.50.0-alpha.0 against a 10.68.0
+    // `latest` never satisfies. The shape it actually catches is the one named
+    // in the header: a 2.0.0-beta.1 predating a 1.9.0 `latest`.
     if (publishedAt && latestAt && publishedAt < latestAt) continue
     candidates.push({ tag, version, publishedAt: time[version] ?? null })
   }
@@ -151,11 +172,11 @@ export async function detectTrigger(pkg) {
 }
 
 /** Scan a candidate list and return only the packages with a live trigger. */
-export async function scanTriggers(packages = CANDIDATES, { onLog } = {}) {
+export async function scanTriggers(packages = CANDIDATES, { onLog, deps } = {}) {
   const hits = []
   const errors = []
   for (const pkg of packages) {
-    const result = await detectTrigger(pkg)
+    const result = await detectTrigger(pkg, { deps })
     if (result?.error) {
       errors.push(result)
       continue
