@@ -66,7 +66,12 @@ export async function collectCorpus(pkg, { languages, pages, maxFiles, maxQuerie
   }
 
   onLog?.(`  parsed ${fetched} files (${missing} unavailable)`)
-  return { candidateFiles: files.length, candidateRepos: repos.size, queries, results, fetched, missing }
+  // `languages` is carried out of the collector, not read back off the caller's
+  // options, because the report's coverage disclosure is a claim about what was
+  // SEARCHED. Those two diverge the moment anyone filters this list, and a
+  // disclosure derived from the request rather than the work is the defect this
+  // field exists to close — see the coverage sentence in report.mjs.
+  return { candidateFiles: files.length, candidateRepos: repos.size, languages: [...languages], queries, results, fetched, missing }
 }
 
 export async function runReport(pkg, { fromSpec = 'latest', toSpec = 'next', languages = ['typescript'], pages = 10, maxFiles = 0, maxQueries, onLog } = {}) {
