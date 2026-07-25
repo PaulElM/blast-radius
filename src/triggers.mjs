@@ -170,6 +170,12 @@ export async function scanTriggers(packages = CANDIDATES, { onLog } = {}) {
   }
   return {
     scanned: packages.length,
+    // When the registry was actually read. The renderer used to date this scan
+    // from `new Date()` at render time, which is the same construct the report
+    // carried: a claim about when the WORK happened, derived from when the
+    // DOCUMENT was written. It is true only while the two coincide, and nothing
+    // makes them coincide.
+    scannedAt: new Date().toISOString(),
     hits,
     errors,
     upcoming: hits.filter((h) => h.kind === 'upcoming-major'),
@@ -181,7 +187,11 @@ export function renderTriggers(scan) {
   const L = []
   L.push('# Breaking-change triggers — live scan')
   L.push('')
-  L.push(`Scanned **${scan.scanned}** commercially-backed npm packages on ${new Date().toISOString().slice(0, 10)}.`)
+  L.push(
+    scan.scannedAt
+      ? `Scanned **${scan.scanned}** commercially-backed npm packages on ${scan.scannedAt.slice(0, 10)}.`
+      : `Scanned **${scan.scanned}** commercially-backed npm packages on a date this scan did not record.`,
+  )
   L.push('')
   L.push('| | count |')
   L.push('|---|---:|')

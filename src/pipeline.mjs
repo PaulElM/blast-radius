@@ -36,6 +36,19 @@ export async function resolveTarget(pkg, fromSpec, toSpec) {
   }
 }
 
+/**
+ * The window a corpus was drawn in, from ISO stamps recorded by the collector.
+ *
+ * Pure and exported so it can be tested directly. Returns null when nothing was
+ * recorded, and null is a REPORTABLE state: the renderer must say the date is
+ * unrecorded rather than substituting the clock, which is the defect this whole
+ * field exists to close.
+ */
+export function corpusDrawWindow(stamps) {
+  const t = stamps.filter(Boolean).sort()
+  return t.length ? { first: t[0], last: t[t.length - 1] } : null
+}
+
 export async function collectCorpus(pkg, { languages, pages, maxFiles, maxQueries, onLog } = {}) {
   onLog?.(`search: consumers of ${pkg} across [${languages.join(', ')}]`)
   const { files, queries } = await searchConsumers(pkg, { languages, pages, maxQueries, onLog })
@@ -44,13 +57,14 @@ export async function collectCorpus(pkg, { languages, pages, maxFiles, maxQuerie
 
   const targets = maxFiles ? files.slice(0, maxFiles) : files
   const results = []
+  const draws = queries.flatMap((q) => [q.drawnAt, q.drawnUntil])
   let fetched = 0
   let missing = 0
 
   for (const hit of targets) {
     let text
     try {
-      text = await fetchFile(hit)
+      text = await fetchFile(hit, { onDraw: (t) => draws.push(t) })
     } catch (err) {
       onLog?.(`  fetch failed ${hit.repo}/${hit.path}: ${String(err).slice(0, 100)}`)
       missing++
@@ -71,7 +85,20 @@ export async function collectCorpus(pkg, { languages, pages, maxFiles, maxQuerie
   // SEARCHED. Those two diverge the moment anyone filters this list, and a
   // disclosure derived from the request rather than the work is the defect this
   // field exists to close — see the coverage sentence in report.mjs.
-  return { candidateFiles: files.length, candidateRepos: repos.size, languages: [...languages], queries, results, fetched, missing }
+  // `collectedAt` is carried out of the collector for the same reason
+  // `languages` is: the report's "corpus drawn" line is a claim about when this
+  // corpus was FETCHED, and deriving it at render time from the clock made a
+  // re-render of a cached run restamp an old corpus with today's date.
+  return {
+    candidateFiles: files.length,
+    candidateRepos: repos.size,
+    languages: [...languages],
+    collectedAt: corpusDrawWindow(draws),
+    queries,
+    results,
+    fetched,
+    missing,
+  }
 }
 
 export async function runReport(pkg, { fromSpec = 'latest', toSpec = 'next', languages = ['typescript'], pages = 10, maxFiles = 0, maxQueries, onLog } = {}) {

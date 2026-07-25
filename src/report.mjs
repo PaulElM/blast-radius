@@ -100,6 +100,39 @@ function languageLabels(langs) {
   return l.length === 1 ? l[0] : `${l.slice(0, -1).join(', ')} and ${l[l.length - 1]}`
 }
 
+/**
+ * The renderer generation that produced a report.
+ *
+ * A report used to carry no way of telling which generation of this file wrote
+ * it, so three published reports came from two generations and nothing detected
+ * it: the oldest was missing two coverage disclosures the others carried, and
+ * the only way to find out was to re-render it and diff. Bump this whenever a
+ * change alters what a report SAYS about its own limits.
+ *
+ *   1  the three reports published on 2026-07-24
+ *   2  corpus draw date carried from the collector; renderer version stamped
+ */
+export const RENDERER_VERSION = 2
+
+/**
+ * When the corpus was drawn, rendered from the run rather than from the clock.
+ *
+ * This used to be `new Date()` at render time, which is a claim about when the
+ * DOCUMENT was written dressed up as a claim about when the CODE was read. Every
+ * stage of this pipeline is cached, so re-rendering an old run restamped it with
+ * today's date — fixing a report by generating a fresh false statement in it.
+ *
+ * Null is a reportable state, not a cue to substitute today: a run that did not
+ * record its draw window says so. Defaulting to the clock is the defect itself.
+ */
+function corpusDrawnOn(corpus) {
+  const w = corpus?.collectedAt
+  if (!w?.first || !w?.last) return null
+  const first = w.first.slice(0, 10)
+  const last = w.last.slice(0, 10)
+  return first === last ? first : `${first} – ${last}`
+}
+
 /** The `coverage.scope` string, and the prose sentence, from one source. */
 function coverageScope(corpus) {
   const langs = scannedLanguages(corpus)
@@ -142,8 +175,14 @@ export function renderReport(run, { maxRows = 40, maxRepos = 60, notes = null } 
 
   L.push(`# Blast Radius Report — \`${target.pkg}\` ${target.from} → ${target.to}`)
   L.push('')
+  const drawnOn = corpusDrawnOn(corpus)
+
   L.push(`> Prepared with **blast-radius** — a symbol-level usage census of the public repositories that consume \`${target.pkg}\`.`)
-  L.push(`> Corpus drawn ${new Date().toISOString().slice(0, 10)}. Every number below is reproducible from the JSON companion to this file.`)
+  L.push(
+    drawnOn
+      ? `> Corpus drawn ${drawnOn}. Every number below is reproducible from the JSON companion to this file.`
+      : `> Corpus draw date **NOT RECORDED** by this run — this report will not substitute the date it was rendered. Every number below is reproducible from the JSON companion to this file.`,
+  )
   L.push('')
 
   // ---- The answer, first. -------------------------------------------------
@@ -310,7 +349,7 @@ export function renderReport(run, { maxRows = 40, maxRepos = 60, notes = null } 
     // misrepresentation.
     L.push(`All ${fmt(radius.affectedRepoList.length)} are in the JSON companion, each with every break we found in it. The first ${Math.min(maxRepos, radius.affectedRepoList.length)} are listed here, with one file and line per repository so each row can be opened and checked.`)
     L.push('')
-    L.push(`> Read at each repository’s default branch on ${new Date().toISOString().slice(0, 10)}. A row means *this code, as written today, imports something \`${target.to}\` does not provide at that address* — it does not mean the project is broken, unmaintained, or has failed to act: they may pin an older version, may have migrated on another branch, and rows marked *verify* above are same-name matches rather than proven deletions. Check the line before acting on it.`)
+    L.push(`> Read at each repository’s default branch ${drawnOn ? `on ${drawnOn}` : 'on a date this run did not record'}. A row means *this code, as written today, imports something \`${target.to}\` does not provide at that address* — it does not mean the project is broken, unmaintained, or has failed to act: they may pin an older version, may have migrated on another branch, and rows marked *verify* above are same-name matches rather than proven deletions. Check the line before acting on it.`)
     L.push('')
     const evidence = radius.evidenceByRepo ?? {}
     for (const repo of radius.affectedRepoList.slice(0, maxRepos)) {
@@ -439,6 +478,14 @@ export function renderReport(run, { maxRows = 40, maxRepos = 60, notes = null } 
   L.push('')
   L.push('The JSON companion carries every affected repository, every call site with file and line, the full export diff, and the exact search queries used. Nothing in this document is a number you have to take on trust.')
   L.push('')
+  // Stamped because three reports were once published from two generations of
+  // this renderer and nothing in any of them said so — the oldest was missing
+  // two coverage disclosures the others carried, and only a re-render and a diff
+  // could reveal it. A reader comparing two reports can now see it at a glance.
+  L.push(
+    `_Rendered by blast-radius report generation ${RENDERER_VERSION}. The corpus draw date above is recorded provenance carried from the collector, not the time this file was written — re-rendering this run does not change it._`,
+  )
+  L.push('')
 
   return L.join('\n')
 }
@@ -447,11 +494,18 @@ export function renderReport(run, { maxRows = 40, maxRepos = 60, notes = null } 
 export function renderJson(run) {
   const { target, diff, corpus, census, radius } = run
   return {
+    // `generatedAt` is the time this FILE was written and is correct as the
+    // clock: it is a fact about the document. `coverage.collectedAt` is the
+    // separate, and previously conflated, fact about when the corpus was drawn.
     generatedAt: new Date().toISOString(),
+    rendererVersion: RENDERER_VERSION,
     target,
     coverage: {
       note: 'GitHub code search total_count is not additive over partitions; no share-of-consumers denominator is claimed.',
       totalCountProbe: COVERAGE_PROBE,
+      // Persisted so the published JSON, not a cache file's mtime, is the
+      // durable witness for the draw date from here on.
+      collectedAt: corpus.collectedAt ?? null,
       queries: corpus.queries,
       candidateFiles: corpus.candidateFiles,
       candidateRepos: corpus.candidateRepos,

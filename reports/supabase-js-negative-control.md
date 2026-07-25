@@ -41,8 +41,12 @@ Read from the **published npm artifacts** for `2.110.8` (published 2026-07-21) a
 | entry points added | 0 |
 | exports **removed** | 7 |
 | exports added | 0 |
-| exports unchanged | 242 |
+| exports whose **name survives** | 242 |
 | surviving exports that **lost a public member** | 2 |
+
+> ⚠️ **"Name survives" is not "compatible."** This diff compares *export names*. It does not inspect signatures, type parameters, or runtime behaviour. A symbol can keep its name and still break every caller. In this tool's surface-diff audit, a hand-check of 12 surviving symbols drawn from `drizzle-orm`'s core entry points found **7 with incompatible signatures** — that audit was run against `drizzle-orm`, not against `@supabase/supabase-js`, so it measures **this method's blind spot** rather than anything about this release. It was deliberately drawn from where a refactor concentrates and is **not** extrapolated to the 242 above — the honest reading is that the true break count is materially higher than this report states, by an amount this method cannot measure.
+
+Entry-point removals are the severest row in that table: when a subpath stops resolving, the consumer fails **at import time**, before a line of their code executes. No amount of call-site review on their side surfaces it in advance.
 
 ## What actually breaks, ranked by consumers affected
 
@@ -123,12 +127,16 @@ The queries behind *this* report, with the totals GitHub reported for each:
 
 Also true, and bounded:
 
+- **150 candidate files were found but not opened.** This run fetched 150 of the 300 files search returned, in the order search returned them, and stopped there. The unopened remainder is not a random sample of the corpus, so the affected-repository list is a floor and the *absence* of a repository from it is not evidence that it is safe.
 - **Public code only, TypeScript only.** Private repositories are invisible, and this run scanned `language:typescript`. Your JavaScript consumers, your enterprise customers, and anything behind a VPN are not in these numbers — all of them push the real figure up, none down.
 - **`HEAD`, not a release tag.** Files are read at each repository’s default branch as of the corpus date. A consumer may have already migrated on a branch, or pinned an old version in production.
 - **Member analysis is one level deep.** `Client.method` is resolved; `Client.method.option` is not. Signature and type-parameter changes are out of scope entirely — a symbol that survives with an incompatible signature is counted here as *unchanged*, so category B is a floor as well.
 - **Single-file resolution.** A symbol re-exported through a consumer’s own barrel file and used elsewhere is attributed at the barrel, not at the ultimate use site. This undercounts affected files; it does not misattribute them.
 - **Names the surface does not export.** 0 attributions reference an identifier absent from the published surface. Those are consumers reaching past the public API, or gaps in our surface extraction; either way they are excluded from the break counts rather than guessed at.
+- **⚠️ Wildcard entry points are skipped, and this package declares 1: `./dist/*`.** A wildcard subpath cannot be enumerated from the manifest alone, so it is absent from the 3 entry points this report diffed. `@supabase/supabase-js` therefore exposes reachable import paths that were **never compared between the two versions**, and any break under one of them is invisible here. This is the largest single coverage hole in this report and it is not quantifiable from the manifest.
 
 ## Machine-readable
 
 The JSON companion carries every affected repository, every call site with file and line, the full export diff, and the exact search queries used. Nothing in this document is a number you have to take on trust.
+
+_Rendered by blast-radius report generation 2. The corpus draw date above is recorded provenance carried from the collector, not the time this file was written — re-rendering this run does not change it._

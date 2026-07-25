@@ -1,5 +1,6 @@
 {
- "generatedAt": "2026-07-24T16:40:54.908Z",
+ "generatedAt": "2026-07-25T05:09:19.724Z",
+ "rendererVersion": 2,
  "target": {
   "pkg": "@supabase/supabase-js",
   "from": "2.110.8",
@@ -49,22 +50,35 @@
     }
    ]
   },
+  "collectedAt": {
+   "first": "2026-07-24T16:27:02.460Z",
+   "last": "2026-07-24T16:28:05.885Z"
+  },
   "queries": [
    {
     "query": "\"from '@supabase/supabase-js\" language:typescript",
     "reportedTotal": 2604,
-    "collected": 200
+    "collected": 200,
+    "drawnAt": "2026-07-24T16:27:02.460Z",
+    "drawnUntil": "2026-07-24T16:27:07.283Z",
+    "error": null
    },
    {
     "query": "\"from \\\"@supabase/supabase-js\" language:typescript",
     "reportedTotal": 2564,
-    "collected": 100
+    "collected": 100,
+    "drawnAt": "2026-07-24T16:27:16.683Z",
+    "drawnUntil": "2026-07-24T16:27:16.683Z",
+    "error": null
    }
   ],
   "candidateFiles": 300,
   "candidateRepos": 295,
   "filesParsed": 150,
   "filesUnavailable": 0,
+  "languages": [
+   "typescript"
+  ],
   "scope": "public repositories, language:typescript, default branch (HEAD)"
  },
  "surfaceDiff": {
@@ -459,6 +473,787 @@
       ],
       "typeOnlyHits": 2,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "CameronFoxly/Ascii-Motion",
+        "path": "api/og.ts",
+        "line": 57,
+        "runtime": true
+       },
+       {
+        "repo": "jj-valentine/cerebellum",
+        "path": "src/db.ts",
+        "line": 5,
+        "runtime": true
+       },
+       {
+        "repo": "rsweetland/next-llm-supastarter",
+        "path": "db/seed.ts",
+        "line": 42,
+        "runtime": true
+       },
+       {
+        "repo": "0riva/oriva-platform",
+        "path": "get-jwt.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "BreakroomShow/app",
+        "path": "api/_db.ts",
+        "line": 9,
+        "runtime": true
+       },
+       {
+        "repo": "eugenemcmillian3-tech/Degen-genz-hub-",
+        "path": "supabase.ts",
+        "line": 7,
+        "runtime": true
+       },
+       {
+        "repo": "adham-tech/strapi-supabase-file-upload",
+        "path": "index.ts",
+        "line": 21,
+        "runtime": true
+       },
+       {
+        "repo": "BarnesBowling/barnes-bowling-club",
+        "path": "admin.ts",
+        "line": 2,
+        "runtime": true
+       },
+       {
+        "repo": "devtayyab/mobileapp",
+        "path": "check.ts",
+        "line": 15,
+        "runtime": true
+       },
+       {
+        "repo": "Masthan008/brewcafe",
+        "path": "proxy.ts",
+        "line": 35,
+        "runtime": true
+       },
+       {
+        "repo": "gery0112x/wentian-clean",
+        "path": "lib/supa.ts",
+        "line": 28,
+        "runtime": true
+       },
+       {
+        "repo": "jslala222/dsuc_recipe",
+        "path": "check-db.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "MonsterFlick/GitFool-old",
+        "path": "lib/blog.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "ezDecode/MindBridge",
+        "path": "fix-db.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "aktifosgbarsiv-star/fototest",
+        "path": "lib/seo.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "danielribeirodasilvajnr-dev/ConstructPro",
+        "path": "fix_db.ts",
+        "line": 9,
+        "runtime": true
+       },
+       {
+        "repo": "avinash-dossm/server",
+        "path": "client.ts",
+        "line": 11,
+        "runtime": true
+       },
+       {
+        "repo": "pranaytrivedi111-pixel/Admin-Portal",
+        "path": "check-db.ts",
+        "line": 30,
+        "runtime": true
+       },
+       {
+        "repo": "DanielKoten12/HealthyGoods",
+        "path": "app.ts",
+        "line": 19,
+        "runtime": true
+       },
+       {
+        "repo": "lovegold120221-dot/cautious-potato",
+        "path": "server.ts",
+        "line": 39,
+        "runtime": true
+       },
+       {
+        "repo": "josephheinz/Node-MUD",
+        "path": "server.ts",
+        "line": 66,
+        "runtime": true
+       },
+       {
+        "repo": "WaritDev/aom3-frontend",
+        "path": "indexer.ts",
+        "line": 23,
+        "runtime": true
+       },
+       {
+        "repo": "barclayd/keepfresh-notifications",
+        "path": "src/app.ts",
+        "line": 42,
+        "runtime": true
+       },
+       {
+        "repo": "wsegbert65360/RainAPI",
+        "path": "api/rain.ts",
+        "line": 9,
+        "runtime": true
+       },
+       {
+        "repo": "andreduran0/Huaraz-one",
+        "path": "api/chat.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "abhishekvardan/AgriconnectMobileVoiceBackend",
+        "path": "server.ts",
+        "line": 18,
+        "runtime": true
+       },
+       {
+        "repo": "danpillay87/domination",
+        "path": "src/net.ts",
+        "line": 31,
+        "runtime": true
+       },
+       {
+        "repo": "DRBATA/prepah",
+        "path": "api/chat.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "hellomomma/surfin-managementericeira",
+        "path": "store.ts",
+        "line": 9,
+        "runtime": true
+       },
+       {
+        "repo": "focux/racing-game-teachable-machine",
+        "path": "src/data.ts",
+        "line": 27,
+        "runtime": true
+       },
+       {
+        "repo": "OmKamalika/wealth-bloom",
+        "path": "server.ts",
+        "line": 22,
+        "runtime": true
+       },
+       {
+        "repo": "vaibhavagarwal2212-citizen/Vaibhav-Agarwal-Classes-2",
+        "path": "server.ts",
+        "line": 10,
+        "runtime": true
+       },
+       {
+        "repo": "mohammedmagdixD/Figment_v.0.3",
+        "path": "server.ts",
+        "line": 37,
+        "runtime": true
+       },
+       {
+        "repo": "ncsound919/Northside-Smoke",
+        "path": "server.ts",
+        "line": 51,
+        "runtime": true
+       },
+       {
+        "repo": "ungden/dep-radar",
+        "path": "seed-db.ts",
+        "line": 18,
+        "runtime": true
+       },
+       {
+        "repo": "joelgeorge05/cml-website",
+        "path": "server.ts",
+        "line": 37,
+        "runtime": true
+       },
+       {
+        "repo": "AkashNr7/infinite",
+        "path": "server.ts",
+        "line": 117,
+        "runtime": true
+       },
+       {
+        "repo": "Dcoratto/DCoratto-",
+        "path": "server.ts",
+        "line": 58,
+        "runtime": true
+       },
+       {
+        "repo": "eoliver04/timely-backend",
+        "path": "toke.ts",
+        "line": 7,
+        "runtime": true
+       },
+       {
+        "repo": "SonicTheHedghoge/cv-tnn",
+        "path": "server.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "Ingeneiro-google-maps/WEB-APP-SERVER-1T",
+        "path": "server.ts",
+        "line": 22,
+        "runtime": true
+       },
+       {
+        "repo": "freegyes/project-ContemPlace",
+        "path": "src/db.ts",
+        "line": 7,
+        "runtime": true
+       },
+       {
+        "repo": "ledichanfras-netizen/LB-Hub",
+        "path": "server.ts",
+        "line": 66,
+        "runtime": true
+       },
+       {
+        "repo": "velocityai588-tech/NEW_Velocity_AI",
+        "path": "server.ts",
+        "line": 133,
+        "runtime": true
+       },
+       {
+        "repo": "jefferson0710/FichaDeAnamnese",
+        "path": "server.ts",
+        "line": 9,
+        "runtime": true
+       },
+       {
+        "repo": "Magisuz/VibesHackathon",
+        "path": "client.ts",
+        "line": 11,
+        "runtime": true
+       },
+       {
+        "repo": "xh09411-web/remote-control",
+        "path": "client.ts",
+        "line": 21,
+        "runtime": true
+       },
+       {
+        "repo": "jointrustloop-creator/TheDripMap",
+        "path": "check-sf.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "ellevenlabcombr-ai/EARS-CRM",
+        "path": "sim.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "vrish1234/Ugrasena-Educum",
+        "path": "server.ts",
+        "line": 30,
+        "runtime": true
+       },
+       {
+        "repo": "BobJones13579/cleaning-saas",
+        "path": "lib/sms.ts",
+        "line": 15,
+        "runtime": true
+       },
+       {
+        "repo": "anmho/supabase-client-credentials",
+        "path": "utils.ts",
+        "line": 12,
+        "runtime": true
+       },
+       {
+        "repo": "eli23314/MirrorSplit",
+        "path": "client.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "Sebas-D-Dev/directory-structure-generator",
+        "path": "auth.ts",
+        "line": 23,
+        "runtime": true
+       },
+       {
+        "repo": "welinsonmacedo/ArloFLux",
+        "path": "run_sql.ts",
+        "line": 12,
+        "runtime": true
+       },
+       {
+        "repo": "ShivDev-ops/university-project-hub-2",
+        "path": "lib/otp.ts",
+        "line": 5,
+        "runtime": true
+       },
+       {
+        "repo": "b0ase/bitgit",
+        "path": "src/db.ts",
+        "line": 29,
+        "runtime": true
+       },
+       {
+        "repo": "bsalsa2/fairclaim",
+        "path": "lib/auth.ts",
+        "line": 5,
+        "runtime": true
+       },
+       {
+        "repo": "boipqiod/test-supabase",
+        "path": "app.ts",
+        "line": 12,
+        "runtime": true
+       },
+       {
+        "repo": "Abrsh444-cyber/Etlearn",
+        "path": "server.ts",
+        "line": 419,
+        "runtime": true
+       },
+       {
+        "repo": "Akimetzu/SISTEMA-DE-INVENTARIO",
+        "path": "server.ts",
+        "line": 23,
+        "runtime": true
+       },
+       {
+        "repo": "Yukkurisiteikitai/LustraEngine",
+        "path": "worker.ts",
+        "line": 41,
+        "runtime": true
+       },
+       {
+        "repo": "GiggaCat/About_Me",
+        "path": "server.ts",
+        "line": 38,
+        "runtime": true
+       },
+       {
+        "repo": "thelamesaucegit/forgeSim",
+        "path": "server.ts",
+        "line": 21,
+        "runtime": true
+       },
+       {
+        "repo": "faheemsalmani/agrirentx",
+        "path": "check.ts",
+        "line": 4,
+        "runtime": true
+       },
+       {
+        "repo": "rou-meichan/FAI-System",
+        "path": "server.ts",
+        "line": 24,
+        "runtime": true
+       },
+       {
+        "repo": "Kabs009/theradesk2",
+        "path": "src/db.ts",
+        "line": 9,
+        "runtime": true
+       },
+       {
+        "repo": "ilan-deversenne/1-hackathon-holberton-2026",
+        "path": "lib/db.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "Kushwahadheeraj/planning",
+        "path": "lib/db.ts",
+        "line": 27,
+        "runtime": true
+       },
+       {
+        "repo": "Yazeed-AK/SWE481-Project",
+        "path": "lib/db.ts",
+        "line": 13,
+        "runtime": true
+       },
+       {
+        "repo": "1ncursio/supachess",
+        "path": "src/db.ts",
+        "line": 5,
+        "runtime": true
+       },
+       {
+        "repo": "mohamedelfatehouamane-bis/store.v.2",
+        "path": "lib/db.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "Macky151203/latecode",
+        "path": "lib/db.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "Danimarqz/animalhada_BE",
+        "path": "src/db.ts",
+        "line": 10,
+        "runtime": true
+       },
+       {
+        "repo": "tfarrecys/compras-1",
+        "path": "lib/db.ts",
+        "line": 10,
+        "runtime": true
+       },
+       {
+        "repo": "meowster404/Ai-Form",
+        "path": "lib/db.ts",
+        "line": 11,
+        "runtime": true
+       },
+       {
+        "repo": "VenoomTV/ThoughtForge",
+        "path": "src/lib.ts",
+        "line": 24,
+        "runtime": true
+       },
+       {
+        "repo": "Technopathic/InQuill",
+        "path": "actions.ts",
+        "line": 7,
+        "runtime": true
+       },
+       {
+        "repo": "Kaushiksavaliyacode/Food-delivery",
+        "path": "supabase.ts",
+        "line": 7,
+        "runtime": true
+       },
+       {
+        "repo": "joaomcc24/blueprintly",
+        "path": "lib/auth.ts",
+        "line": 13,
+        "runtime": true
+       },
+       {
+        "repo": "templioworkstests/ristoflash",
+        "path": "api/qr.ts",
+        "line": 77,
+        "runtime": true
+       },
+       {
+        "repo": "Jin1370/basic_dubbing",
+        "path": "lib/auth.ts",
+        "line": 13,
+        "runtime": true
+       },
+       {
+        "repo": "nhq1993-sudo/cmsmkt",
+        "path": "supabase.ts",
+        "line": 11,
+        "runtime": true
+       },
+       {
+        "repo": "lovegold120221-dot/las",
+        "path": "server.ts",
+        "line": 39,
+        "runtime": true
+       },
+       {
+        "repo": "mohammedmagdixD/Figment_V.0.4.1",
+        "path": "server.ts",
+        "line": 37,
+        "runtime": true
+       },
+       {
+        "repo": "poriadivyansh482000-art/AI-Agent",
+        "path": "client.ts",
+        "line": 21,
+        "runtime": true
+       },
+       {
+        "repo": "danakarina0929-blip/prompta-app",
+        "path": "client.ts",
+        "line": 21,
+        "runtime": true
+       },
+       {
+        "repo": "sparrow-js/an-codeAI",
+        "path": "lib/supabase.ts",
+        "line": 7,
+        "runtime": true
+       },
+       {
+        "repo": "ilkome/finapp",
+        "path": "app/app/composables/useSupabase.ts",
+        "line": 17,
+        "runtime": true
+       },
+       {
+        "repo": "yorkeccak/Polyseer",
+        "path": "src/utils/supabase/server.ts",
+        "line": 77,
+        "runtime": true
+       },
+       {
+        "repo": "different-ai/embedbase",
+        "path": "dashboard/utils/supabase-admin.ts",
+        "line": 11,
+        "runtime": true
+       },
+       {
+        "repo": "lissy93/domain-locker",
+        "path": "src/app/services/supabase.service.ts",
+        "line": 41,
+        "runtime": true
+       },
+       {
+        "repo": "qurle/type",
+        "path": "api/getPublished.ts",
+        "line": 15,
+        "runtime": true
+       },
+       {
+        "repo": "TheExGenesis/community-archive",
+        "path": "scripts/upload_archive_json.mts",
+        "line": 46,
+        "runtime": true
+       },
+       {
+        "repo": "ZRMYDYCG/Navernass",
+        "path": "lib/supabase/admin.ts",
+        "line": 11,
+        "runtime": true
+       },
+       {
+        "repo": "ozkan0/etimoloji-haritasi",
+        "path": "lib/supabaseClient.ts",
+        "line": 10,
+        "runtime": true
+       },
+       {
+        "repo": "AdityaBansode7/questa_quizz_APP",
+        "path": "lib/auth.ts",
+        "line": 5,
+        "runtime": true
+       },
+       {
+        "repo": "Maxwell-Clark/MCSU",
+        "path": "lib/actions/profile.ts",
+        "line": 10,
+        "runtime": true
+       },
+       {
+        "repo": "elevateforhumanity/fix",
+        "path": "lib/supabase/public.ts",
+        "line": 54,
+        "runtime": true
+       },
+       {
+        "repo": "xtharakax/food-additive-scanner",
+        "path": "utils/supabaseClient.ts",
+        "line": 7,
+        "runtime": true
+       },
+       {
+        "repo": "nobisro/svelte-kit-notes",
+        "path": "src/lib/db.ts",
+        "line": 8,
+        "runtime": true
+       },
+       {
+        "repo": "Vijayapardhu/risbow-backend",
+        "path": "scripts/setup-storage.ts",
+        "line": 14,
+        "runtime": true
+       },
+       {
+        "repo": "algebra2boy/Creatorverse",
+        "path": "src/clients.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "emcg0021/SpendSight",
+        "path": "src/lib/supabaseClient.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "KAYZI2HIGH/linq",
+        "path": "src/lib/supabaseClient.ts",
+        "line": 9,
+        "runtime": true
+       },
+       {
+        "repo": "Neves369/iect-biblioteca",
+        "path": "src/api/index.ts",
+        "line": 6,
+        "runtime": true
+       },
+       {
+        "repo": "iqmalr/bratamedia-digital-solutions",
+        "path": "src/lib/supabase/static.ts",
+        "line": 14,
+        "runtime": true
+       },
+       {
+        "repo": "Duxton347/telemarketing-irm-os-dreon--1-",
+        "path": "check_results.ts",
+        "line": 7,
+        "runtime": true
+       },
+       {
+        "repo": "Kstyles-byte/Almari2",
+        "path": "actions/search.ts",
+        "line": 18,
+        "runtime": true
+       },
+       {
+        "repo": "justinfei9/rent-tracking-app",
+        "path": "supabaseClient.ts",
+        "line": 16,
+        "runtime": true
+       },
+       {
+        "repo": "Travsify/chatsela",
+        "path": "scripts/get_id.ts",
+        "line": 6,
+        "runtime": true
+       }
+      ],
+      "runtimeRepoList": [
+       "0riva/oriva-platform",
+       "1ncursio/supachess",
+       "Abrsh444-cyber/Etlearn",
+       "AdityaBansode7/questa_quizz_APP",
+       "AkashNr7/infinite",
+       "Akimetzu/SISTEMA-DE-INVENTARIO",
+       "BarnesBowling/barnes-bowling-club",
+       "BobJones13579/cleaning-saas",
+       "BreakroomShow/app",
+       "CameronFoxly/Ascii-Motion",
+       "DRBATA/prepah",
+       "DanielKoten12/HealthyGoods",
+       "Danimarqz/animalhada_BE",
+       "Dcoratto/DCoratto-",
+       "Duxton347/telemarketing-irm-os-dreon--1-",
+       "GiggaCat/About_Me",
+       "Ingeneiro-google-maps/WEB-APP-SERVER-1T",
+       "Jin1370/basic_dubbing",
+       "KAYZI2HIGH/linq",
+       "Kabs009/theradesk2",
+       "Kaushiksavaliyacode/Food-delivery",
+       "Kstyles-byte/Almari2",
+       "Kushwahadheeraj/planning",
+       "Macky151203/latecode",
+       "Magisuz/VibesHackathon",
+       "Masthan008/brewcafe",
+       "Maxwell-Clark/MCSU",
+       "MonsterFlick/GitFool-old",
+       "Neves369/iect-biblioteca",
+       "OmKamalika/wealth-bloom",
+       "Sebas-D-Dev/directory-structure-generator",
+       "ShivDev-ops/university-project-hub-2",
+       "SonicTheHedghoge/cv-tnn",
+       "Technopathic/InQuill",
+       "TheExGenesis/community-archive",
+       "Travsify/chatsela",
+       "VenoomTV/ThoughtForge",
+       "Vijayapardhu/risbow-backend",
+       "WaritDev/aom3-frontend",
+       "Yazeed-AK/SWE481-Project",
+       "Yukkurisiteikitai/LustraEngine",
+       "ZRMYDYCG/Navernass",
+       "abhishekvardan/AgriconnectMobileVoiceBackend",
+       "adham-tech/strapi-supabase-file-upload",
+       "aktifosgbarsiv-star/fototest",
+       "algebra2boy/Creatorverse",
+       "andreduran0/Huaraz-one",
+       "anmho/supabase-client-credentials",
+       "avinash-dossm/server",
+       "b0ase/bitgit",
+       "barclayd/keepfresh-notifications",
+       "boipqiod/test-supabase",
+       "bsalsa2/fairclaim",
+       "danakarina0929-blip/prompta-app",
+       "danielribeirodasilvajnr-dev/ConstructPro",
+       "danpillay87/domination",
+       "devtayyab/mobileapp",
+       "different-ai/embedbase",
+       "elevateforhumanity/fix",
+       "eli23314/MirrorSplit",
+       "ellevenlabcombr-ai/EARS-CRM",
+       "emcg0021/SpendSight",
+       "eoliver04/timely-backend",
+       "eugenemcmillian3-tech/Degen-genz-hub-",
+       "ezDecode/MindBridge",
+       "faheemsalmani/agrirentx",
+       "focux/racing-game-teachable-machine",
+       "freegyes/project-ContemPlace",
+       "gery0112x/wentian-clean",
+       "hellomomma/surfin-managementericeira",
+       "ilan-deversenne/1-hackathon-holberton-2026",
+       "ilkome/finapp",
+       "iqmalr/bratamedia-digital-solutions",
+       "jefferson0710/FichaDeAnamnese",
+       "jj-valentine/cerebellum",
+       "joaomcc24/blueprintly",
+       "joelgeorge05/cml-website",
+       "jointrustloop-creator/TheDripMap",
+       "josephheinz/Node-MUD",
+       "jslala222/dsuc_recipe",
+       "justinfei9/rent-tracking-app",
+       "ledichanfras-netizen/LB-Hub",
+       "lissy93/domain-locker",
+       "lovegold120221-dot/cautious-potato",
+       "lovegold120221-dot/las",
+       "meowster404/Ai-Form",
+       "mohamedelfatehouamane-bis/store.v.2",
+       "mohammedmagdixD/Figment_V.0.4.1",
+       "mohammedmagdixD/Figment_v.0.3",
+       "ncsound919/Northside-Smoke",
+       "nhq1993-sudo/cmsmkt",
+       "nobisro/svelte-kit-notes",
+       "ozkan0/etimoloji-haritasi",
+       "poriadivyansh482000-art/AI-Agent",
+       "pranaytrivedi111-pixel/Admin-Portal",
+       "qurle/type",
+       "rou-meichan/FAI-System",
+       "rsweetland/next-llm-supastarter",
+       "sparrow-js/an-codeAI",
+       "templioworkstests/ristoflash",
+       "tfarrecys/compras-1",
+       "thelamesaucegit/forgeSim",
+       "ungden/dep-radar",
+       "vaibhavagarwal2212-citizen/Vaibhav-Agarwal-Classes-2",
+       "velocityai588-tech/NEW_Velocity_AI",
+       "vrish1234/Ugrasena-Educum",
+       "welinsonmacedo/ArloFLux",
+       "wsegbert65360/RainAPI",
+       "xh09411-web/remote-control",
+       "xtharakax/food-additive-scanner",
+       "yorkeccak/Polyseer"
+      ],
       "memberPaths": []
      },
      {
@@ -495,6 +1290,165 @@
       ],
       "typeOnlyHits": 39,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "TheExGenesis/community-archive",
+        "path": "types.d.ts",
+        "line": 5,
+        "runtime": false
+       },
+       {
+        "repo": "malerba118/supabase-comments-extension",
+        "path": "src/api.ts",
+        "line": 99,
+        "runtime": false
+       },
+       {
+        "repo": "tylerdean1/sunset_surf_academy",
+        "path": "lib/rpc.ts",
+        "line": 5,
+        "runtime": false
+       },
+       {
+        "repo": "zekenewsom/evo_old",
+        "path": "lib/data.ts",
+        "line": 13,
+        "runtime": false
+       },
+       {
+        "repo": "danpillay87/domination",
+        "path": "src/net.ts",
+        "line": 14,
+        "runtime": false
+       },
+       {
+        "repo": "freegyes/project-ContemPlace",
+        "path": "src/db.ts",
+        "line": 4,
+        "runtime": false
+       },
+       {
+        "repo": "manifoldmarkets/manifund",
+        "path": "db/eval.ts",
+        "line": 7,
+        "runtime": false
+       },
+       {
+        "repo": "b0ase/bitgit",
+        "path": "src/db.ts",
+        "line": 8,
+        "runtime": false
+       },
+       {
+        "repo": "bsalsa2/fairclaim",
+        "path": "lib/auth.ts",
+        "line": 20,
+        "runtime": false
+       },
+       {
+        "repo": "megawesley2015-lang/Sos-Pet",
+        "path": "lib/geo.ts",
+        "line": 80,
+        "runtime": false
+       },
+       {
+        "repo": "gracwambugu/elimika-africa",
+        "path": "courses.ts",
+        "line": 8,
+        "runtime": false
+       },
+       {
+        "repo": "Danimarqz/animalhada_BE",
+        "path": "src/db.ts",
+        "line": 6,
+        "runtime": false
+       },
+       {
+        "repo": "VenoomTV/ThoughtForge",
+        "path": "src/lib.ts",
+        "line": 13,
+        "runtime": false
+       },
+       {
+        "repo": "joaomcc24/blueprintly",
+        "path": "lib/auth.ts",
+        "line": 5,
+        "runtime": false
+       },
+       {
+        "repo": "rvion/CushyStudio",
+        "path": "src/state/state.ts",
+        "line": 124,
+        "runtime": false
+       },
+       {
+        "repo": "ilkome/finapp",
+        "path": "app/app/composables/useSupabase.ts",
+        "line": 10,
+        "runtime": false
+       },
+       {
+        "repo": "Cap-go/capgo.app",
+        "path": "cli/src/build/prescan/types.ts",
+        "line": 33,
+        "runtime": false
+       },
+       {
+        "repo": "lissy93/domain-locker",
+        "path": "src/app/services/supabase.service.ts",
+        "line": 26,
+        "runtime": false
+       },
+       {
+        "repo": "gandlafbtc/open-pleb",
+        "path": "packages/frontend/src/app.d.ts",
+        "line": 8,
+        "runtime": false
+       },
+       {
+        "repo": "thaleslaray/nossocrm",
+        "path": "lib/ai/messaging/board-config.ts",
+        "line": 10,
+        "runtime": false
+       },
+       {
+        "repo": "FlowEngine-cloud/flowengine",
+        "path": "src/lib/teamAccess.ts",
+        "line": 11,
+        "runtime": false
+       },
+       {
+        "repo": "luckyhackersacademy/onlygists",
+        "path": "modules/auth/services/services.ts",
+        "line": 8,
+        "runtime": false
+       },
+       {
+        "repo": "connorbell133/Agentflow",
+        "path": "src/lib/supabase/client.ts",
+        "line": 34,
+        "runtime": false
+       },
+       {
+        "repo": "george-spence/meal-planner-app",
+        "path": "src/types/session.ts",
+        "line": 5,
+        "runtime": false
+       },
+       {
+        "repo": "elevateforhumanity/fix",
+        "path": "lib/supabase/public.ts",
+        "line": 43,
+        "runtime": false
+       },
+       {
+        "repo": "wish-team/fund-for-found",
+        "path": "3f-back/src/user/user.service.ts",
+        "line": 7,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -519,6 +1473,93 @@
       ],
       "typeOnlyHits": 18,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "Gerome-Elassaad/CodingIT",
+        "path": "lib/auth.ts",
+        "line": 13,
+        "runtime": false
+       },
+       {
+        "repo": "omegarhovega/ARRRType",
+        "path": "src/main.ts",
+        "line": 17,
+        "runtime": false
+       },
+       {
+        "repo": "iaadillatif/techxninjas-client",
+        "path": "types.ts",
+        "line": 132,
+        "runtime": false
+       },
+       {
+        "repo": "omarbizkit/bizkitdev",
+        "path": "app.d.ts",
+        "line": 8,
+        "runtime": false
+       },
+       {
+        "repo": "AugustineGreyy/uycloset",
+        "path": "types.ts",
+        "line": 20,
+        "runtime": false
+       },
+       {
+        "repo": "Technopathic/InQuill",
+        "path": "actions.ts",
+        "line": 9,
+        "runtime": false
+       },
+       {
+        "repo": "Jin1370/basic_dubbing",
+        "path": "lib/auth.ts",
+        "line": 53,
+        "runtime": false
+       },
+       {
+        "repo": "ilkome/finapp",
+        "path": "app/app/composables/useSupabase.ts",
+        "line": 35,
+        "runtime": false
+       },
+       {
+        "repo": "gandlafbtc/open-pleb",
+        "path": "packages/frontend/src/app.d.ts",
+        "line": 9,
+        "runtime": false
+       },
+       {
+        "repo": "korebhaumik/Clumsykeys",
+        "path": "src/routes/+layout.ts",
+        "line": 12,
+        "runtime": false
+       },
+       {
+        "repo": "sherlocknieh/TodoHeap",
+        "path": "frontend/src/stores/auth.ts",
+        "line": 7,
+        "runtime": false
+       },
+       {
+        "repo": "ben-everly/sous",
+        "path": "lib/auth/signup.ts",
+        "line": 9,
+        "runtime": false
+       },
+       {
+        "repo": "george-spence/meal-planner-app",
+        "path": "src/types/session.ts",
+        "line": 4,
+        "runtime": false
+       },
+       {
+        "repo": "oranum/vibe-mimoni",
+        "path": "types/auth.ts",
+        "line": 5,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -542,6 +1583,87 @@
       ],
       "typeOnlyHits": 16,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "iaadillatif/techxninjas-client",
+        "path": "types.ts",
+        "line": 131,
+        "runtime": false
+       },
+       {
+        "repo": "omarbizkit/bizkitdev",
+        "path": "app.d.ts",
+        "line": 9,
+        "runtime": false
+       },
+       {
+        "repo": "Avinashnyk/ExamPrep",
+        "path": "useAuth.ts",
+        "line": 6,
+        "runtime": false
+       },
+       {
+        "repo": "dankwx/mirsui-backend",
+        "path": "src/app.ts",
+        "line": 53,
+        "runtime": false
+       },
+       {
+        "repo": "lissy93/domain-locker",
+        "path": "src/app/services/supabase.service.ts",
+        "line": 29,
+        "runtime": false
+       },
+       {
+        "repo": "midudev/bigibai-2025",
+        "path": "src/env.d.ts",
+        "line": 17,
+        "runtime": false
+       },
+       {
+        "repo": "NUDelta/pair-research",
+        "path": "src/features/auth/lib/authProfile.ts",
+        "line": 8,
+        "runtime": false
+       },
+       {
+        "repo": "gandlafbtc/open-pleb",
+        "path": "packages/frontend/src/app.d.ts",
+        "line": 9,
+        "runtime": false
+       },
+       {
+        "repo": "CurioLytics/Write2Learn",
+        "path": "types/auth.ts",
+        "line": 8,
+        "runtime": false
+       },
+       {
+        "repo": "sherlocknieh/TodoHeap",
+        "path": "frontend/src/stores/auth.ts",
+        "line": 89,
+        "runtime": false
+       },
+       {
+        "repo": "ben-everly/sous",
+        "path": "lib/auth/signup.ts",
+        "line": 8,
+        "runtime": false
+       },
+       {
+        "repo": "oranum/vibe-mimoni",
+        "path": "types/auth.ts",
+        "line": 4,
+        "runtime": false
+       },
+       {
+        "repo": "NguyenAnh060504/Household-item-management",
+        "path": "useAuthStore.ts",
+        "line": 7,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -555,6 +1677,27 @@
       ],
       "typeOnlyHits": 5,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "vueschool/vuejs-masterclass-2024-edition",
+        "path": "src/types/Error.ts",
+        "line": 6,
+        "runtime": false
+       },
+       {
+        "repo": "lissy93/domain-locker",
+        "path": "src/app/services/supabase.service.ts",
+        "line": 440,
+        "runtime": false
+       },
+       {
+        "repo": "shamimbinnur/noteitt",
+        "path": "src/store/features/note/noteSlice.ts",
+        "line": 10,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -568,6 +1711,27 @@
       ],
       "typeOnlyHits": 3,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "Gerome-Elassaad/CodingIT",
+        "path": "lib/auth.ts",
+        "line": 27,
+        "runtime": false
+       },
+       {
+        "repo": "Technopathic/InQuill",
+        "path": "actions.ts",
+        "line": 9,
+        "runtime": false
+       },
+       {
+        "repo": "ilkome/finapp",
+        "path": "app/app/composables/useSupabase.ts",
+        "line": 48,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -580,6 +1744,21 @@
       ],
       "typeOnlyHits": 2,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "focux/racing-game-teachable-machine",
+        "path": "src/data.ts",
+        "line": 51,
+        "runtime": false
+       },
+       {
+        "repo": "sherlocknieh/TodoHeap",
+        "path": "frontend/src/stores/auth.ts",
+        "line": 41,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -591,6 +1770,15 @@
       ],
       "typeOnlyHits": 1,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "jonahmr1/intellenix",
+        "path": "lib.ts",
+        "line": 3,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -602,6 +1790,15 @@
       ],
       "typeOnlyHits": 1,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "danpillay87/domination",
+        "path": "src/net.ts",
+        "line": 15,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -613,6 +1810,15 @@
       ],
       "typeOnlyHits": 1,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "lissy93/domain-locker",
+        "path": "src/app/services/supabase.service.ts",
+        "line": 175,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -624,6 +1830,15 @@
       ],
       "typeOnlyHits": 1,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "qurle/type",
+        "path": "api/getPublished.ts",
+        "line": 55,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -635,6 +1850,15 @@
       ],
       "typeOnlyHits": 1,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "jst-seminar-rostlab-tum/openeu-frontend",
+        "path": "src/app/auth/confirm/route.ts",
+        "line": 10,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      },
      {
@@ -646,6 +1870,15 @@
       ],
       "typeOnlyHits": 1,
       "inSurface": true,
+      "sites": [
+       {
+        "repo": "FarzadMohtasham/CoinTrackX",
+        "path": "src/libs/hooks/useSignout.ts",
+        "line": 9,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      }
     ]
@@ -667,6 +1900,15 @@
       ],
       "typeOnlyHits": 1,
       "inSurface": null,
+      "sites": [
+       {
+        "repo": "korebhaumik/Clumsykeys",
+        "path": "src/routes/+layout.ts",
+        "line": 10,
+        "runtime": false
+       }
+      ],
+      "runtimeRepoList": [],
       "memberPaths": []
      }
     ]
@@ -680,6 +1922,7 @@
   "scannedFiles": 147,
   "affectedRepos": 0,
   "affectedRepoList": [],
+  "evidenceByRepo": {},
   "runtimeAffectedRepos": 0,
   "shareOfScannedRepos": 0,
   "entryPointBreaks": [],

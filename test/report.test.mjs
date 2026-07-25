@@ -13,7 +13,19 @@
 
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { renderReport, renderJson, SIGNATURE_AUDIT } from '../src/report.mjs'
+import { readFileSync } from 'node:fs'
+import { renderReport, renderJson, SIGNATURE_AUDIT, RENDERER_VERSION } from '../src/report.mjs'
+
+// The corpus-drawn line as it stands in a PUBLISHED report, read off the shipped
+// file rather than typed here. A unit test against a literal I wrote proves only
+// that I can type: the obligation is that a run whose corpus was drawn on
+// 2026-07-24 still renders the sentence those readers already have.
+const SHIPPED_DRAWN_LINE = readFileSync(
+  new URL('../reports/supabase-js-negative-control.md', import.meta.url),
+  'utf8',
+)
+  .split('\n')
+  .find((l) => l.startsWith('> Corpus drawn '))
 
 // The wording that shipped in all three published reports, byte-for-byte. A
 // single-language run must keep rendering exactly this: the published reports
@@ -24,7 +36,18 @@ const SHIPPED_TS_ONLY =
 const SHIPPED_TS_SCOPE = 'public repositories, language:typescript, default branch (HEAD)'
 
 /** Smallest run object renderReport will accept. Shape mirrors runReport(). */
-function fixture({ pkg = 'typeorm', wildcards = [], languages = ['typescript'] } = {}) {
+function fixture({
+  pkg = 'typeorm',
+  wildcards = [],
+  languages = ['typescript'],
+  collectedAt = { first: '2026-07-24T18:22:33.000Z', last: '2026-07-24T20:00:40.000Z' },
+  // The affected-repo table is rendered only when a repository is affected, so
+  // a fixture with an empty list cannot exercise the "read at their default
+  // branch on DATE" sentence beside it. D6's first draft asserted against that
+  // sentence on an empty fixture and passed while checking nothing — a check
+  // satisfiable without effect. Caught by running, not by reading.
+  affected = false,
+} = {}) {
   return {
     target: {
       pkg,
@@ -49,8 +72,10 @@ function fixture({ pkg = 'typeorm', wildcards = [], languages = ['typescript'] }
       fetched: 500,
       missing: 0,
       // `languages: null` is a distinct case from any list, not a synonym for
-      // typescript — see L4.
+      // typescript — see L4. `collectedAt: null` is the same distinction for the
+      // draw date: an ABSENT field, not an empty one — see D6.
       ...(languages === null ? {} : { languages }),
+      ...(collectedAt === null ? {} : { collectedAt }),
     },
     census: {
       repoCount: 50,
@@ -68,8 +93,10 @@ function fixture({ pkg = 'typeorm', wildcards = [], languages = ['typescript'] }
       symbolBreaks: [],
       memberBreaks: [],
       unusedRemovals: 10,
-      affectedRepoList: [],
-      evidenceByRepo: {},
+      affectedRepoList: affected ? ['acme/app'] : [],
+      evidenceByRepo: affected
+        ? { 'acme/app': [{ what: 'createConnection', path: 'src/db.ts', line: 12, runtime: true }] }
+        : {},
     },
     surfaceSizes: {
       before: new Map([['.', 1], ['./browser', 1]]),
@@ -211,6 +238,94 @@ test('L5: a javascript-only run is a javascript-only report', () => {
   assert.ok(md.includes('this run scanned `language:javascript`.'))
   assert.ok(!md.includes('TypeScript only'), 'the label must follow the corpus')
   assert.ok(!md.includes('Your JavaScript consumers'))
+})
+
+// D5–D9: the corpus draw date must describe the RUN, not the render.
+//
+// The defect these pin: `renderReport` dated the corpus from `new Date()`, so
+// re-rendering a cached run restamped a corpus drawn days earlier with today's
+// date. Every stage of this pipeline is cached, so "re-render an old run" is the
+// normal case, not an exotic one — and the published negative control was
+// waiting to be re-rendered when this was found.
+//
+// D5 is the no-regression half and D6 is the discriminating half: a mutant that
+// puts the clock back leaves D5 green on the day it runs and D6 red forever.
+
+test('D5: a run drawn on the shipped date renders the shipped line byte-for-byte', () => {
+  const md = renderReport(fixture())
+  assert.ok(SHIPPED_DRAWN_LINE, 'precondition: the published report must carry a corpus-drawn line')
+  assert.ok(
+    md.includes(SHIPPED_DRAWN_LINE),
+    'a published report must stay reproducible from this source, to the byte',
+  )
+  assert.ok(md.includes('> Corpus drawn 2026-07-24.'), 'the date must come from the run')
+})
+
+test('D6: an unrecorded draw window is NOT RECORDED, never the day it was rendered', () => {
+  const md = renderReport(fixture({ collectedAt: null, affected: true }))
+  const today = new Date().toISOString().slice(0, 10)
+
+  // Precondition, because the assertions below are about a section that only
+  // exists when a repository is affected — without this they pass vacuously.
+  assert.ok(md.includes('default branch'), 'precondition: the affected-repo section must render')
+
+  assert.ok(md.includes('Corpus draw date **NOT RECORDED**'), 'an unknown date must say so')
+  assert.ok(
+    !md.includes(`Corpus drawn ${today}`),
+    'the render date must never be substituted for the draw date',
+  )
+  // The severe half: this is the sentence beside the named third-party
+  // repositories, telling them when their code was read.
+  assert.ok(
+    !md.includes(`default branch on ${today}`),
+    'the corpus date beside the affected-repo table must not be the clock either',
+  )
+  assert.ok(md.includes('default branch on a date this run did not record'))
+})
+
+test('D6b: the affected-repo sentence carries the DRAW date, not the render date', () => {
+  const md = renderReport(fixture({ affected: true }))
+  assert.ok(md.includes('default branch'), 'precondition: the affected-repo section must render')
+  assert.ok(
+    md.includes('default branch on 2026-07-24.'),
+    'the date beside named third parties must come from the run',
+  )
+})
+
+test('D7: a corpus drawn across two days reports a range, not a side', () => {
+  const md = renderReport(
+    fixture({ collectedAt: { first: '2026-07-24T23:50:00.000Z', last: '2026-07-25T00:20:00.000Z' } }),
+  )
+  assert.ok(md.includes('Corpus drawn 2026-07-24 – 2026-07-25.'), 'both ends must be stated')
+})
+
+test('D8: the draw window and renderer generation are machine-readable', () => {
+  const json = renderJson(fixture())
+  assert.deepEqual(json.coverage.collectedAt, {
+    first: '2026-07-24T18:22:33.000Z',
+    last: '2026-07-24T20:00:40.000Z',
+  })
+  assert.equal(json.rendererVersion, RENDERER_VERSION)
+
+  // `generatedAt` is a fact about the DOCUMENT and is correctly the clock. The
+  // whole defect was these two being one field; asserting they differ is what
+  // stops them being re-merged by a tidy.
+  assert.equal(json.generatedAt.slice(0, 10), new Date().toISOString().slice(0, 10))
+  assert.notEqual(json.generatedAt, json.coverage.collectedAt.last)
+
+  const unrecorded = renderJson(fixture({ collectedAt: null }))
+  assert.equal(unrecorded.coverage.collectedAt, null, 'an unrecorded window must stay null in the JSON')
+})
+
+test('D9: the report states which renderer generation produced it', () => {
+  // Three reports were published from two generations and nothing in any of them
+  // said so; the oldest was missing two coverage disclosures the others carried.
+  const md = renderReport(fixture())
+  assert.ok(md.includes(`report generation ${RENDERER_VERSION}`), 'the generation must be on the page')
+  assert.ok(
+    md.includes('not the time this file was written'),
+    'the stamp must say what it does and does not date',
+  )
 })
 
 test('failed search queries are named in the deliverable, not silently dropped', () => {
