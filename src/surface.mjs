@@ -179,6 +179,61 @@ export async function wildcardSubpaths(pkgRoot) {
   return Object.keys(manifest.exports).filter((k) => k.includes('*')).sort()
 }
 
+/**
+ * The files a wildcard-reachable subpath could resolve to, relative to the
+ * package root. Pure, so the matching rule is testable without a filesystem.
+ *
+ * Deliberately NOT an implementation of Node's `exports` resolution algorithm.
+ * It answers the narrower question the report actually needs: *is there a file
+ * at this address*. That is what decides whether the consumer's import throws
+ * `ERR_MODULE_NOT_FOUND`, and it is decidable from the installed tarball alone.
+ * Reading each wildcard's target conditions instead would buy nothing here and
+ * would be a new capability rather than a coverage fix.
+ *
+ * A key matches by prefix/suffix around its single `*`; the captured segment is
+ * then probed with the extensions a TypeScript consumer resolves through. `./*`
+ * captures `a/b` from `./a/b`, and `./*.js` captures `a/b` from `./a/b.js` — so
+ * both forms converge on the same candidate set without inspecting targets.
+ */
+export function wildcardCandidates(subpath, wildcards) {
+  const out = []
+  for (const key of wildcards) {
+    const star = key.indexOf('*')
+    if (star === -1) continue
+    const prefix = key.slice(0, star)
+    const suffix = key.slice(star + 1)
+    if (!subpath.startsWith(prefix)) continue
+    if (suffix && !subpath.endsWith(suffix)) continue
+    const cap = subpath.slice(prefix.length, suffix ? subpath.length - suffix.length : undefined)
+    if (!cap) continue
+    for (const ext of ['', '.js', '.mjs', '.d.ts', '/index.js', '/index.d.ts']) out.push(cap + ext)
+  }
+  return [...new Set(out)]
+}
+
+/**
+ * Which of `subpaths` resolve to a real file in this installed package.
+ *
+ * Returns a Map rather than mutating anything, and the caller decides what an
+ * absent entry means. Crossing two of these — one per version — is what turns
+ * "wildcard paths are invisible to us" into a counted number, and the whole
+ * point is that the count can be non-zero.
+ */
+export async function wildcardReachability(pkgRoot, wildcards, subpaths) {
+  const reach = new Map()
+  for (const subpath of subpaths) {
+    let found = false
+    for (const cand of wildcardCandidates(subpath, wildcards)) {
+      if (await exists(join(pkgRoot, cand))) {
+        found = true
+        break
+      }
+    }
+    reach.set(subpath, found)
+  }
+  return reach
+}
+
 function pickJs(value) {
   if (typeof value === 'string') return value
   if (!value || typeof value !== 'object') return null
@@ -317,7 +372,10 @@ export async function exportSurface(pkg, version, { onLog } = {}) {
     onLog?.(`  ${pkg}@${version} ${subpath} -> ${symbols.size} exports`)
   }
 
-  return { pkg, version, entries: surface, wildcards }
+  // `root` is carried so a later stage can ask whether a subpath the manifest
+  // never declared still resolves to a file. Without it the wildcard hole can
+  // only be described, never counted.
+  return { pkg, version, entries: surface, wildcards, root: pkgRoot }
 }
 
 /**

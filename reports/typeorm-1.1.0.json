@@ -1,5 +1,6 @@
 {
- "generatedAt": "2026-07-24T18:30:19.825Z",
+ "generatedAt": "2026-07-25T06:00:43.417Z",
+ "rendererVersion": 2,
  "target": {
   "pkg": "typeorm",
   "from": "0.3.31",
@@ -48,6 +49,10 @@
      "total": 4548
     }
    ]
+  },
+  "collectedAt": {
+   "first": "2026-07-24T16:39:37.136Z",
+   "last": "2026-07-24T18:23:32.410Z"
   },
   "queries": [
    {
@@ -169,7 +174,8 @@
   "candidateRepos": 9790,
   "filesParsed": 3696,
   "filesUnavailable": 0,
-  "scope": "public repositories, language:typescript, default branch (HEAD)"
+  "languages": null,
+  "scope": "public repositories, scanned languages NOT RECORDED by this run, default branch (HEAD)"
  },
  "surfaceDiff": {
   "from": "typeorm@0.3.31",
@@ -78159,7 +78165,7 @@
   "to": "typeorm@1.1.0",
   "scannedRepos": 2415,
   "scannedFiles": 3584,
-  "affectedRepos": 441,
+  "affectedRepos": 474,
   "affectedRepoList": [
    "2n-snails/nest-back",
    "404jv/dev-landia",
@@ -78168,6 +78174,7 @@
    "4GeeksAcademy/expressjs-rest-hello",
    "4GeeksAcademy/sistema_autenticacon_react_nodejs_lluisespert",
    "7codeRO/nest-typeorm-rest-api-boilerplate",
+   "Aaronchelo18/modasnansi-backend",
    "Abubakar-Abdulwahab/smartforce-backend",
    "AdrianArtiles/viral-waitlist-api",
    "Alisson-Oliveira/entregas-cariri",
@@ -78176,7 +78183,9 @@
    "AshameTheDestroyer/Engineers-Mathematical-Guide",
    "AshokLamaMoktanTamang/nestjs-gql",
    "Authing/misskey",
+   "Baf-03/simulation-backend",
    "BinaryStudioAcademy/bsa-2021-hypecrafter",
+   "Blind-Sailing-Canada/sail-manager",
    "BoussonKarel/KassAapje",
    "BrounouSalah/tuniMillion-gql",
    "BuildingBlockchains/panel-backend",
@@ -78201,6 +78210,7 @@
    "DiogoAbu/how-much-server",
    "DiscordFactory/storage",
    "Dlame/Graduation_project_backend",
+   "DoanHieu88/RestAPi-NestJs",
    "Dwigth/sistema-monitoreo",
    "Eccoar/2020.2-Eccoar_Complaint",
    "EliasGcf/nlw-05-nodejs",
@@ -78212,9 +78222,12 @@
    "Guardians-DSC/GitRadar",
    "HETIC-W3-G12/node-api",
    "HackGT/ballot",
+   "HafizulHaque/nest-js-demo",
    "Hasebul12/EcommerceProject",
+   "Huarachi2002/service-user-api",
    "IbbPress/nestjs-blog-server",
    "Ignition-Space/ignition",
+   "InsureMO/rainbow-o23",
    "Integrify-Team-4/Tindev",
    "Ionaru/MarketBot",
    "JacobRyzy/NeuroNest",
@@ -78239,15 +78252,18 @@
    "Meyhem/gql-backend-template",
    "MichaelDarr/MuCritic",
    "Mikerosoft25/my-thai-star-beastbelly",
+   "MisaelMa/3rooms-api",
    "Money-Manager-SaaS/mmss-backend",
    "NewSchoolApp/newschool-backend",
    "Nexters/mandalart-server",
    "Nexters/what-do-you-say-server",
+   "Ngyyen/PJ-03-BigPM-BE",
    "OKiMaureen/ticket-manager-api",
    "ObserverMoment/node-gql-tsorm-pg",
    "Oky-period-tracker/periodtracker",
    "OlegStrokan/medium-clone",
    "OpenCLTBrigade/cmpd-holiday-gift",
+   "OpenRifgo/RifgoApi",
    "OwnStoreOrg/ownstore-api",
    "PacktPublishing/Full-Stack-Development-with-Angular-and-GraphQL",
    "PauloFRPDev/appointments-cro-api",
@@ -78270,11 +78286,13 @@
    "RushabhParmar12/Liquidity",
    "SOURC3XYZ/sourc3",
    "SaCoDeBurundi/OkyBurundi2025",
+   "SamuelMarks/restify-orm-scaffold",
    "SertoID/didconf",
    "SertoID/simple-did-agent",
    "Skillfuze/skillfuze",
    "SonarSource/jsts-test-sources",
    "SouhailXedits/typeorm-url-query-builder",
+   "Sphereon-Opensource/mobile-wallet",
    "StaberindeZA/jwt-auth-example",
    "StartBootstrap/sb-clean-blog-node",
    "StatelessStudio/pointyapi",
@@ -78282,6 +78300,8 @@
    "StrikeHost/StrikeHost",
    "TLOWAC/nestjs-template",
    "TerraDharitri/drt-nft-service",
+   "The-Hackers-UCAB/MyOnlineDoctor-Backend",
+   "TropixInc/nft-tracker",
    "UCB-TallerDeDesarrollo/SuperApp",
    "UniqueStudio/UniqueRecruitmentSystem",
    "WallysonGalvao/rocketseat-gobarber",
@@ -78317,6 +78337,7 @@
    "aleygues/lc-node-typegraphql-typeorm-auth",
    "aleygues/lc-typegraphql-typeorm-authentication",
    "ali-husnain/nestjs-multi-tenant-rest-graphql-api-boilerplate",
+   "alimpp/black_cat_nest_js",
    "almcarvalho/chalengebackend",
    "ambroiseRabier/typeorm-nestjs-migration-example",
    "andersonluizpereira/advanced-node",
@@ -78387,9 +78408,12 @@
    "devonfw/my-thai-star",
    "djuric/notificato",
    "dmiseev/ddd-node-starter",
+   "doordash-oss/local-dev-env-blog-example",
    "dopplr-labs/dopplr",
    "doug-martin/nestjs-query",
    "drkgrntt/heartlandtohome",
+   "dudd203204/PJ-04-Crash-Management-BE",
+   "duniapay/Paymnts",
    "dunistory/nft-world-backend",
    "eCaller/eCallerEpidemiaBackend",
    "edsf80/typescript-express-typeorm",
@@ -78432,20 +78456,24 @@
    "indigotech/onboard-marco-prado",
    "inferrd/inferrd",
    "inhibitor1217/coffee-hmm",
+   "inu-appcenter/cafeteria-backend-core",
    "irenedeni/multiplayer-dice-game",
    "jacobstern/typescript-handlebars-realworld",
    "jaehyeon48/boostock-refactoring",
    "jeandsontb/project-banc-inter",
    "jelly-swap/jelly-butler-beta",
+   "jerikareyna/modasnansi-backend-main",
    "jesusmeme/fullstack-pro",
    "jiphyeonjeon-42/backend-nest-legacy",
    "jjuli93/node-bootstrap",
    "jjwtay/graphGenTypeorm",
    "joanna-liana/specification-pattern",
    "johannchopin/stackoverflow-readme-profile",
+   "johndavis1999/tenancy-typeorm",
    "jojoldu/nodejs-unit-test",
    "jolocom/jolocom-sdk",
    "jolocom/smartwallet-app",
+   "joshan-fusemachines/aws-nest-demo",
    "jozsefsallai/nakiri",
    "just-read/justread-api",
    "jvennik/discord-valorant-meister",
@@ -78467,8 +78495,10 @@
    "lucas-boyd-838/fullstack-pro-",
    "lucasrmagalhaes/bootcamp_eduzz-node_react",
    "luckcoding/hotchcms",
+   "luiseduardo1405/modasnansi-backend",
    "lunaisnotaboy/blurple",
    "m-nathani/node-typescript-starter",
+   "maeumjs/maeum-pet-store",
    "magewill/web3js-dapp",
    "makinah/blog",
    "managervcf/express-typescript",
@@ -78489,6 +78519,7 @@
    "misskey-dev/dolphin",
    "mju-likelion/lionking",
    "motion/orbit",
+   "movieknight/movieknight-rest-api",
    "msg-systems/joolia",
    "msocietyhq/msocietybot",
    "multiversx/mx-nft-service",
@@ -78496,6 +78527,7 @@
    "nktknshn/awad-bot",
    "nurrizkyimani/walking-typescript-graphql",
    "nutskey/nutskey",
+   "nyirurugoomar/hirelab-africa",
    "o2minerva/nextjs",
    "octocat512/nf3x-backend-developer-challenge",
    "odavid/typeorm-transactional-cls-hooked",
@@ -78504,6 +78536,11 @@
    "omarberrami/typeorm-seeding-generator",
    "papyrcms/papyrcms",
    "phil3903/nextjs-apollo-boilerplate",
+   "pietrzakadrian/bank-server",
+   "pietrzakadrian/nestjs-authentication-full",
+   "pietrzakadrian/nestjs-typeorm-findone",
+   "pietrzakadrian/nestjs-typeorm-pagination",
+   "pietrzakadrian/nestjs-typeorm-virtualcolumn",
    "pikonha/twitter-app",
    "pilagod/uow-typeorm",
    "plquann/urTicket-backend",
@@ -78568,6 +78605,7 @@
    "typecrud/typecrud",
    "typestack/typeorm-typedi-extensions",
    "ubclaunchpad/PromoPal-backend",
+   "uparrows/immich_cn",
    "vahid-nejad/auth_backend",
    "vecolo-project/veapi",
    "velopert/velog-server",
@@ -78586,6 +78624,7 @@
    "wernerholzapfel/molapi",
    "wistingcn/WiLearning",
    "wix-incubator/quix",
+   "wjywy/AI-Chat-Be",
    "wolox-training/gd-node-ts",
    "wolox-training/jpc-express-ts",
    "wolox-training/lf-express-ts",
@@ -78674,6 +78713,15 @@
      "runtime": false
     }
    ],
+   "Aaronchelo18/modasnansi-backend": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "src/ORMconfig.ts",
+     "line": 114,
+     "runtime": false
+    }
+   ],
    "Abubakar-Abdulwahab/smartforce-backend": [
     {
      "kind": "symbol",
@@ -78746,6 +78794,15 @@
      "runtime": true
     }
    ],
+   "Baf-03/simulation-backend": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "pg.config.ts",
+     "line": 3,
+     "runtime": false
+    }
+   ],
    "BinaryStudioAcademy/bsa-2021-hypecrafter": [
     {
      "kind": "symbol",
@@ -78767,6 +78824,15 @@
      "path": "backend/src/data/repositories/projectTag.ts",
      "line": 4,
      "runtime": true
+    }
+   ],
+   "Blind-Sailing-Canada/sail-manager": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "api/src/db/ormconfig.ts",
+     "line": 10,
+     "runtime": false
     }
    ],
    "BoussonKarel/KassAapje": [
@@ -79104,6 +79170,15 @@
      "runtime": true
     }
    ],
+   "DoanHieu88/RestAPi-NestJs": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "ormConfig.ts",
+     "line": 3,
+     "runtime": false
+    }
+   ],
    "Dwigth/sistema-monitoreo": [
     {
      "kind": "symbol",
@@ -79210,12 +79285,30 @@
      "runtime": true
     }
    ],
+   "HafizulHaque/nest-js-demo": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "ormconfig.ts",
+     "line": 6,
+     "runtime": false
+    }
+   ],
    "Hasebul12/EcommerceProject": [
     {
      "kind": "symbol",
      "what": "Timestamp (.)",
      "path": "src/users/entities/user.entity.ts",
      "line": 30,
+     "runtime": false
+    }
+   ],
+   "Huarachi2002/service-user-api": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mongodb/MongoConnectionOptions.js",
+     "path": "dbConfig.ts",
+     "line": 3,
      "runtime": false
     }
    ],
@@ -79235,6 +79328,15 @@
      "path": "apps/userServer/src/resource/resource.mongo.entity.ts",
      "line": 19,
      "runtime": true
+    }
+   ],
+   "InsureMO/rainbow-o23": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions.js",
+     "path": "o23-n3/src/lib/typeorm/pgsql-datasource.ts",
+     "line": 5,
+     "runtime": false
     }
    ],
    "Integrify-Team-4/Tindev": [
@@ -79292,6 +79394,13 @@
     }
    ],
    "Laynester/uiext": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "server/src/main.ts",
+     "line": 46,
+     "runtime": false
+    },
     {
      "kind": "symbol",
      "what": "createConnection (.)",
@@ -79509,6 +79618,15 @@
      "runtime": false
     }
    ],
+   "MisaelMa/3rooms-api": [
+    {
+     "kind": "entry-point",
+     "what": "./connection/BaseConnectionOptions",
+     "path": "src/ormconfig.ts",
+     "line": 8,
+     "runtime": false
+    }
+   ],
    "Money-Manager-SaaS/mmss-backend": [
     {
      "kind": "symbol",
@@ -79566,6 +79684,15 @@
      "runtime": true
     }
    ],
+   "Ngyyen/PJ-03-BigPM-BE": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "configOrm.ts",
+     "line": 4,
+     "runtime": false
+    }
+   ],
    "OKiMaureen/ticket-manager-api": [
     {
      "kind": "symbol",
@@ -79615,6 +79742,15 @@
      "what": "Connection (.)",
      "path": "backend/nominations-api/src/seeds/child.ts",
      "line": 7,
+     "runtime": false
+    }
+   ],
+   "OpenRifgo/RifgoApi": [
+    {
+     "kind": "entry-point",
+     "what": "./connection/Connection",
+     "path": "src/App.ts",
+     "line": 51,
      "runtime": false
     }
    ],
@@ -79872,6 +80008,15 @@
      "runtime": true
     }
    ],
+   "SamuelMarks/restify-orm-scaffold": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "config.ts",
+     "line": 26,
+     "runtime": false
+    }
+   ],
    "SertoID/didconf": [
     {
      "kind": "symbol",
@@ -79914,6 +80059,15 @@
      "what": "FindOptionsSelectByString (.)",
      "path": "src/interfaces.ts",
      "line": 37,
+     "runtime": false
+    }
+   ],
+   "Sphereon-Opensource/mobile-wallet": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/sqlite/SqliteConnectionOptions",
+     "path": "jest.setup.ts",
+     "line": 28,
      "runtime": false
     }
    ],
@@ -79984,6 +80138,24 @@
      "what": "ConnectionOptions (.)",
      "path": "src/ormconfig.ts",
      "line": 14,
+     "runtime": false
+    }
+   ],
+   "The-Hackers-UCAB/MyOnlineDoctor-Backend": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "ormconfig.ts",
+     "line": 3,
+     "runtime": false
+    }
+   ],
+   "TropixInc/nft-tracker": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "src/ormconfig.ts",
+     "line": 50,
      "runtime": false
     }
    ],
@@ -80363,6 +80535,15 @@
      "path": "src/common/utils/db-manager.utils.ts",
      "line": 10,
      "runtime": true
+    }
+   ],
+   "alimpp/black_cat_nest_js": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "dbConfig.ts",
+     "line": 15,
+     "runtime": false
     }
    ],
    "almcarvalho/chalengebackend": [
@@ -80788,6 +80969,13 @@
    ],
    "bracesproul/lots-o-slots": [
     {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "api/src/config/typeorm.ts",
+     "line": 71,
+     "runtime": false
+    },
+    {
      "kind": "symbol",
      "what": "createConnection (.)",
      "path": "api/src/config/typeorm.ts",
@@ -81147,6 +81335,13 @@
    ],
    "custodian-terra-money/classic-fcd": [
     {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "src/orm/index.ts",
+     "line": 95,
+     "runtime": false
+    },
+    {
      "kind": "symbol",
      "what": "createConnection (.)",
      "path": "src/orm/index.ts",
@@ -81261,6 +81456,15 @@
      "runtime": true
     }
    ],
+   "doordash-oss/local-dev-env-blog-example": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "src/ormconfig.ts",
+     "line": 15,
+     "runtime": false
+    }
+   ],
    "dopplr-labs/dopplr": [
     {
      "kind": "symbol",
@@ -81286,6 +81490,24 @@
      "path": "src/utilities/serverContext/database/entities/Blog.ts",
      "line": 56,
      "runtime": true
+    }
+   ],
+   "dudd203204/PJ-04-Crash-Management-BE": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "configOrm.ts",
+     "line": 4,
+     "runtime": false
+    }
+   ],
+   "duniapay/Paymnts": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "src/config/database.ts",
+     "line": 4,
+     "runtime": false
     }
    ],
    "dunistory/nft-world-backend": [
@@ -81785,6 +82007,15 @@
      "runtime": true
     }
    ],
+   "inu-appcenter/cafeteria-backend-core": [
+    {
+     "kind": "entry-point",
+     "what": "./connection/ConnectionOptions",
+     "path": "config.ts",
+     "line": 35,
+     "runtime": false
+    }
+   ],
    "irenedeni/multiplayer-dice-game": [
     {
      "kind": "symbol",
@@ -81842,6 +82073,15 @@
      "path": "src/run.ts",
      "line": 37,
      "runtime": true
+    }
+   ],
+   "jerikareyna/modasnansi-backend-main": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "src/ORMconfig.ts",
+     "line": 114,
+     "runtime": false
     }
    ],
    "jesusmeme/fullstack-pro": [
@@ -81919,6 +82159,15 @@
      "runtime": true
     }
    ],
+   "johndavis1999/tenancy-typeorm": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "src/orm.config.ts",
+     "line": 23,
+     "runtime": false
+    }
+   ],
    "jojoldu/nodejs-unit-test": [
     {
      "kind": "symbol",
@@ -81950,6 +82199,15 @@
      "what": "getConnection (.)",
      "path": "src/utils/sdk/index.ts",
      "line": 19,
+     "runtime": true
+    }
+   ],
+   "joshan-fusemachines/aws-nest-demo": [
+    {
+     "kind": "entry-point",
+     "what": "./decorator/EntityRepository",
+     "path": "src/user/repositories/user.repository.ts",
+     "line": 5,
      "runtime": true
     }
    ],
@@ -82071,6 +82329,13 @@
     }
    ],
    "kiaksarg/nestjs-transaction-per-request": [
+    {
+     "kind": "entry-point",
+     "what": "./query-builder/relation-count/RelationCountLoader",
+     "path": "src/helpers/map-raw-to-entities.ts",
+     "line": 19,
+     "runtime": true
+    },
     {
      "kind": "symbol",
      "what": "Connection (.)",
@@ -82254,6 +82519,15 @@
      "runtime": true
     }
    ],
+   "luiseduardo1405/modasnansi-backend": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "src/ORMconfig.ts",
+     "line": 114,
+     "runtime": false
+    }
+   ],
    "lunaisnotaboy/blurple": [
     {
      "kind": "symbol",
@@ -82277,6 +82551,15 @@
      "path": "src/controller/lookup.ts",
      "line": 8,
      "runtime": true
+    }
+   ],
+   "maeumjs/maeum-pet-store": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions.js",
+     "path": "src/databases/data-sources/getPetStoreMysql.ts",
+     "line": 31,
+     "runtime": false
     }
    ],
    "magewill/web3js-dapp": [
@@ -82508,6 +82791,15 @@
      "runtime": true
     }
    ],
+   "movieknight/movieknight-rest-api": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "config.ts",
+     "line": 15,
+     "runtime": false
+    }
+   ],
    "msg-systems/joolia": [
     {
      "kind": "symbol",
@@ -82613,6 +82905,15 @@
      "runtime": true
     }
    ],
+   "nyirurugoomar/hirelab-africa": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "ormconfig.ts",
+     "line": 3,
+     "runtime": false
+    }
+   ],
    "o2minerva/nextjs": [
     {
      "kind": "symbol",
@@ -82658,6 +82959,13 @@
    ],
    "oleksandr-andrushchenko/exam-me-api": [
     {
+     "kind": "entry-point",
+     "what": "./driver/mongodb/MongoConnectionOptions",
+     "path": "src/application.ts",
+     "line": 58,
+     "runtime": false
+    },
+    {
      "kind": "symbol",
      "what": "useContainer (.)",
      "path": "src/application.ts",
@@ -82696,6 +83004,51 @@
      "what": "getRepository (.)",
      "path": "lib/auth.ts",
      "line": 52,
+     "runtime": true
+    }
+   ],
+   "pietrzakadrian/bank-server": [
+    {
+     "kind": "entry-point",
+     "what": "./decorator/EntityRepository",
+     "path": "src/modules/message/repositories/message-template.repository.ts",
+     "line": 5,
+     "runtime": true
+    }
+   ],
+   "pietrzakadrian/nestjs-authentication-full": [
+    {
+     "kind": "entry-point",
+     "what": "./decorator/EntityRepository",
+     "path": "src/user/repositories/user.repository.ts",
+     "line": 5,
+     "runtime": true
+    }
+   ],
+   "pietrzakadrian/nestjs-typeorm-findone": [
+    {
+     "kind": "entry-point",
+     "what": "./decorator/EntityRepository",
+     "path": "src/user/repositories/user.repository.ts",
+     "line": 5,
+     "runtime": true
+    }
+   ],
+   "pietrzakadrian/nestjs-typeorm-pagination": [
+    {
+     "kind": "entry-point",
+     "what": "./decorator/EntityRepository",
+     "path": "src/user/repositories/user.repository.ts",
+     "line": 5,
+     "runtime": true
+    }
+   ],
+   "pietrzakadrian/nestjs-typeorm-virtualcolumn": [
+    {
+     "kind": "entry-point",
+     "what": "./decorator/EntityRepository",
+     "path": "src/user/repositories/user.repository.ts",
+     "line": 5,
      "runtime": true
     }
    ],
@@ -82902,6 +83255,13 @@
     }
    ],
    "richban/nodejs-mini-project": [
+    {
+     "kind": "entry-point",
+     "what": "./connection/ConnectionOptions",
+     "path": "src/config/configTypes.ts",
+     "line": 6,
+     "runtime": false
+    },
     {
      "kind": "symbol",
      "what": "Connection (.)",
@@ -83347,6 +83707,13 @@
    ],
    "teamzerolabs/BaseProject": [
     {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "backend/src/util/db-setup.ts",
+     "line": 14,
+     "runtime": false
+    },
+    {
      "kind": "symbol",
      "what": "createConnection (.)",
      "path": "backend/src/util/db-setup.ts",
@@ -83380,6 +83747,13 @@
     }
    ],
    "terra-money/fcd-classic": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "src/orm/index.ts",
+     "line": 95,
+     "runtime": false
+    },
     {
      "kind": "symbol",
      "what": "createConnection (.)",
@@ -83417,6 +83791,13 @@
     }
    ],
    "terra-money/terraswap-graph": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "src/orm/connection.ts",
+     "line": 24,
+     "runtime": false
+    },
     {
      "kind": "symbol",
      "what": "createConnection (.)",
@@ -83532,6 +83913,15 @@
      "path": "src/main/controller/RestaurantController.ts",
      "line": 25,
      "runtime": true
+    }
+   ],
+   "uparrows/immich_cn": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/postgres/PostgresConnectionOptions",
+     "path": "server/src/infra/database.config.ts",
+     "line": 15,
+     "runtime": false
     }
    ],
    "vahid-nejad/auth_backend": [
@@ -83735,6 +84125,15 @@
      "what": "Connection (.)",
      "path": "quix-frontend/service/src/utils/create-schema-helpers.ts",
      "line": 7,
+     "runtime": false
+    }
+   ],
+   "wjywy/AI-Chat-Be": [
+    {
+     "kind": "entry-point",
+     "what": "./driver/mysql/MysqlConnectionOptions",
+     "path": "src/app.module.ts",
+     "line": 39,
      "runtime": false
     }
    ],
@@ -83960,9 +84359,436 @@
     }
    ]
   },
-  "runtimeAffectedRepos": 343,
-  "shareOfScannedRepos": 0.1826086956521739,
-  "entryPointBreaks": [],
+  "runtimeAffectedRepos": 350,
+  "shareOfScannedRepos": 0.19627329192546583,
+  "entryPointBreaks": [
+   {
+    "subpath": "./driver/postgres/PostgresConnectionOptions",
+    "repos": 15,
+    "repoList": [
+     "Baf-03/simulation-backend",
+     "Blind-Sailing-Canada/sail-manager",
+     "SamuelMarks/restify-orm-scaffold",
+     "The-Hackers-UCAB/MyOnlineDoctor-Backend",
+     "TropixInc/nft-tracker",
+     "alimpp/black_cat_nest_js",
+     "bracesproul/lots-o-slots",
+     "custodian-terra-money/classic-fcd",
+     "doordash-oss/local-dev-env-blog-example",
+     "duniapay/Paymnts",
+     "movieknight/movieknight-rest-api",
+     "nyirurugoomar/hirelab-africa",
+     "terra-money/fcd-classic",
+     "terra-money/terraswap-graph",
+     "uparrows/immich_cn"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "doordash-oss/local-dev-env-blog-example",
+      "path": "src/ormconfig.ts",
+      "line": 15,
+      "runtime": false
+     },
+     {
+      "repo": "Baf-03/simulation-backend",
+      "path": "pg.config.ts",
+      "line": 3,
+      "runtime": false
+     },
+     {
+      "repo": "The-Hackers-UCAB/MyOnlineDoctor-Backend",
+      "path": "ormconfig.ts",
+      "line": 3,
+      "runtime": false
+     },
+     {
+      "repo": "nyirurugoomar/hirelab-africa",
+      "path": "ormconfig.ts",
+      "line": 3,
+      "runtime": false
+     },
+     {
+      "repo": "uparrows/immich_cn",
+      "path": "server/src/infra/database.config.ts",
+      "line": 15,
+      "runtime": false
+     },
+     {
+      "repo": "alimpp/black_cat_nest_js",
+      "path": "dbConfig.ts",
+      "line": 15,
+      "runtime": false
+     },
+     {
+      "repo": "duniapay/Paymnts",
+      "path": "src/config/database.ts",
+      "line": 4,
+      "runtime": false
+     },
+     {
+      "repo": "Blind-Sailing-Canada/sail-manager",
+      "path": "api/src/db/ormconfig.ts",
+      "line": 10,
+      "runtime": false
+     },
+     {
+      "repo": "terra-money/fcd-classic",
+      "path": "src/orm/index.ts",
+      "line": 95,
+      "runtime": false
+     },
+     {
+      "repo": "TropixInc/nft-tracker",
+      "path": "src/ormconfig.ts",
+      "line": 50,
+      "runtime": false
+     },
+     {
+      "repo": "movieknight/movieknight-rest-api",
+      "path": "config.ts",
+      "line": 15,
+      "runtime": false
+     },
+     {
+      "repo": "custodian-terra-money/classic-fcd",
+      "path": "src/orm/index.ts",
+      "line": 95,
+      "runtime": false
+     },
+     {
+      "repo": "bracesproul/lots-o-slots",
+      "path": "api/src/config/typeorm.ts",
+      "line": 71,
+      "runtime": false
+     },
+     {
+      "repo": "terra-money/terraswap-graph",
+      "path": "src/orm/connection.ts",
+      "line": 24,
+      "runtime": false
+     },
+     {
+      "repo": "SamuelMarks/restify-orm-scaffold",
+      "path": "config.ts",
+      "line": 26,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./driver/mysql/MysqlConnectionOptions",
+    "repos": 11,
+    "repoList": [
+     "Aaronchelo18/modasnansi-backend",
+     "DoanHieu88/RestAPi-NestJs",
+     "HafizulHaque/nest-js-demo",
+     "Laynester/uiext",
+     "Ngyyen/PJ-03-BigPM-BE",
+     "dudd203204/PJ-04-Crash-Management-BE",
+     "jerikareyna/modasnansi-backend-main",
+     "johndavis1999/tenancy-typeorm",
+     "luiseduardo1405/modasnansi-backend",
+     "teamzerolabs/BaseProject",
+     "wjywy/AI-Chat-Be"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "HafizulHaque/nest-js-demo",
+      "path": "ormconfig.ts",
+      "line": 6,
+      "runtime": false
+     },
+     {
+      "repo": "DoanHieu88/RestAPi-NestJs",
+      "path": "ormConfig.ts",
+      "line": 3,
+      "runtime": false
+     },
+     {
+      "repo": "dudd203204/PJ-04-Crash-Management-BE",
+      "path": "configOrm.ts",
+      "line": 4,
+      "runtime": false
+     },
+     {
+      "repo": "Ngyyen/PJ-03-BigPM-BE",
+      "path": "configOrm.ts",
+      "line": 4,
+      "runtime": false
+     },
+     {
+      "repo": "teamzerolabs/BaseProject",
+      "path": "backend/src/util/db-setup.ts",
+      "line": 14,
+      "runtime": false
+     },
+     {
+      "repo": "johndavis1999/tenancy-typeorm",
+      "path": "src/orm.config.ts",
+      "line": 23,
+      "runtime": false
+     },
+     {
+      "repo": "wjywy/AI-Chat-Be",
+      "path": "src/app.module.ts",
+      "line": 39,
+      "runtime": false
+     },
+     {
+      "repo": "Laynester/uiext",
+      "path": "server/src/main.ts",
+      "line": 46,
+      "runtime": false
+     },
+     {
+      "repo": "luiseduardo1405/modasnansi-backend",
+      "path": "src/ORMconfig.ts",
+      "line": 114,
+      "runtime": false
+     },
+     {
+      "repo": "jerikareyna/modasnansi-backend-main",
+      "path": "src/ORMconfig.ts",
+      "line": 114,
+      "runtime": false
+     },
+     {
+      "repo": "Aaronchelo18/modasnansi-backend",
+      "path": "src/ORMconfig.ts",
+      "line": 114,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./decorator/EntityRepository",
+    "repos": 6,
+    "repoList": [
+     "joshan-fusemachines/aws-nest-demo",
+     "pietrzakadrian/bank-server",
+     "pietrzakadrian/nestjs-authentication-full",
+     "pietrzakadrian/nestjs-typeorm-findone",
+     "pietrzakadrian/nestjs-typeorm-pagination",
+     "pietrzakadrian/nestjs-typeorm-virtualcolumn"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "pietrzakadrian/nestjs-typeorm-pagination",
+      "path": "src/user/repositories/user.repository.ts",
+      "line": 5,
+      "runtime": true
+     },
+     {
+      "repo": "pietrzakadrian/nestjs-authentication-full",
+      "path": "src/user/repositories/user.repository.ts",
+      "line": 5,
+      "runtime": true
+     },
+     {
+      "repo": "pietrzakadrian/nestjs-typeorm-virtualcolumn",
+      "path": "src/user/repositories/user.repository.ts",
+      "line": 5,
+      "runtime": true
+     },
+     {
+      "repo": "joshan-fusemachines/aws-nest-demo",
+      "path": "src/user/repositories/user.repository.ts",
+      "line": 5,
+      "runtime": true
+     },
+     {
+      "repo": "pietrzakadrian/nestjs-typeorm-findone",
+      "path": "src/user/repositories/user.repository.ts",
+      "line": 5,
+      "runtime": true
+     },
+     {
+      "repo": "pietrzakadrian/bank-server",
+      "path": "src/modules/message/repositories/message-template.repository.ts",
+      "line": 5,
+      "runtime": true
+     }
+    ]
+   },
+   {
+    "subpath": "./connection/ConnectionOptions",
+    "repos": 2,
+    "repoList": [
+     "inu-appcenter/cafeteria-backend-core",
+     "richban/nodejs-mini-project"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "inu-appcenter/cafeteria-backend-core",
+      "path": "config.ts",
+      "line": 35,
+      "runtime": false
+     },
+     {
+      "repo": "richban/nodejs-mini-project",
+      "path": "src/config/configTypes.ts",
+      "line": 6,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./driver/mongodb/MongoConnectionOptions.js",
+    "repos": 1,
+    "repoList": [
+     "Huarachi2002/service-user-api"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "Huarachi2002/service-user-api",
+      "path": "dbConfig.ts",
+      "line": 3,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./driver/postgres/PostgresConnectionOptions.js",
+    "repos": 1,
+    "repoList": [
+     "InsureMO/rainbow-o23"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "InsureMO/rainbow-o23",
+      "path": "o23-n3/src/lib/typeorm/pgsql-datasource.ts",
+      "line": 5,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./query-builder/relation-count/RelationCountLoader",
+    "repos": 1,
+    "repoList": [
+     "kiaksarg/nestjs-transaction-per-request"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "kiaksarg/nestjs-transaction-per-request",
+      "path": "src/helpers/map-raw-to-entities.ts",
+      "line": 19,
+      "runtime": true
+     }
+    ]
+   },
+   {
+    "subpath": "./connection/BaseConnectionOptions",
+    "repos": 1,
+    "repoList": [
+     "MisaelMa/3rooms-api"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "MisaelMa/3rooms-api",
+      "path": "src/ormconfig.ts",
+      "line": 8,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./driver/mysql/MysqlConnectionOptions.js",
+    "repos": 1,
+    "repoList": [
+     "maeumjs/maeum-pet-store"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "maeumjs/maeum-pet-store",
+      "path": "src/databases/data-sources/getPetStoreMysql.ts",
+      "line": 31,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./driver/sqlite/SqliteConnectionOptions",
+    "repos": 1,
+    "repoList": [
+     "Sphereon-Opensource/mobile-wallet"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "Sphereon-Opensource/mobile-wallet",
+      "path": "jest.setup.ts",
+      "line": 28,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./connection/Connection",
+    "repos": 1,
+    "repoList": [
+     "OpenRifgo/RifgoApi"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "OpenRifgo/RifgoApi",
+      "path": "src/App.ts",
+      "line": 51,
+      "runtime": false
+     }
+    ]
+   },
+   {
+    "subpath": "./driver/mongodb/MongoConnectionOptions",
+    "repos": 1,
+    "repoList": [
+     "oleksandr-andrushchenko/exam-me-api"
+    ],
+    "symbolsUsed": 1,
+    "symbolsStillExportedElsewhere": 0,
+    "viaWildcard": true,
+    "sites": [
+     {
+      "repo": "oleksandr-andrushchenko/exam-me-api",
+      "path": "src/application.ts",
+      "line": 58,
+      "runtime": false
+     }
+    ]
+   }
+  ],
   "symbolBreaks": [
    {
     "subpath": ".",
@@ -88807,6 +89633,10 @@
    }
   ],
   "memberBreaks": [],
+  "wildcardEntryPoints": {
+   "consumedNotDeclared": 64,
+   "broken": 12
+  },
   "unusedRemovals": 725
  }
 }

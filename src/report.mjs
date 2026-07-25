@@ -474,8 +474,20 @@ export function renderReport(run, { maxRows = 40, maxRepos = 60, notes = null } 
   // enumerable entry points are then a small fraction of the real surface.
   const wildcards = run.surfaceSizes.wildcardsBefore ?? []
   if (wildcards.length) {
+    // The hole is real, but "not quantifiable" was only ever true of the
+    // MANIFEST. The corpus on the other side of the cross names exactly which
+    // wildcard subpaths consumers import, and the two installed tarballs decide
+    // which of those stopped resolving — so the size of the hole is measurable
+    // even though its full extent is not enumerable. Saying "unquantifiable"
+    // while holding the measurement sent the reader away from a number this
+    // report had.
+    const w = radius.wildcardEntryPoints
+    const probed =
+      w == null
+        ? `**Whether any consumer is affected under one of them is \`NOT RECORDED\` for this run** — the wildcard surface was not probed, which is not the same as probing it and finding nothing.`
+        : `Consumers in this corpus import **${fmt(w.consumedNotDeclared)}** ${w.consumedNotDeclared === 1 ? 'subpath' : 'subpaths'} that the manifest does not declare; each was resolved against both installed tarballs, and **${fmt(w.broken)}** of them resolve in \`${target.from}\` and no longer resolve in \`${target.to}\`.${w.broken ? ` Those ${fmt(w.broken)} are counted in category A above.` : ''}`
     L.push(
-      `- **⚠️ Wildcard entry points are skipped, and this package declares ${wildcards.length}: ${wildcards.map((w) => `\`${w}\``).join(', ')}.** A wildcard subpath cannot be enumerated from the manifest alone, so it is absent from the ${fmt(run.surfaceSizes.before.size)} entry points this report diffed. \`${target.pkg}\` therefore exposes reachable import paths that were **never compared between the two versions**, and any break under one of them is invisible here. This is the largest single coverage hole in this report and it is not quantifiable from the manifest.`,
+      `- **⚠️ Wildcard entry points cannot be enumerated, and this package declares ${wildcards.length}: ${wildcards.map((w2) => `\`${w2}\``).join(', ')}.** A wildcard subpath is absent from the ${fmt(run.surfaceSizes.before.size)} entry points this report diffed, so \`${target.pkg}\` exposes reachable import paths that were **never compared between the two versions**. ${probed} What remains uncounted is any wildcard subpath **no scanned consumer imports** — that part is still not quantifiable from the manifest, and it pushes the real figure up, never down.`,
     )
   } else {
     L.push(

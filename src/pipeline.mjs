@@ -10,7 +10,7 @@
 import { attributeFile } from './attribute.mjs'
 import { canonicalCensus, blastRadius } from './census.mjs'
 import { searchConsumers, fetchFile } from './github.mjs'
-import { exportSurface, diffSurface, fetchPackument, resolveVersion, majorOf } from './surface.mjs'
+import { exportSurface, diffSurface, fetchPackument, resolveVersion, majorOf, wildcardReachability } from './surface.mjs'
 
 /** Resolve the two versions to diff, and confirm the trigger event is real. */
 export async function resolveTarget(pkg, fromSpec, toSpec) {
@@ -114,7 +114,19 @@ export async function runReport(pkg, { fromSpec = 'latest', toSpec = 'next', lan
   const census = canonicalCensus(corpus.results, { pkg, surface: before })
   onLog?.(`census: ${census.repoCount} repos, ${census.fileCount} files, ${census.attributions} attributions`)
 
-  const radius = blastRadius(census, diff, { afterSurface: after })
+  // Probe the subpaths consumers import that the manifest never declared. These
+  // are reachable only through a wildcard `exports` key, so the surface diff has
+  // no row for them and the cross would otherwise skip every one — see the
+  // comment in `blastRadius`. Both roots come from the already-installed
+  // tarballs, so this costs no network.
+  const undeclared = census.entries.map((e) => e.subpath).filter((s) => !before.entries.has(s))
+  const wildcardReach = {
+    before: await wildcardReachability(before.root, before.wildcards ?? [], undeclared),
+    after: await wildcardReachability(after.root, after.wildcards ?? [], undeclared),
+  }
+  onLog?.(`wildcard probe: ${undeclared.length} consumed subpaths not declared in the manifest`)
+
+  const radius = blastRadius(census, diff, { afterSurface: after, wildcardReach })
   onLog?.(`blast radius: ${radius.affectedRepos}/${radius.scannedRepos} scanned repos affected`)
 
   return {

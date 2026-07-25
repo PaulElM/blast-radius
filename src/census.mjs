@@ -253,7 +253,7 @@ function relocationIndex(afterSurface) {
   return byName
 }
 
-export function blastRadius(census, diff, { afterSurface } = {}) {
+export function blastRadius(census, diff, { afterSurface, wildcardReach = null } = {}) {
   const byEntry = new Map(diff.perEntry.map((e) => [e.subpath, e]))
   const stillNamed = relocationIndex(afterSurface)
   // Which (entry point, symbol) pairs does any scanned consumer actually touch?
@@ -272,6 +272,55 @@ export function blastRadius(census, diff, { afterSurface } = {}) {
   const memberBreaks = []
   const affectedRepos = new Set()
   const runtimeAffectedRepos = new Set()
+
+  // Subpaths consumers import that the manifest never declared. They are
+  // reachable only through a wildcard `exports` key, so `diff.perEntry` has no
+  // row for them and the loop below used to `continue` straight past every one.
+  //
+  // THAT SKIP IS WHY CATEGORY A COULD ONLY EVER PRINT ZERO. On `typeorm` it
+  // dropped 64 of the 66 entry points consumers actually import from, including
+  // 12 that resolve in the old version and are gone in the new one — the
+  // report's own highest-severity row, structurally unreachable. A hole nobody
+  // counted reads exactly like an absence of breakage.
+  let wildcardEntryPoints = null
+  if (wildcardReach) {
+    const checked = []
+    for (const entry of census.entries) {
+      if (byEntry.has(entry.subpath)) continue
+      const wasThere = wildcardReach.before?.get(entry.subpath)
+      const stillThere = wildcardReach.after?.get(entry.subpath)
+      // Unknown on either side is NOT a break. Only a path that demonstrably
+      // resolved and demonstrably stopped resolving is reported, because this
+      // category's whole value is that a row in it is an import-time failure.
+      if (wasThere !== true || stillThere !== false) continue
+      checked.push(entry)
+    }
+    wildcardEntryPoints = {
+      consumedNotDeclared: census.entries.filter((e) => !byEntry.has(e.subpath)).length,
+      broken: checked.length,
+    }
+    for (const entry of checked) {
+      const usedNames = entry.symbols.map((s) => s.symbol)
+      entryPointBreaks.push({
+        subpath: entry.subpath,
+        repos: entry.repos,
+        repoList: entry.repoList,
+        symbolsUsed: usedNames.length,
+        symbolsStillExportedElsewhere: usedNames.filter((s) => (stillNamed.get(s) ?? []).length > 0).length,
+        // Reached through a wildcard key rather than a declared subpath. Marked
+        // so the deliverable can say which kind of import-time break this is:
+        // the manifest never promised this address, and the consumer used it
+        // anyway, and it is gone.
+        viaWildcard: true,
+        sites: dedupeByRepo(entry.symbols.flatMap((s) => s.sites ?? [])),
+      })
+      const runtimeHere = new Set(entry.symbols.flatMap((s) => s.runtimeRepoList ?? []))
+      for (const r of entry.repoList) {
+        affectedRepos.add(r)
+        if (runtimeHere.has(r)) runtimeAffectedRepos.add(r)
+      }
+    }
+  }
 
   for (const entry of census.entries) {
     const d = byEntry.get(entry.subpath)
@@ -393,6 +442,10 @@ export function blastRadius(census, diff, { afterSurface } = {}) {
     entryPointBreaks,
     symbolBreaks,
     memberBreaks,
+    // null means the wildcard surface was never probed. The renderer must say
+    // so rather than printing 0: an unprobed hole and a probed-and-empty hole
+    // are different claims, and only one of them is evidence.
+    wildcardEntryPoints,
     // Removed symbols that NO scanned consumer touches. This is the other half
     // of the answer and it is worth money too: it tells a publisher which parts
     // of the break are free.

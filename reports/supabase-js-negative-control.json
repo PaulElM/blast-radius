@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-07-25T05:09:19.724Z",
+ "generatedAt": "2026-07-25T06:00:23.404Z",
  "rendererVersion": 2,
  "target": {
   "pkg": "@supabase/supabase-js",
@@ -1928,6 +1928,10 @@
   "entryPointBreaks": [],
   "symbolBreaks": [],
   "memberBreaks": [],
+  "wildcardEntryPoints": {
+   "consumedNotDeclared": 1,
+   "broken": 0
+  },
   "unusedRemovals": 7
  }
 }

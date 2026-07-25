@@ -52,6 +52,10 @@ function fixture({
   // sentence on an empty fixture and passed while checking nothing — a check
   // satisfiable without effect. Caught by running, not by reading.
   affected = false,
+  // `undefined` means the wildcard surface was never probed, which the renderer
+  // must report as NOT RECORDED. It is a DIFFERENT state from a probe that ran
+  // and found nothing, and conflating them is the defect W4/R2 exist to stop.
+  wildcardProbe = undefined,
 } = {}) {
   return {
     target: {
@@ -98,6 +102,7 @@ function fixture({
       symbolBreaks: [],
       memberBreaks: [],
       unusedRemovals: 10,
+      wildcardEntryPoints: wildcardProbe,
       affectedRepoList: affected ? ['acme/app'] : [],
       evidenceByRepo: affected
         ? { 'acme/app': [{ what: 'createConnection', path: 'src/db.ts', line: 12, runtime: true }] }
@@ -344,4 +349,55 @@ test('failed search queries are named in the deliverable, not silently dropped',
   const md = renderReport(run)
   assert.ok(md.includes('did not complete'), 'a hole in the corpus must be announced')
   assert.ok(md.includes('HTTP 401 — unauthenticated'), 'the reason must be printed')
+})
+
+// ---------------------------------------------------------------------------
+// The wildcard coverage hole. The shipped `typeorm` report told the reader this
+// hole "is not quantifiable from the manifest" — true of the manifest, and false
+// of the report, which was holding the corpus that names every wildcard subpath
+// its consumers import. A limit that overstates its own blindness is a claim
+// like any other, and it sent a reader away from a number we had.
+// ---------------------------------------------------------------------------
+
+test('R1: a probed wildcard surface reports the measured counts', () => {
+  const md = renderReport(
+    fixture({ wildcards: ['./*', './*.js'], wildcardProbe: { consumedNotDeclared: 64, broken: 12 } }),
+  )
+  assert.ok(md.includes('**64**'), 'must state how many undeclared subpaths consumers import')
+  assert.ok(md.includes('**12**'), 'must state how many of them stopped resolving')
+  assert.ok(md.includes('counted in category A above'))
+  // The claim that had to die: the measured part is no longer called unmeasurable.
+  assert.ok(!md.includes('This is the largest single coverage hole in this report and it is not quantifiable'))
+  // The claim that had to SURVIVE: subpaths no consumer imports are still
+  // uncounted, and deleting that would be the opposite error.
+  assert.ok(md.includes('no scanned consumer imports'))
+})
+
+test('R2: an UNPROBED wildcard surface says NOT RECORDED, never a zero', () => {
+  const md = renderReport(fixture({ wildcards: ['./*'] }))
+  assert.ok(md.includes('`NOT RECORDED`'))
+  assert.ok(md.includes('not the same as probing it and finding nothing'))
+  assert.ok(!md.includes('**0** of them resolve'), 'an unprobed hole must never render as zero breaks')
+})
+
+test('R3: a package with no wildcard keys renders neither probe nor NOT RECORDED', () => {
+  // Negative control. A disclosure that fires on every package is not a
+  // disclosure — the "declares none" branch must stay reachable and quiet.
+  const md = renderReport(fixture({ wildcards: [] }))
+  assert.ok(md.includes('it declares none, so nothing is lost here'))
+  assert.ok(!md.includes('`NOT RECORDED`'))
+  assert.ok(!md.includes('counted in category A above'))
+})
+
+test('R4: the headline entry-point bullet counts wildcard breaks too', () => {
+  // The bullet reads off `entryPointBreaks.length`, so a wildcard break that
+  // never reached that array would leave the headline saying 0 while category A
+  // listed rows. Pins the two together.
+  const run = fixture({ wildcards: ['./*'], wildcardProbe: { consumedNotDeclared: 3, broken: 1 } })
+  run.radius.entryPointBreaks = [
+    { subpath: './deep/Gone', repos: 15, symbolsUsed: 1, symbolsStillExportedElsewhere: 0, viaWildcard: true, sites: [] },
+  ]
+  const md = renderReport(run)
+  assert.ok(md.includes('1 entry points they import **stop resolving entirely**'))
+  assert.ok(md.includes('`typeorm/deep/Gone`'))
 })

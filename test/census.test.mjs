@@ -291,3 +291,111 @@ test('a removal nobody uses is counted as free, not as a break', () => {
   assert.equal(r.symbolBreaks.length, 1)
   assert.equal(r.unusedRemovals, 1)
 })
+
+// ---------------------------------------------------------------------------
+// Wildcard-reachable entry points — the hole that made category A print zero.
+//
+// `diff.perEntry` only has rows for subpaths the manifest DECLARES. Consumers
+// import through wildcard `exports` keys too, and the cross used to `continue`
+// straight past every one of those. On the shipped `typeorm` report that skipped
+// 64 of the 66 entry points consumers actually import from, 12 of which resolve
+// in the old version and are gone in the new one — so the report's own
+// highest-severity row was structurally incapable of being non-zero.
+//
+// The fixture below deliberately contains one gone, one surviving, one that
+// never resolved, and one declared subpath. A fixture where every consumed
+// subpath is declared cannot fail in the direction under test.
+// ---------------------------------------------------------------------------
+
+function wildcardFixture() {
+  const before = surface('1.0.0', { '.': { kept: sym(['function']) } })
+  const after = surface('2.0.0', { '.': { kept: sym(['function']) } })
+  const census = canonicalCensus(
+    [
+      file([
+        attribution({ symbol: 'kept', specifier: 'p', repo: 'o/declared' }),
+        attribution({ symbol: 'Opt', specifier: 'p/deep/Gone', repo: 'o/gone' }),
+        attribution({ symbol: 'Live', specifier: 'p/deep/Survives', repo: 'o/survives' }),
+        attribution({ symbol: 'Never', specifier: 'p/deep/Never', repo: 'o/never' }),
+      ]),
+    ],
+    { pkg: 'p', surface: before },
+  )
+  const reach = {
+    before: new Map([['./deep/Gone', true], ['./deep/Survives', true], ['./deep/Never', false]]),
+    after: new Map([['./deep/Gone', false], ['./deep/Survives', true], ['./deep/Never', false]]),
+  }
+  return { before, after, diff: diffSurface(before, after), census, reach }
+}
+
+test('W1: a wildcard-reachable subpath that stops resolving IS an entry-point break', () => {
+  const { after, diff, census, reach } = wildcardFixture()
+  const r = blastRadius(census, diff, { afterSurface: after, wildcardReach: reach })
+  const broken = r.entryPointBreaks.filter((b) => b.viaWildcard)
+  assert.equal(broken.length, 1)
+  assert.equal(broken[0].subpath, './deep/Gone')
+  assert.equal(broken[0].repos, 1)
+  assert.ok(broken[0].sites.length >= 1, 'an import-time break must carry a file and a line')
+})
+
+test('W2: a wildcard subpath that still resolves is NOT a break', () => {
+  const { after, diff, census, reach } = wildcardFixture()
+  const r = blastRadius(census, diff, { afterSurface: after, wildcardReach: reach })
+  assert.equal(r.entryPointBreaks.some((b) => b.subpath === './deep/Survives'), false)
+})
+
+test('W3: a subpath that resolved in NEITHER version is not our break', () => {
+  // Negative control. It was already unresolvable before this release, so
+  // reporting it would blame the publisher for a break they did not cause —
+  // and a category that fires on everything is not a category.
+  const { after, diff, census, reach } = wildcardFixture()
+  const r = blastRadius(census, diff, { afterSurface: after, wildcardReach: reach })
+  assert.equal(r.entryPointBreaks.some((b) => b.subpath === './deep/Never'), false)
+})
+
+test('W4: an UNPROBED wildcard surface renders NOT RECORDED, never zero', () => {
+  // The branch a tidy will "simplify" to `{ broken: 0 }`. An unprobed hole and a
+  // probed-and-empty hole are different claims and only one of them is evidence.
+  const { after, diff, census } = wildcardFixture()
+  const r = blastRadius(census, diff, { afterSurface: after })
+  assert.equal(r.wildcardEntryPoints, null)
+  assert.equal(r.entryPointBreaks.length, 0)
+})
+
+test('W5: the probe counts what it examined, not just what it found', () => {
+  const { after, diff, census, reach } = wildcardFixture()
+  const r = blastRadius(census, diff, { afterSurface: after, wildcardReach: reach })
+  assert.equal(r.wildcardEntryPoints.consumedNotDeclared, 3)
+  assert.equal(r.wildcardEntryPoints.broken, 1)
+})
+
+test('W6: a wildcard break adds its repos to the affected and runtime sets', () => {
+  const { after, diff, census, reach } = wildcardFixture()
+  const r = blastRadius(census, diff, { afterSurface: after, wildcardReach: reach })
+  assert.ok(r.affectedRepoList.includes('o/gone'))
+  assert.equal(r.affectedRepoList.includes('o/survives'), false)
+  assert.ok(r.evidenceByRepo['o/gone'].some((e) => e.kind === 'entry-point'))
+})
+
+test('W7: the wildcard pass moves NO declared-surface number', () => {
+  // The double-count guard, and it is the check that can fail: wildcard-reachable
+  // files were never in the manifest's `removed` list, so nothing may come out of
+  // `unusedRemovals` or `symbolBreaks` to pay for the new category.
+  const { after, diff, census, reach } = wildcardFixture()
+  const off = blastRadius(census, diff, { afterSurface: after })
+  const on = blastRadius(census, diff, { afterSurface: after, wildcardReach: reach })
+  assert.equal(on.unusedRemovals, off.unusedRemovals)
+  assert.equal(on.symbolBreaks.length, off.symbolBreaks.length)
+  assert.equal(on.memberBreaks.length, off.memberBreaks.length)
+  assert.equal(on.scannedRepos, off.scannedRepos)
+})
+
+test('W8: a DECLARED subpath is never counted through the wildcard path', () => {
+  // Guards against the same entry point being reported twice — once from
+  // `perEntry` and once from the wildcard probe.
+  const { after, diff, census } = wildcardFixture()
+  const reach = { before: new Map([['.', true]]), after: new Map([['.', false]]) }
+  const r = blastRadius(census, diff, { afterSurface: after, wildcardReach: reach })
+  assert.equal(r.entryPointBreaks.some((b) => b.subpath === '.'), false)
+  assert.equal(r.wildcardEntryPoints.broken, 0)
+})

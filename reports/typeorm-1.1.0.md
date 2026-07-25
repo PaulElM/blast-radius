@@ -5,10 +5,10 @@
 
 ## The answer
 
-**441 of the 2,415 public repositories we resolved import something that `1.1.0` no longer provides at the address they use it from.**
+**474 of the 2,415 public repositories we resolved import something that `1.1.0` no longer provides at the address they use it from.**
 
-- 343 of them break at **runtime or import time**, not just in `tsc`.
-- 0 entry points they import **stop resolving entirely** — those fail at import, before a line runs.
+- 350 of them break at **runtime or import time**, not just in `tsc`.
+- 12 entry points they import **stop resolving entirely** — those fail at import, before a line runs.
 - 23 exports they call are gone from the entry point they import them from.
 - 725 removed exports are used by **nobody** we found — that part of the break is free.
 
@@ -58,7 +58,20 @@ Three categories, kept apart because you triage them differently.
 
 The whole subpath is gone. These fail at import, before any of the consumer’s code runs, and no amount of call-site inspection on their side will find them in advance. Highest severity.
 
-_No consumer in the scanned corpus is affected in this category._
+| entry point | repos affected | symbols they import from it | of those, still exported somewhere |
+|---|---:|---:|---:|
+| `typeorm/driver/postgres/PostgresConnectionOptions` | 15 | 1 | 0 / 1 |
+| `typeorm/driver/mysql/MysqlConnectionOptions` | 11 | 1 | 0 / 1 |
+| `typeorm/decorator/EntityRepository` | 6 | 1 | 0 / 1 |
+| `typeorm/connection/ConnectionOptions` | 2 | 1 | 0 / 1 |
+| `typeorm/driver/mongodb/MongoConnectionOptions.js` | 1 | 1 | 0 / 1 |
+| `typeorm/driver/postgres/PostgresConnectionOptions.js` | 1 | 1 | 0 / 1 |
+| `typeorm/query-builder/relation-count/RelationCountLoader` | 1 | 1 | 0 / 1 |
+| `typeorm/connection/BaseConnectionOptions` | 1 | 1 | 0 / 1 |
+| `typeorm/driver/mysql/MysqlConnectionOptions.js` | 1 | 1 | 0 / 1 |
+| `typeorm/driver/sqlite/SqliteConnectionOptions` | 1 | 1 | 0 / 1 |
+| `typeorm/connection/Connection` | 1 | 1 | 0 / 1 |
+| `typeorm/driver/mongodb/MongoConnectionOptions` | 1 | 1 | 0 / 1 |
 
 ### B. Removed exports that consumers actually use
 
@@ -98,7 +111,7 @@ _No consumer in the scanned corpus is affected in this category._
 
 ## The affected repositories, by name
 
-All 441 are in the JSON companion, each with every break we found in it. The first 60 are listed here, with one file and line per repository so each row can be opened and checked.
+All 474 are in the JSON companion, each with every break we found in it. The first 60 are listed here, with one file and line per repository so each row can be opened and checked.
 
 > Read at each repository’s default branch on 2026-07-24. A row means *this code, as written today, imports something `1.1.0` does not provide at that address* — it does not mean the project is broken, unmaintained, or has failed to act: they may pin an older version, may have migrated on another branch, and rows marked *verify* above are same-name matches rather than proven deletions. Check the line before acting on it.
 
@@ -109,6 +122,7 @@ All 441 are in the JSON companion, each with every break we found in it. The fir
 - [`4GeeksAcademy/expressjs-rest-hello`](https://github.com/4GeeksAcademy/expressjs-rest-hello) — `createConnection (.)` at [`src/app.ts:16`](https://github.com/4GeeksAcademy/expressjs-rest-hello/blob/HEAD/src/app.ts#L16)
 - [`4GeeksAcademy/sistema_autenticacon_react_nodejs_lluisespert`](https://github.com/4GeeksAcademy/sistema_autenticacon_react_nodejs_lluisespert) — `createConnection (.)` at [`src/app.ts:16`](https://github.com/4GeeksAcademy/sistema_autenticacon_react_nodejs_lluisespert/blob/HEAD/src/app.ts#L16)
 - [`7codeRO/nest-typeorm-rest-api-boilerplate`](https://github.com/7codeRO/nest-typeorm-rest-api-boilerplate) — `Connection (.)` at [`src/shared/validators/entity-exist.validator.ts:16`](https://github.com/7codeRO/nest-typeorm-rest-api-boilerplate/blob/HEAD/src/shared/validators/entity-exist.validator.ts#L16) _(type-only — their build breaks, their runtime does not)_
+- [`Aaronchelo18/modasnansi-backend`](https://github.com/Aaronchelo18/modasnansi-backend) — `./driver/mysql/MysqlConnectionOptions` at [`src/ORMconfig.ts:114`](https://github.com/Aaronchelo18/modasnansi-backend/blob/HEAD/src/ORMconfig.ts#L114) _(type-only — their build breaks, their runtime does not)_
 - [`Abubakar-Abdulwahab/smartforce-backend`](https://github.com/Abubakar-Abdulwahab/smartforce-backend) — `EntityRepository (.)` at [`src/services/salaryDetails.service.ts:7`](https://github.com/Abubakar-Abdulwahab/smartforce-backend/blob/HEAD/src/services/salaryDetails.service.ts#L7)
 - [`AdrianArtiles/viral-waitlist-api`](https://github.com/AdrianArtiles/viral-waitlist-api) — `createConnection (.)` at [`src/app.ts:38`](https://github.com/AdrianArtiles/viral-waitlist-api/blob/HEAD/src/app.ts#L38)
 - [`Alisson-Oliveira/entregas-cariri`](https://github.com/Alisson-Oliveira/entregas-cariri) — `getRepository (.)` at [`backend/src/controllers/UsersControllers.ts:21`](https://github.com/Alisson-Oliveira/entregas-cariri/blob/HEAD/backend/src/controllers/UsersControllers.ts#L21)
@@ -117,7 +131,9 @@ All 441 are in the JSON companion, each with every break we found in it. The fir
 - [`AshameTheDestroyer/Engineers-Mathematical-Guide`](https://github.com/AshameTheDestroyer/Engineers-Mathematical-Guide) — `ObjectId (.)` at [`backend/src/auth/auth.controller.ts:89`](https://github.com/AshameTheDestroyer/Engineers-Mathematical-Guide/blob/HEAD/backend/src/auth/auth.controller.ts#L89) _(type-only — their build breaks, their runtime does not)_
 - [`AshokLamaMoktanTamang/nestjs-gql`](https://github.com/AshokLamaMoktanTamang/nestjs-gql) — `getMongoRepository (.)` at [`src/resolvers/store.resolver.ts:12`](https://github.com/AshokLamaMoktanTamang/nestjs-gql/blob/HEAD/src/resolvers/store.resolver.ts#L12)
 - [`Authing/misskey`](https://github.com/Authing/misskey) — `EntityRepository (.)` at [`src/models/repositories/follow-request.ts:6`](https://github.com/Authing/misskey/blob/HEAD/src/models/repositories/follow-request.ts#L6)
+- [`Baf-03/simulation-backend`](https://github.com/Baf-03/simulation-backend) — `./driver/postgres/PostgresConnectionOptions` at [`pg.config.ts:3`](https://github.com/Baf-03/simulation-backend/blob/HEAD/pg.config.ts#L3) _(type-only — their build breaks, their runtime does not)_
 - [`BinaryStudioAcademy/bsa-2021-hypecrafter`](https://github.com/BinaryStudioAcademy/bsa-2021-hypecrafter) — `createConnection (.)` at [`backend/src/server.ts:22`](https://github.com/BinaryStudioAcademy/bsa-2021-hypecrafter/blob/HEAD/backend/src/server.ts#L22) _(+2 more)_
+- [`Blind-Sailing-Canada/sail-manager`](https://github.com/Blind-Sailing-Canada/sail-manager) — `./driver/postgres/PostgresConnectionOptions` at [`api/src/db/ormconfig.ts:10`](https://github.com/Blind-Sailing-Canada/sail-manager/blob/HEAD/api/src/db/ormconfig.ts#L10) _(type-only — their build breaks, their runtime does not)_
 - [`BoussonKarel/KassAapje`](https://github.com/BoussonKarel/KassAapje) — `createConnection (.)` at [`backend/server/app.ts:48`](https://github.com/BoussonKarel/KassAapje/blob/HEAD/backend/server/app.ts#L48) _(+4 more)_
 - [`BrounouSalah/tuniMillion-gql`](https://github.com/BrounouSalah/tuniMillion-gql) — `getConnection (.)` at [`src/main.ts:52`](https://github.com/BrounouSalah/tuniMillion-gql/blob/HEAD/src/main.ts#L52)
 - [`BuildingBlockchains/panel-backend`](https://github.com/BuildingBlockchains/panel-backend) — `createConnection (.)` at [`src/bin/www.ts:15`](https://github.com/BuildingBlockchains/panel-backend/blob/HEAD/src/bin/www.ts#L15) _(+2 more)_
@@ -142,6 +158,7 @@ All 441 are in the JSON companion, each with every break we found in it. The fir
 - [`DiogoAbu/how-much-server`](https://github.com/DiogoAbu/how-much-server) — `Connection (.)` at [`global.d.ts:10`](https://github.com/DiogoAbu/how-much-server/blob/HEAD/global.d.ts#L10) _(type-only — their build breaks, their runtime does not)_
 - [`DiscordFactory/storage`](https://github.com/DiscordFactory/storage) — `Connection (.)` at [`src/Connect.ts:12`](https://github.com/DiscordFactory/storage/blob/HEAD/src/Connect.ts#L12) _(type-only — their build breaks, their runtime does not)_
 - [`Dlame/Graduation_project_backend`](https://github.com/Dlame/Graduation_project_backend) — `Connection (.)` at [`src/app.module.ts:47`](https://github.com/Dlame/Graduation_project_backend/blob/HEAD/src/app.module.ts#L47) _(type-only — their build breaks, their runtime does not)_ _(+1 more)_
+- [`DoanHieu88/RestAPi-NestJs`](https://github.com/DoanHieu88/RestAPi-NestJs) — `./driver/mysql/MysqlConnectionOptions` at [`ormConfig.ts:3`](https://github.com/DoanHieu88/RestAPi-NestJs/blob/HEAD/ormConfig.ts#L3) _(type-only — their build breaks, their runtime does not)_
 - [`Dwigth/sistema-monitoreo`](https://github.com/Dwigth/sistema-monitoreo) — `createConnection (.)` at [`init.ts:16`](https://github.com/Dwigth/sistema-monitoreo/blob/HEAD/init.ts#L16) _(+1 more)_
 - [`Eccoar/2020.2-Eccoar_Complaint`](https://github.com/Eccoar/2020.2-Eccoar_Complaint) — `createConnection (.)` at [`src/db.ts:7`](https://github.com/Eccoar/2020.2-Eccoar_Complaint/blob/HEAD/src/db.ts#L7)
 - [`EliasGcf/nlw-05-nodejs`](https://github.com/EliasGcf/nlw-05-nodejs) — `getCustomRepository (.)` at [`src/services/SettingsService.ts:15`](https://github.com/EliasGcf/nlw-05-nodejs/blob/HEAD/src/services/SettingsService.ts#L15)
@@ -153,15 +170,11 @@ All 441 are in the JSON companion, each with every break we found in it. The fir
 - [`Guardians-DSC/GitRadar`](https://github.com/Guardians-DSC/GitRadar) — `getRepository (.)` at [`backend/src/services/Manager/SetGithubTokenService.ts:15`](https://github.com/Guardians-DSC/GitRadar/blob/HEAD/backend/src/services/Manager/SetGithubTokenService.ts#L15)
 - [`HETIC-W3-G12/node-api`](https://github.com/HETIC-W3-G12/node-api) — `createConnection (.)` at [`repl.ts:19`](https://github.com/HETIC-W3-G12/node-api/blob/HEAD/repl.ts#L19)
 - [`HackGT/ballot`](https://github.com/HackGT/ballot) — `getRepository (.)` at [`server/src/controllers/UserController.ts:13`](https://github.com/HackGT/ballot/blob/HEAD/server/src/controllers/UserController.ts#L13)
+- [`HafizulHaque/nest-js-demo`](https://github.com/HafizulHaque/nest-js-demo) — `./driver/mysql/MysqlConnectionOptions` at [`ormconfig.ts:6`](https://github.com/HafizulHaque/nest-js-demo/blob/HEAD/ormconfig.ts#L6) _(type-only — their build breaks, their runtime does not)_
 - [`Hasebul12/EcommerceProject`](https://github.com/Hasebul12/EcommerceProject) — `Timestamp (.)` at [`src/users/entities/user.entity.ts:30`](https://github.com/Hasebul12/EcommerceProject/blob/HEAD/src/users/entities/user.entity.ts#L30) _(type-only — their build breaks, their runtime does not)_
+- [`Huarachi2002/service-user-api`](https://github.com/Huarachi2002/service-user-api) — `./driver/mongodb/MongoConnectionOptions.js` at [`dbConfig.ts:3`](https://github.com/Huarachi2002/service-user-api/blob/HEAD/dbConfig.ts#L3) _(type-only — their build breaks, their runtime does not)_
 - [`IbbPress/nestjs-blog-server`](https://github.com/IbbPress/nestjs-blog-server) — `Connection (.)` at [`src/app.module.ts:31`](https://github.com/IbbPress/nestjs-blog-server/blob/HEAD/src/app.module.ts#L31) _(type-only — their build breaks, their runtime does not)_
 - [`Ignition-Space/ignition`](https://github.com/Ignition-Space/ignition) — `ObjectId (.)` at [`apps/userServer/src/resource/resource.mongo.entity.ts:19`](https://github.com/Ignition-Space/ignition/blob/HEAD/apps/userServer/src/resource/resource.mongo.entity.ts#L19)
-- [`Integrify-Team-4/Tindev`](https://github.com/Integrify-Team-4/Tindev) — `ConnectionOptions (.)` at [`src/util/secrets.ts:47`](https://github.com/Integrify-Team-4/Tindev/blob/HEAD/src/util/secrets.ts#L47) _(type-only — their build breaks, their runtime does not)_
-- [`Ionaru/MarketBot`](https://github.com/Ionaru/MarketBot) — `createConnection (.)` at [`src/market-bot.ts:44`](https://github.com/Ionaru/MarketBot/blob/HEAD/src/market-bot.ts#L44)
-- [`JacobRyzy/NeuroNest`](https://github.com/JacobRyzy/NeuroNest) — `getRepository (.)` at [`backend/src/routes/client.ts:11`](https://github.com/JacobRyzy/NeuroNest/blob/HEAD/backend/src/routes/client.ts#L11)
-- [`JeongHoJeong/type-graph-orm`](https://github.com/JeongHoJeong/type-graph-orm) — `getConnection (.)` at [`src/util.ts:19`](https://github.com/JeongHoJeong/type-graph-orm/blob/HEAD/src/util.ts#L19)
-- [`KRochaS/NextLevelWeek3`](https://github.com/KRochaS/NextLevelWeek3) — `getRepository (.)` at [`backend/src/controllers/OrphanagesController.ts:12`](https://github.com/KRochaS/NextLevelWeek3/blob/HEAD/backend/src/controllers/OrphanagesController.ts#L12)
-- [`LISTEN-moe/discord-bot`](https://github.com/LISTEN-moe/discord-bot) — `Connection (.)` at [`src/bot/client/ListenClient.ts:14`](https://github.com/LISTEN-moe/discord-bot/blob/HEAD/src/bot/client/ListenClient.ts#L14) _(type-only — their build breaks, their runtime does not)_
 
 ## Your most-used surface, for context
 
@@ -452,13 +465,15 @@ The queries behind *this* report, with the totals GitHub reported for each:
 Also true, and bounded:
 
 - **13,520 candidate files were found but not opened.** This run fetched 3,696 of the 17,216 files search returned, in the order search returned them, and stopped there. The unopened remainder is not a random sample of the corpus, so the affected-repository list is a floor and the *absence* of a repository from it is not evidence that it is safe.
-- **Public code only, TypeScript only.** Private repositories are invisible, and this run scanned `language:typescript`. Your JavaScript consumers, your enterprise customers, and anything behind a VPN are not in these numbers — all of them push the real figure up, none down.
+- **Public code only, and this run did not record which languages it searched.** Private repositories are invisible, and the language coverage of this corpus is unknown rather than assumed — do not read it as any particular language. Your enterprise customers and anything behind a VPN are not in these numbers either; all of these push the real figure up, none down.
 - **`HEAD`, not a release tag.** Files are read at each repository’s default branch as of the corpus date. A consumer may have already migrated on a branch, or pinned an old version in production.
 - **Member analysis is one level deep.** `Client.method` is resolved; `Client.method.option` is not. Signature and type-parameter changes are out of scope entirely — a symbol that survives with an incompatible signature is counted here as *unchanged*, so category B is a floor as well.
 - **Single-file resolution.** A symbol re-exported through a consumer’s own barrel file and used elsewhere is attributed at the barrel, not at the ultimate use site. This undercounts affected files; it does not misattribute them.
 - **Names the surface does not export.** 51 attributions reference an identifier absent from the published surface. Those are consumers reaching past the public API, or gaps in our surface extraction; either way they are excluded from the break counts rather than guessed at.
-- **⚠️ Wildcard entry points are skipped, and this package declares 2: `./*`, `./*.js`.** A wildcard subpath cannot be enumerated from the manifest alone, so it is absent from the 2 entry points this report diffed. `typeorm` therefore exposes reachable import paths that were **never compared between the two versions**, and any break under one of them is invisible here. This is the largest single coverage hole in this report and it is not quantifiable from the manifest.
+- **⚠️ Wildcard entry points cannot be enumerated, and this package declares 2: `./*`, `./*.js`.** A wildcard subpath is absent from the 2 entry points this report diffed, so `typeorm` exposes reachable import paths that were **never compared between the two versions**. Consumers in this corpus import **64** subpaths that the manifest does not declare; each was resolved against both installed tarballs, and **12** of them resolve in `0.3.31` and no longer resolve in `1.1.0`. Those 12 are counted in category A above. What remains uncounted is any wildcard subpath **no scanned consumer imports** — that part is still not quantifiable from the manifest, and it pushes the real figure up, never down.
 
 ## Machine-readable
 
 The JSON companion carries every affected repository, every call site with file and line, the full export diff, and the exact search queries used. Nothing in this document is a number you have to take on trust.
+
+_Rendered by blast-radius report generation 2. The corpus draw date above is recorded provenance carried from the collector, not the time this file was written — re-rendering this run does not change it._

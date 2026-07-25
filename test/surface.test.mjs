@@ -11,7 +11,16 @@ import { mkdtemp, mkdir, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { test } from 'node:test'
-import { resolveVersion, majorOf, memberClass, diffSurface, entryPoints, symbolIndex } from '../src/surface.mjs'
+import {
+  resolveVersion,
+  majorOf,
+  memberClass,
+  diffSurface,
+  entryPoints,
+  symbolIndex,
+  wildcardCandidates,
+  wildcardReachability,
+} from '../src/surface.mjs'
 
 const PACKUMENT = {
   'dist-tags': { latest: '0.45.2', rc: '1.0.0-rc.4', beta: '1.0.0-beta.22' },
@@ -163,4 +172,53 @@ test('symbolIndex flattens a surface to subpath -> set of names', () => {
   assert.ok(index.get('.').has('a'))
   assert.ok(index.get('./x').has('b'))
   assert.equal(index.get('.').has('b'), false)
+})
+
+// ---------------------------------------------------------------------------
+// Wildcard reachability. `entryPoints()` cannot enumerate a `./*` key, so every
+// subpath behind one was invisible to the diff — described in the deliverable as
+// a hole that "is not quantifiable", while the corpus on the other side of the
+// cross named exactly which of those subpaths consumers import. These pin the
+// matching rule and the file probe that turn it into a number.
+// ---------------------------------------------------------------------------
+
+test('X1: `./*` captures the whole subpath and probes the resolvable extensions', () => {
+  const c = wildcardCandidates('./driver/postgres/Opts', ['./*'])
+  assert.ok(c.includes('driver/postgres/Opts'))
+  assert.ok(c.includes('driver/postgres/Opts.js'))
+  assert.ok(c.includes('driver/postgres/Opts.d.ts'))
+  assert.ok(c.includes('driver/postgres/Opts/index.js'))
+})
+
+test('X2: `./*.js` matches by suffix and converges on the same candidate', () => {
+  // Both forms must reach `a/b.js`, or a consumer writing the explicit `.js`
+  // specifier is scored differently from one writing the bare form.
+  assert.ok(wildcardCandidates('./a/b.js', ['./*.js']).includes('a/b.js'))
+  assert.ok(wildcardCandidates('./a/b', ['./*']).includes('a/b.js'))
+})
+
+test('X3: a non-matching prefix yields nothing — the pattern is not a wildcard for everything', () => {
+  assert.deepEqual(wildcardCandidates('./other/x', ['./lib/*']), [])
+  assert.deepEqual(wildcardCandidates('./a/b', []), [])
+  // A key with no star is not a wildcard and must not match by accident.
+  assert.deepEqual(wildcardCandidates('./a/b', ['./a/b']), [])
+})
+
+test('X4: reachability is decided by a file existing, in both directions', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'wild-'))
+  await mkdir(join(root, 'driver', 'postgres'), { recursive: true })
+  await writeFile(join(root, 'driver', 'postgres', 'Opts.d.ts'), 'export interface Opts {}')
+
+  const reach = await wildcardReachability(root, ['./*'], ['./driver/postgres/Opts', './driver/postgres/Missing'])
+  assert.equal(reach.get('./driver/postgres/Opts'), true)
+  // The discriminating half: a probe that returned true for everything would
+  // report zero breaks forever, which is the state this whole fix replaces.
+  assert.equal(reach.get('./driver/postgres/Missing'), false)
+})
+
+test('X5: with no wildcard keys nothing is reachable, and that is not an error', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'wild-'))
+  await writeFile(join(root, 'a.js'), '')
+  const reach = await wildcardReachability(root, [], ['./a'])
+  assert.equal(reach.get('./a'), false)
 })
