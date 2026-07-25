@@ -63,6 +63,51 @@ export const SIGNATURE_AUDIT = {
 }
 
 /**
+ * The scanned languages, rendered from the corpus rather than asserted.
+ *
+ * Both of these used to be the literal string `language:typescript`, hard-coded
+ * in the prose and again in the JSON `scope` field — while `bin/blast-radius.mjs`
+ * has always accepted `--languages typescript,javascript` and `searchConsumers`
+ * has always looped over every one of them. So the documented command produced a
+ * report whose own limits section swore the JavaScript consumers it had just
+ * named were "not in these numbers", and whose machine-readable `scope` said the
+ * same thing to anything parsing it.
+ *
+ * That is the FIFTH instance of the family this file's own header enumerates:
+ * generated prose asserting evidence that does not exist at the address it names.
+ * The cure is the one already written down beside `SIGNATURE_AUDIT` — carry the
+ * provenance as data and make the sentence render it, so the claim cannot outlive
+ * its source. It was under-selling us, not over-selling: a limit we do not have.
+ *
+ * A run that did not record its languages renders as UNRECORDED and never as
+ * typescript. Defaulting would rebuild the defect under a new name: a confident
+ * claim about coverage that no code checked. L1/L4 pin both halves.
+ */
+const LANGUAGE_LABELS = { typescript: 'TypeScript', javascript: 'JavaScript' }
+
+function scannedLanguages(corpus) {
+  const langs = corpus?.languages
+  return Array.isArray(langs) && langs.length ? langs : null
+}
+
+function languageQualifiers(langs) {
+  const q = langs.map((l) => `\`language:${l}\``)
+  return q.length === 1 ? q[0] : `${q.slice(0, -1).join(', ')} and ${q[q.length - 1]}`
+}
+
+function languageLabels(langs) {
+  const l = langs.map((x) => LANGUAGE_LABELS[x] ?? x)
+  return l.length === 1 ? l[0] : `${l.slice(0, -1).join(', ')} and ${l[l.length - 1]}`
+}
+
+/** The `coverage.scope` string, and the prose sentence, from one source. */
+function coverageScope(corpus) {
+  const langs = scannedLanguages(corpus)
+  if (!langs) return 'public repositories, scanned languages NOT RECORDED by this run, default branch (HEAD)'
+  return `public repositories, ${langs.map((l) => `language:${l}`).join(' and ')}, default branch (HEAD)`
+}
+
+/**
  * One break category as a table.
  *
  * `total` is passed separately from `rows` so a truncated table SAYS it is
@@ -360,7 +405,15 @@ export function renderReport(run, { maxRows = 40, maxRepos = 60, notes = null } 
   if (unopened > 0) {
     L.push(`- **${fmt(unopened)} candidate files were found but not opened.** This run fetched ${fmt(corpus.fetched + corpus.missing)} of the ${fmt(corpus.candidateFiles)} files search returned, in the order search returned them, and stopped there. The unopened remainder is not a random sample of the corpus, so the affected-repository list is a floor and the *absence* of a repository from it is not evidence that it is safe.`)
   }
-  L.push(`- **Public code only, TypeScript only.** Private repositories are invisible, and this run scanned \`language:typescript\`. Your JavaScript consumers, your enterprise customers, and anything behind a VPN are not in these numbers — all of them push the real figure up, none down.`)
+  const scanned = scannedLanguages(corpus)
+  if (!scanned) {
+    L.push(`- **Public code only, and this run did not record which languages it searched.** Private repositories are invisible, and the language coverage of this corpus is unknown rather than assumed — do not read it as any particular language. Your enterprise customers and anything behind a VPN are not in these numbers either; all of these push the real figure up, none down.`)
+  } else {
+    const missed = scanned.includes('javascript')
+      ? 'Your enterprise customers and anything behind a VPN are not in these numbers'
+      : 'Your JavaScript consumers, your enterprise customers, and anything behind a VPN are not in these numbers'
+    L.push(`- **Public code only, ${languageLabels(scanned)} only.** Private repositories are invisible, and this run scanned ${languageQualifiers(scanned)}. ${missed} — all of them push the real figure up, none down.`)
+  }
   L.push('- **`HEAD`, not a release tag.** Files are read at each repository’s default branch as of the corpus date. A consumer may have already migrated on a branch, or pinned an old version in production.')
   L.push('- **Member analysis is one level deep.** `Client.method` is resolved; `Client.method.option` is not. Signature and type-parameter changes are out of scope entirely — a symbol that survives with an incompatible signature is counted here as *unchanged*, so category B is a floor as well.')
   L.push('- **Single-file resolution.** A symbol re-exported through a consumer’s own barrel file and used elsewhere is attributed at the barrel, not at the ultimate use site. This undercounts affected files; it does not misattribute them.')
@@ -404,7 +457,10 @@ export function renderJson(run) {
       candidateRepos: corpus.candidateRepos,
       filesParsed: corpus.fetched,
       filesUnavailable: corpus.missing,
-      scope: 'public repositories, language:typescript, default branch (HEAD)',
+      // Carried as data as well as prose: anything parsing this file should not
+      // have to read an English sentence to learn what was searched.
+      languages: scannedLanguages(corpus),
+      scope: coverageScope(corpus),
     },
     surfaceDiff: {
       from: diff.from,
