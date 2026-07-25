@@ -156,6 +156,11 @@ GITHUB_TOKEN=$(gh auth token) node bin/blast-radius.mjs report <package> \
 `latest`** is the trigger event this product sells against: the publisher has
 already committed, in public, in a machine-readable place.
 
+`--languages` takes a list, and every language given is searched — one
+`language:` qualifier per query, all of them in one run. Whichever list you pass
+is what the report's own limits section and its JSON `coverage.scope` will name;
+neither is a fixed string. The three reports above were typescript-only runs.
+
 Every API response is cached under `data/cache`, so re-runs cost zero requests and
 an interrupted run resumes rather than restarting. Reports land in `reports/`.
 
@@ -177,9 +182,12 @@ an interrupted run resumes rather than restarting. Reports land in `reports/`.
 
 ## Known limits — read before trusting a report
 
-1. **Public code only**, and one `language:` per run. Private repos, enterprise
-   customers and anything behind a VPN are invisible. All of these push the real
-   number **up**, never down — every count is a floor.
+1. **Public code only.** Private repos, enterprise customers and anything behind
+   a VPN are invisible. All of these push the real number **up**, never down —
+   every count is a floor. **The three reports above scanned
+   `language:typescript` only, and each one says so in its own limits section** —
+   the language coverage is a property of the run, not of the tool: `--languages`
+   takes a list and the collector searches each one.
 2. **`HEAD`, not a release tag.** Consumers may have migrated on a branch, or
    pinned an old version in production.
 3. **Signatures are out of scope.** A symbol that survives with an incompatible
