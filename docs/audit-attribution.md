@@ -129,6 +129,24 @@ must group by specifier, not just by symbol. Same family as defect 2.
 > default export — a per-package fact read from the artifact, never a hard-coded
 > rule, which is why this is canonicalisation and not string normalisation.
 >
+> **"Closed" here means observed, not merely built — the witnesses, at their true
+> strength:**
+> - **Defect 3, from the shipped runs.** The census keys its rollup by entry point,
+>   and the three published reports carry **84** (`drizzle-orm`), **66** (`typeorm`)
+>   and **2** (`@supabase/supabase-js`) distinct entry points — `.`, `./pg-core`,
+>   `./sqlite-core`, `./postgres-js`, … . Flattened, every one of those would be a
+>   single root. This is exercised heavily on real data.
+> - **Defect 2, from the tests and once from a run.** `test/census.test.mjs` pins the
+>   merge in **both** directions — `default.a` → `a` when the package publishes no
+>   default export, and **deliberately not merged** when it does — and asserts the
+>   reported merge count. On the shipped runs the path fired **once**
+>   (`typeorm`: `mergedByDefaultInterop = 1`; the other two are 0).
+> - ⇒ **Said at that strength on purpose: one firing across ~88,000 attributions is a
+>   thin behavioural witness, and the load-bearing evidence for defect 2 is the test
+>   pin, not the run.** The mechanism is built, wired and pinned; it is rarely
+>   *reached* on these three targets because they are imported by name, not by
+>   default. Stating that beats calling three zeros a demonstration.
+>
 > **So the sentence this section used to carry — *"until then every count is a lower
 > bound and must be published as one"* — is retired, and retiring it is the point.**
 > It was true when written and became false when step (e) shipped, and nothing
@@ -140,9 +158,10 @@ must group by specifier, not just by symbol. Same family as defect 2.
 >
 > **The tables and counts above are deliberately NOT restated.** They are the
 > pre-fix data the audit was actually scored on, and rewriting them would destroy
-> the evidence for the 0/60 verdict in order to tidy a number. The `~51 vs 46`
-> discrepancy above is the defect being described, not a live error in today's
-> census.
+> the evidence for the 0/60 verdict in order to tidy a number. **The `~51 vs 46`
+> discrepancy above is the defect as it stood at audit time. No zod census has been
+> re-run under the current code, so this document does not claim a corrected zod
+> number — only that the mechanism which would correct it is now in the pipeline.**
 >
 > **Still true, and not closed by this:** counts remain a lower bound for a
 > *different* and unrelated reason — the diff compares export **names** only, so a
