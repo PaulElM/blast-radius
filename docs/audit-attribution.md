@@ -64,7 +64,9 @@ underlying import statements were re-read from source for every questionable cas
 
 ## Findings
 
-**0 false positives.** Four cases were pulled for adversarial verification:
+**0 false positives.** Seven cases were pulled for adversarial verification — **four
+from the zod draw and three from the date-fns draw**, stated as two numbers because
+that is how they were drawn:
 
 | Checked | Tool claimed | Source says | Verdict |
 |---|---|---|---|
@@ -104,20 +106,48 @@ symbols a change breaks. Member-path resolution was added; the census now reads:
 The path deliberately stops at the first call — `.min(8)` in `z.string().min(8)` is
 a method on the result, not an export of the package.
 
-**2. Root fragmentation — found, NOT fixed, and it understates counts.**
-`z.string` (named), `string` (namespace) and `default.string` (default) are the same
+**2. Root fragmentation — found here, and CLOSED after this audit was written.**
+`z.string` (named), `string` (namespace) and `default.string` (default) were the same
 underlying symbol counted three times. True `string` usage across all roots is ~51
-repos, not the 46 reported. Canonicalising requires the package's own export
-surface — pipeline step (e), not yet built. **Until then every count is a lower
-bound and must be published as one.**
+repos, not the 46 reported above. Canonicalising requires the package's own export
+surface — pipeline step (e).
 
-**3. Subpath flattening — found by the `date-fns` run, NOT fixed.**
-`import { es } from 'date-fns/locale'` is counted in the same census as the
+**3. Subpath flattening — found by the `date-fns` run, and CLOSED with it.**
+`import { es } from 'date-fns/locale'` was counted in the same census as the
 `date-fns` root. The attribution is *true* (`es` is a date-fns symbol) and the
-`specifier` field does record `date-fns/locale`, but the rollup treats the root and
+`specifier` field did record `date-fns/locale`, but the rollup treated the root and
 subpath export surfaces as one. For a publisher those are different surfaces — a
 change to `date-fns/locale` does not necessarily affect root consumers. The census
 must group by specifier, not just by symbol. Same family as defect 2.
+
+> ### ⇒ STATUS OF DEFECTS 2 AND 3 AS SHIPPED TODAY: **BOTH CLOSED.**
+> Step (e) exists and is wired. `src/surface.mjs` reads the real export surface from
+> the published tarball; `src/census.mjs` (`canonicalize` / `canonicalCensus`)
+> reconciles every attribution against it and keys the rollup **by entry point**,
+> which is defect 3; `src/pipeline.mjs` passes the surface into the census on every
+> run. Merging `default.x` into `x` happens **only** when the package publishes no
+> default export — a per-package fact read from the artifact, never a hard-coded
+> rule, which is why this is canonicalisation and not string normalisation.
+>
+> **So the sentence this section used to carry — *"until then every count is a lower
+> bound and must be published as one"* — is retired, and retiring it is the point.**
+> It was true when written and became false when step (e) shipped, and nothing
+> connected the two. A limit that has stopped being true is not a conservative
+> error: it is a false statement about the product that happens to read as honesty,
+> which is exactly why it survived here while the `README.md` two directories up had
+> already recorded both defects as closed. **A stated limit carries the same
+> obligation to stay true as a headline number.**
+>
+> **The tables and counts above are deliberately NOT restated.** They are the
+> pre-fix data the audit was actually scored on, and rewriting them would destroy
+> the evidence for the 0/60 verdict in order to tidy a number. The `~51 vs 46`
+> discrepancy above is the defect being described, not a live error in today's
+> census.
+>
+> **Still true, and not closed by this:** counts remain a lower bound for a
+> *different* and unrelated reason — the diff compares export **names** only, so a
+> symbol that survives with an incompatible signature is not counted. That limit is
+> live, is disclosed in every report, and is documented in `audit-surface-diff.md` §4.
 
 ## The methodological point — why one package was not enough
 
