@@ -45,7 +45,30 @@ infrastructure — because a precision failure would have made all of those wort
   hits, 1 namespace.
 
 Raw artifacts: `data/audits/{zod,date-fns}-kt-a.{md,json}`.
-Both reproducible from the recorded seed.
+
+⇒ **PROVENANCE OF THE "300 candidates" FIGURES, AND WHAT IS AND IS NOT REPRODUCIBLE.**
+The audit JSON records `population`, `files`, `sampleSize`, `sampleRepos`, `seed` and
+`census`; it does **not** record the candidate counts, so the sentences above had no
+witness in any shipped artifact. They have been checked against one: the three cached
+search responses those audits were drawn from, deduplicated the way the harness
+deduplicates them, give **300 candidate files across 277 repos** for `zod` and **300
+across 290** for `date-fns` — exact. The check is a join, not a coincidence of totals:
+all **60** `{repo, path}` rows in each shipped audit JSON match the first 60 of the
+reconstructed candidate list **positionally**, 120 rows, both packages, no exception.
+
+⇒ **The SAMPLE is reproducible from the recorded seed. The CORPUS is not
+re-drawable by today's harness, and that is a property of the tool rather than of
+the audit.** These audits were drawn with closed-form queries (`"from 'zod'"`); the
+collector was later widened to open prefixes (`"from 'zod"`) so that subpath imports
+stop being invisible. That was the right change and it is why every published report
+uses the wider form — but it means re-running KT-A now draws a **different** corpus,
+at live API cost, and would overwrite the 60-row sample the 0/60 verdict was
+hand-scored on. It has deliberately not been re-run.
+
+⇒ **The harness now records `candidateFiles`, `candidateRepos` and the per-query
+draw record into the audit itself, so no future audit needs this reconstruction.**
+These two predate the field. An absent count here means "drawn before the field
+existed" and is not evidence about the corpus.
 
 ## Method — and one correction made mid-audit
 

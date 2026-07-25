@@ -32,12 +32,12 @@ const slug = pkg.replace(/\W+/g, '-')
 const log = (s) => process.stderr.write(`${s}\n`)
 
 if (cmd === 'kt-a') {
-  const results = await collect(pkg, {
+  const corpus = await collect(pkg, {
     pages: Number(flag(rest, 'pages', 1)),
     maxFiles: Number(flag(rest, 'max-files', 120)),
     language: flag(rest, 'language', 'typescript'),
   })
-  const audit = buildAudit(results, { n: Number(flag(rest, 'n', 30)), seed: Number(flag(rest, 'seed', 1)) })
+  const audit = buildAudit(corpus, { n: Number(flag(rest, 'n', 30)), seed: Number(flag(rest, 'seed', 1)) })
 
   const outDir = join(ROOT, 'data', 'audits')
   await mkdir(outDir, { recursive: true })
