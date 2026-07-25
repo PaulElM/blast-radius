@@ -109,8 +109,18 @@ function languageLabels(langs) {
  * the only way to find out was to re-render it and diff. Bump this whenever a
  * change alters what a report SAYS about its own limits.
  *
- *   1  the three reports published on 2026-07-24
+ *   1  every report rendered before this constant existed
  *   2  corpus draw date carried from the collector; renderer version stamped
+ *
+ * ⚠️ The gap this does NOT close, stated because the stamp would otherwise imply
+ * it: reports rendered before generation 2 carry NO stamp, and an absent stamp
+ * is not evidence of generation 1 — it only means "before the stamp existed",
+ * which spans every earlier generation. `drizzle-orm-1.0.md` and
+ * `typeorm-1.1.0.md` are unstamped and were themselves rendered from two
+ * DIFFERENT generations of this file. Their generation is not recoverable from
+ * the artifact; it is recoverable only by re-rendering and diffing, which is
+ * exactly the cost this stamp removes going FORWARD and cannot remove
+ * retroactively.
  */
 export const RENDERER_VERSION = 2
 

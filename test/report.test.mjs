@@ -20,6 +20,11 @@ import { renderReport, renderJson, SIGNATURE_AUDIT, RENDERER_VERSION } from '../
 // file rather than typed here. A unit test against a literal I wrote proves only
 // that I can type: the obligation is that a run whose corpus was drawn on
 // 2026-07-24 still renders the sentence those readers already have.
+//
+// ⚠️ This pins THAT PUBLISHED RUN, whose corpus was drawn on 2026-07-24 — the
+// date below is a literal on purpose, so the pair can disagree. If that report
+// is ever regenerated from a NEW corpus draw, D5 goes red on correct code and
+// the fixture date must move with it. Said here so nobody debugs the renderer.
 const SHIPPED_DRAWN_LINE = readFileSync(
   new URL('../reports/supabase-js-negative-control.md', import.meta.url),
   'utf8',
