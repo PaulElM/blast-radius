@@ -70,6 +70,17 @@ draw record into the audit itself, so no future audit needs this reconstruction.
 These two predate the field. An absent count here means "drawn before the field
 existed" and is not evidence about the corpus.
 
+⇒ **⚠️ SO THE TWO SHIPPED AUDIT FILES NO LONGER RE-RENDER BYTE-FOR-BYTE, AND THAT IS
+DISCLOSED RATHER THAN LEFT TO BE DISCOVERED.** They were written before the corpus line
+existed. Re-rendering them with today's code adds `corpus drawn: **NOT RECORDED**` to the
+`.md` and three keys (`candidateFiles`, `candidateRepos`, `queries`) to the `.json`.
+**Checked, not asserted: re-rendered from each shipped `.json` and diffed against each
+shipped `.md`, the difference is exactly that ONE added line, both packages.** Every other
+line — all 30 sample rows with their snippets, and the census table — is byte-identical.
+**A difference in that direction is the new field announcing its own absence, which is what
+it is for**; no number in either file moves. The byte-identity of everything else is
+itself a check that each shipped `.md` was rendered from the `.json` beside it.
+
 ## Method — and one correction made mid-audit
 
 The first draw was a **flat** random sample over attributions. It pulled **13 of 30
