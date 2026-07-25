@@ -7,7 +7,7 @@
 // ones that produced a *plausible* wrong answer on the first real run.
 
 import assert from 'node:assert/strict'
-import { mkdtemp, mkdir, writeFile } from 'node:fs/promises'
+import { mkdtemp, mkdir, writeFile, symlink, realpath } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { test } from 'node:test'
@@ -20,6 +20,8 @@ import {
   symbolIndex,
   wildcardCandidates,
   wildcardReachability,
+  canonicalRoot,
+  installPackage,
 } from '../src/surface.mjs'
 
 const PACKUMENT = {
@@ -221,4 +223,60 @@ test('X5: with no wildcard keys nothing is reachable, and that is not an error',
   await writeFile(join(root, 'a.js'), '')
   const reach = await wildcardReachability(root, [], ['./a'])
   assert.equal(reach.get('./a'), false)
+})
+
+// --- Symlink-stability of the package root -----------------------------------
+//
+// TypeScript resolves module identity by REAL path, so an installed tarball
+// reached through a symlink is a different program to it than the same tarball
+// reached directly — cross-module re-exports stop resolving and the surface
+// silently shrinks. Measured on the shipped drizzle pair: `removed: 1256`
+// through a symlink against the published `1434`. The failure announces nothing,
+// which is why it is pinned at both layers rather than described in a comment.
+
+test('P1: canonicalRoot resolves a symlinked package root to its real path', async () => {
+  const base = await mkdtemp(join(tmpdir(), 'canon-'))
+  const real = join(base, 'real')
+  await mkdir(real, { recursive: true })
+  await writeFile(join(real, 'package.json'), '{"name":"p"}')
+  const link = join(base, 'link')
+  await symlink(real, link)
+
+  const got = await canonicalRoot(link)
+  // The claim is an identity with the real path, AND a non-identity with the
+  // link — asserting only the first passes on a function that returns its input
+  // whenever base itself happens to be canonical.
+  assert.equal(got, await realpath(real))
+  assert.notEqual(got, link)
+})
+
+test('P2: canonicalRoot is identity-preserving on a path with no symlink', async () => {
+  // The negative control. A canonicaliser that rewrote every path would pass P1
+  // while corrupting the ordinary case, and nothing else here would notice.
+  const base = await realpath(await mkdtemp(join(tmpdir(), 'canon-')))
+  assert.equal(await canonicalRoot(base), base)
+})
+
+test('P3: canonicalRoot falls back to its input rather than throwing', async () => {
+  const missing = join(tmpdir(), 'canon-does-not-exist-cycle50', 'nope')
+  assert.equal(await canonicalRoot(missing), missing)
+})
+
+test('P4: installPackage returns a canonical root on the CACHE-HIT path', async () => {
+  // Drives the real producer with no network and no npm: a package.json already
+  // present makes installPackage return before it would shell out. Without this
+  // the helper above could be correct while nothing called it — the producer gap
+  // that P1 alone cannot see.
+  const base = await mkdtemp(join(tmpdir(), 'inst-'))
+  const realPkgs = join(base, 'realpkgs')
+  const pkgRoot = join(realPkgs, 'p@1.0.0', 'node_modules', 'p')
+  await mkdir(pkgRoot, { recursive: true })
+  await writeFile(join(pkgRoot, 'package.json'), '{"name":"p"}')
+  const linkedPkgs = join(base, 'linkedpkgs')
+  await symlink(realPkgs, linkedPkgs)
+
+  const got = await installPackage('p', '1.0.0', { pkgsDir: linkedPkgs })
+
+  assert.equal(got, await realpath(pkgRoot))
+  assert.ok(!got.startsWith(linkedPkgs), `root still routed through the symlink: ${got}`)
 })

@@ -25,7 +25,7 @@
 //    — boring, and it is the same resolution the consumer gets.
 
 import { execFile } from 'node:child_process'
-import { mkdir, readFile, readdir, writeFile, stat } from 'node:fs/promises'
+import { mkdir, readFile, readdir, writeFile, stat, realpath } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
@@ -34,6 +34,36 @@ import { Project, Node } from 'ts-morph'
 const execFileAsync = promisify(execFile)
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const PKGS = join(ROOT, 'data', 'pkgs')
+
+/**
+ * The package root with every symlink resolved away.
+ *
+ * This is not tidiness. TypeScript resolves module identity by *real* path, so
+ * the same installed tarball reached through a symlink and reached directly are
+ * two different programs to it: cross-module `export * from` re-exports stop
+ * resolving, and `exportSurface` returns a SMALLER surface with no error and no
+ * warning. Measured on the shipped drizzle pair — through a symlinked path the
+ * diff reports `removed: 1256` against the published `1434`, a 12.4% undercount
+ * that looks exactly like a real answer.
+ *
+ * That matters because a symlinked layout is the normal case, not the exotic
+ * one: pnpm's `node_modules` is built from symlinks, and any checkout reached
+ * through one (`~/dev` -> `/Volumes/…`) inherits it. A buyer who re-runs the
+ * tool to check our published numbers is precisely the person who would hit it,
+ * and they would conclude the report was inflated rather than that their layout
+ * was. So the path is canonicalised once, at the point it is produced.
+ *
+ * Falls back to the input rather than throwing: an unresolvable path is the
+ * caller's problem to report, and losing the install to a `realpath` failure
+ * would be a worse trade than a path that was never symlinked in the first place.
+ */
+export async function canonicalRoot(path) {
+  try {
+    return await realpath(path)
+  } catch {
+    return path
+  }
+}
 
 /** Registry metadata for a package (dist-tags + versions). */
 export async function fetchPackument(pkg) {
@@ -79,12 +109,15 @@ async function exists(path) {
  * packages, including prereleases, purely to read their type declarations; there
  * is no reason to execute any of their lifecycle hooks.
  */
-export async function installPackage(pkg, version, { onLog } = {}) {
+export async function installPackage(pkg, version, { onLog, pkgsDir = PKGS } = {}) {
   const slug = `${pkg.replace(/\W+/g, '-')}@${version}`
-  const dir = join(PKGS, slug)
+  const dir = join(pkgsDir, slug)
   const pkgRoot = join(dir, 'node_modules', pkg)
 
-  if (await exists(join(pkgRoot, 'package.json'))) return pkgRoot
+  // Canonicalised on BOTH exits, not just the fresh-install one: the cache-hit
+  // path is the one every re-render takes, so a symlink survived there would
+  // silently shrink the surface on exactly the runs nobody re-checks.
+  if (await exists(join(pkgRoot, 'package.json'))) return await canonicalRoot(pkgRoot)
 
   onLog?.(`  installing ${pkg}@${version}`)
   await mkdir(dir, { recursive: true })
@@ -106,7 +139,7 @@ export async function installPackage(pkg, version, { onLog } = {}) {
   if (!(await exists(join(pkgRoot, 'package.json')))) {
     throw new Error(`install produced no ${pkg} at ${pkgRoot}`)
   }
-  return pkgRoot
+  return await canonicalRoot(pkgRoot)
 }
 
 /**

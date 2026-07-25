@@ -65,11 +65,35 @@ each of the 76 subpaths the tool declares removed, I checked whether the subpath
 still a key of rc.4's `package.json#exports`, and whether a surviving **wildcard**
 key would still resolve it. Result in §3.1.
 
-**Population B (636 rows / 186 subpaths) supplied 20 of the 25.** Drawn with a
+**Population B (636 rows / 188 subpaths) supplied 20 of the 25.** Drawn with a
 seeded PRNG (mulberry32, seed `20260724`), stratified: subpaths shuffled, then rows
 taken round-robin one-per-subpath so that `./pg-core` and `./mysql-core` cannot
 dominate. 5 further rows drawn the same way from population A so the sample still
 touches both. **Sample = 20 in-place + 5 entry-point = 25.**
+
+> **Correction (2026-07-25).** This line read **186 subpaths** as published. The
+> artifact says **188**: the shipped `reports/drizzle-orm-1.0.json`, a recompute
+> with today's `surface.mjs`, and a recompute with the exact `surface.mjs` this
+> audit was committed alongside all return 188 subpaths carrying at least one
+> in-place removal. The **row** count is exact — 636 — and 798 + 636 = 1,434
+> reconciles to `totals.removed`, so the frame was understated by two subpaths
+> and nothing else moved.
+>
+> **What it costs, stated rather than waved away: the draw is one-row-per-subpath
+> over a shuffled frame, so two subpaths were never eligible to be sampled.** That
+> is a sampling-frame defect, and this audit's own §3 (defect 3 of the attribution
+> audit, and the wrong-unit lesson behind it) is the reason it is recorded in the
+> method section instead of quietly patched.
+>
+> **What it does not cost: the Q1 verdict.** 2 of 188 is 1.1% of the frame, and the
+> `removed` column is not carried by the 25-row sample — it is carried by two
+> exhaustive censuses (76/76 entry points in §3.1, 443/443 and 718/718 resolution
+> in §3.2), both re-verified against the artifact. The sample is corroboration on
+> top of a census, which is why a 1.1% frame error does not reach the conclusion.
+>
+> The two missing subpaths **cannot be named**: the audit recorded the frame's size
+> but not its members, so which two were excluded is not recoverable from anything
+> on disk. Reported as unrecoverable rather than guessed at.
 
 **Verification procedure per row** (deliberately stronger than reading the entry file):
 `surface.mjs` follows `export * from` re-exports, so grepping only the entry `.d.ts`
@@ -193,6 +217,19 @@ Honest disclosure of what I tried in order to break my own PASS:
 5. **The publisher contradicting us.** The one `Gel` mention in the official
    changelogs looked like it might refute the `./gel-core` removal. Chased it; it did
    not — see §5.
+6. **Reproducing these numbers and getting different ones (added 2026-07-25).**
+   TypeScript resolves module identity by *real* path, so an installed tarball
+   reached through a **symlink** was a different program to it: cross-module
+   re-exports stopped resolving and the diff returned **`removed: 1256`** against
+   the `1434` published here — a 12.4% undercount, with no error and no warning.
+   Confirmed to be the path and not the code: today's `surface.mjs` and the
+   `surface.mjs` this audit shipped alongside both return 1,256 through a symlinked
+   layout and both return 1,434 in place, and a symlink-free copy of the tree in
+   `/tmp` returns 1,434. **Fixed** — `installPackage` now canonicalises the package
+   root on both exits — and the three published reports were re-checked to confirm
+   no shipped number moved. Recorded here because the person most likely to hit it
+   is a reader re-running the tool to check this audit, and a pnpm layout or a
+   symlinked checkout is the ordinary case rather than an exotic one.
 
 ### 3.6 Moved-vs-gone, measured across the full population (not sampled)
 
